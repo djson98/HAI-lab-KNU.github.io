@@ -31,7 +31,9 @@ jobs:
           node-version: '18' # Node.js 버전 설정 (Gatsby 호환 버전)
 
       - name: Install dependencies
-        run: npm install # 프로젝트 의존성 설치
+        run: |
+          npm install
+          npm install gatsby-transformer-sharp gatsby-plugin-sharp gatsby-remark-images gatsby-remark-responsive-iframe gatsby-remark-prismjs gatsby-remark-copy-linked-files gatsby-remark-smartypants gatsby-plugin-react-helmet
 
       - name: Build Gatsby site
         run: npm run build # Gatsby 사이트 빌드
