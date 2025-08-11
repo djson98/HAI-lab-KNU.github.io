@@ -37,9 +37,6 @@ const Layout = ({ activeLink = "Projects", children }: LayoutProps) => {
           title
           email
           github
-          researchGate
-          googleScholar
-          location
         }
       }
     }
