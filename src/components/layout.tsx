@@ -35,8 +35,6 @@ const Layout = ({ activeLink = "Projects", children }: LayoutProps) => {
       site {
         siteMetadata {
           title
-          email
-          github
         }
       }
     }
