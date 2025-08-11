@@ -5,6 +5,15 @@ on:
     branches:
       - main # main 브랜치에 push될 때마다 실행
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest # Ubuntu 환경에서 실행
@@ -24,8 +33,14 @@ jobs:
       - name: Build Gatsby site
         run: npm run build # Gatsby 사이트 빌드
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }} # GitHub 토큰 (자동 생성됨)
-          publish_dir: ./public # 빌드된 파일이 있는 디렉토리 (Gatsby는 기본적으로 public 폴더에 빌드) 
+          path: './public'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4 
