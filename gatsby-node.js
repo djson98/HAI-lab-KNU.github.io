@@ -116,6 +116,21 @@ exports.createSchemaCustomization = ({ actions }) => {
       title: String
       description: String
       date: Date @dateformat
+      authors: String
+      journal: String
+      year: String
+      doi: String
+      abstract: String
+      paper: String
+      slide: String
+      video: String
+      thumbnail: File @fileByRelativePath
+      name: String
+      position: String
+      email: String
+      homepage: String
+      github: String
+      googleScholar: String
     }
 
     type Fields {

@@ -9,19 +9,42 @@
  */
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
+    title: `Human-AI Interaction Lab`,
     author: {
-      name: `Kyle Mathews`,
-      summary: `who lives and works in San Francisco building useful things.`,
+      name: `Auk Kim`,
+      summary: `Professor at Kangwon National University, specializing in Human-Computer Interaction and Ubiquitous Computing.`,
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsbystarterblogsource.gatsbyjs.io/`,
+    description: `Human-AI Interaction Lab at Kangwon National University. Research in HCI, Ubiquitous Computing, Machine Learning & Mobile Sensing.`,
+    siteUrl: `https://hailab.kangwon.ac.kr/`,
     social: {
-      twitter: `kylemathews`,
+      twitter: `aukkim`,
     },
+    email: `kimauk@kangwon.ac.kr`,
+    github: `https://github.com/aukkim`,
+    researchGate: `https://www.researchgate.net/profile/Auk-Kim`,
+    googleScholar: `https://scholar.google.com/citations?user=YOUR_GOOGLE_SCHOLAR_ID`,
+    location: `Kangwon National University
+College of Engineering 6, Room 512
+
+1 Gangwondaehakgil, Chuncheon-si, Gangwon-do (24341)
+Republic of Korea`,
+  
   },
   plugins: [
+    `gatsby-plugin-postcss`,
     `gatsby-plugin-image`,
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          `Inter\:300,400,500,600,700`,
+          `Noto Sans KR\:300,400,500,600,700`,
+          `Poppins\:300,400,500,600,700`,
+          `Source Sans Pro\:300,400,500,600,700`
+        ],
+        display: 'swap',
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -29,6 +52,40 @@ module.exports = {
         name: `blog`,
       },
     },
+
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `members`,
+        path: `${__dirname}/content/members`,
+      },
+    },
+
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `publications`,
+        path: `${__dirname}/content/publications`,
+      },
+    },
+
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `lectures`,
+        path: `${__dirname}/content/lectures`,
+      },
+    },
+
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `news`,
+        path: `${__dirname}/content/news`,
+      },
+    },
+
+
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -36,6 +93,17 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+
+
+
+    {
+      resolve: "gatsby-plugin-mdx",
+      options: {
+        extensions: [".mdx", ".md"],
+        // remark/rehype 플러그인도 여기 등록 가능
+      },
+    },
+    
     {
       resolve: `gatsby-transformer-remark`,
       options: {
@@ -110,15 +178,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `Gatsby`,
+        name: `Human-AI Interaction Lab`,
+        short_name: `HaiLab`,
         start_url: `/`,
         background_color: `#ffffff`,
-        // This will impact how browsers show your PWA/website
-        // https://css-tricks.com/meta-theme-color-and-trickery/
-        // theme_color: `#663399`,
+        theme_color: `#3B82F6`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/logo-hai.png`,
       },
     },
   ],
