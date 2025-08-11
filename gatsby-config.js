@@ -8,11 +8,12 @@
  * @type {import('gatsby').GatsbyConfig}
  */
 module.exports = {
+  pathPrefix: `/HAI-Lab-Website`,
   siteMetadata: {
     title: `Human-AI Interaction Lab`,
     author: {
-      name: `Auk Kim`,
-      summary: `Professor at Kangwon National University, specializing in Human-Computer Interaction and Ubiquitous Computing.`,
+      name: `HAI Lab`,
+      summary: `Human-AI Interaction Lab at Kangwon National University`,
     },
     description: `Human-AI Interaction Lab at Kangwon National University. Research in HCI, Ubiquitous Computing, Machine Learning & Mobile Sensing.`,
     siteUrl: `https://hai-lab-knu.github.io/HAI-Lab-Website/`,
@@ -121,6 +122,8 @@ Republic of Korea`,
             },
           },
           `gatsby-remark-prismjs`,
+          `gatsby-remark-copy-linked-files`,
+          `gatsby-remark-smartypants`,
         ],
       },
     },
@@ -179,13 +182,18 @@ Republic of Korea`,
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `Human-AI Interaction Lab`,
-        short_name: `HaiLab`,
+        short_name: `HAI Lab`,
         start_url: `/`,
         background_color: `#ffffff`,
-        theme_color: `#3B82F6`,
+        theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/logo-hai.png`,
+        icon: `src/images/gatsby-icon.png`,
       },
     },
+    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-gatsby-cloud`,
+    // this (optional) plugin enables Progressive Web App + Offline functionality
+    // To learn more, visit: https://gatsby.dev/offline
+    // `gatsby-plugin-offline`,
   ],
 }
