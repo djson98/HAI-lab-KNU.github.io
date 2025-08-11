@@ -1,7 +1,6 @@
 import * as React from "react"
 import { graphql, PageProps } from "gatsby"
 import Layout from "../components/layout"
-import { StaticImage } from "gatsby-plugin-image"
 import { MdEmail } from "react-icons/md"
 import { SiGooglescholar } from "react-icons/si"
 import { FaHome } from "react-icons/fa"
@@ -99,46 +98,40 @@ const MembersPage: React.FC<PageProps<DataProps>> = ({ data }) => {
                                   <div className="flex-shrink-0">
                                     <div className="w-40 h-40 rounded-lg overflow-hidden bg-gray-100 flex items-center justify-center">
                                       {member.frontmatter.name === "Auk Kim" ? (
-                                        <StaticImage
-                                          src="../images/members/aukkim.jpeg"
+                                        <img
+                                          src="/images/members/aukkim.jpeg"
                                           alt={member.frontmatter.name}
                                           className="w-full h-full object-cover"
-                                          placeholder="dominantColor"
                                         />
                                       ) : member.frontmatter.name === "Jiwoo Hwang" ? (
-                                        <StaticImage
-                                          src="../images/members/jiwoohwang.jpeg"
+                                        <img
+                                          src="/images/members/jiwoohwang.jpeg"
                                           alt={member.frontmatter.name}
                                           className="w-full h-full object-cover"
-                                          placeholder="dominantColor"
                                         />
                                       ) : member.frontmatter.name === "Jungmin Lee" ? (
-                                        <StaticImage
-                                          src="../images/members/jungminlee.png"
+                                        <img
+                                          src="/images/members/jungminlee.png"
                                           alt={member.frontmatter.name}
                                           className="w-full h-full object-cover"
-                                          placeholder="dominantColor"
                                         />
                                       ) : member.frontmatter.name === "Sunatullaev Golibjon" ? (
-                                        <StaticImage
-                                          src="../images/members/golibjon.png"
+                                        <img
+                                          src="/images/members/golibjon.png"
                                           alt={member.frontmatter.name}
                                           className="w-full h-full object-cover"
-                                          placeholder="dominantColor"
                                         />
                                       ) : member.frontmatter.name === "Dongju Son" ? (
-                                        <StaticImage
-                                          src="../images/members/dongjuson.png"
+                                        <img
+                                          src="/images/members/dongjuson.png"
                                           alt={member.frontmatter.name}
                                           className="w-full h-full object-cover"
-                                          placeholder="dominantColor"
                                         />
                                       ) : (
-                                        <StaticImage
-                                          src="../images/profile-pic.png"
+                                        <img
+                                          src="/images/profile-pic.png"
                                           alt={member.frontmatter.name}
                                           className="w-full h-full object-cover"
-                                          placeholder="dominantColor"
                                         />
                                       )}
                                     </div>
