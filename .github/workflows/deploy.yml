@@ -32,7 +32,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          npm install
+          npm ci
           npm install gatsby-transformer-sharp gatsby-plugin-sharp gatsby-remark-images gatsby-remark-responsive-iframe gatsby-remark-prismjs gatsby-remark-copy-linked-files gatsby-remark-smartypants gatsby-plugin-react-helmet
 
       - name: Build Gatsby site
