@@ -124,7 +124,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       paper: String
       slide: String
       video: String
-      thumbnail: File @fileByRelativePath
+      thumbnail: String
       name: String
       position: String
       email: String

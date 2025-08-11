@@ -1,6 +1,6 @@
 import * as React from "react"
 import { graphql, PageProps, Link } from "gatsby"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
+
 import Layout from "../components/layout"
 
 type DataProps = {
@@ -15,11 +15,7 @@ type DataProps = {
         title: string
         date: string
         description: string
-        thumbnail: {
-          childImageSharp: {
-            gatsbyImageData: any
-          }
-        }
+        thumbnail: string
       }
     }[]
   }
@@ -36,7 +32,6 @@ const NewsPage: React.FC<PageProps<DataProps>> = ({ data }) => {
         ) : (
           <div className="space-y-6">
             {news.map((item) => {
-              const image = getImage(item.frontmatter.thumbnail)
               return (
                 <article key={item.id} className="border-b border-gray-200 pb-6 group hover:bg-gray-50 rounded-lg p-4 -m-4 transition-all duration-300 hover:shadow-md">
                   <Link to={item.fields.slug} className="block">
@@ -57,9 +52,9 @@ const NewsPage: React.FC<PageProps<DataProps>> = ({ data }) => {
                       {/* 썸네일 이미지 */}
                       <div className="flex-shrink-0">
                         <div className="w-56 h-36 rounded-lg overflow-hidden bg-gray-100 shadow-sm group-hover:shadow-lg group-hover:scale-105 transition-all duration-300">
-                          {image ? (
-                            <GatsbyImage
-                              image={image}
+                          {item.frontmatter.thumbnail ? (
+                            <img
+                              src={item.frontmatter.thumbnail}
                               alt={item.frontmatter.title}
                               className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                             />
@@ -98,11 +93,7 @@ export const query = graphql`
           title
           date(formatString: "MMMM DD, YYYY")
           description
-          thumbnail {
-            childImageSharp {
-              gatsbyImageData(width: 192, height: 128, layout: CONSTRAINED)
-            }
-          }
+          thumbnail
         }
       }
     }

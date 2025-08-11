@@ -2,7 +2,7 @@ import * as React from "react"
 import { Link, graphql } from "gatsby"
 import { FaRobot } from "react-icons/fa"
 import { HiOutlineGlobeAlt, HiOutlineChip } from "react-icons/hi"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
+
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
@@ -80,15 +80,14 @@ const IndexPage = ({ data }) => {
             {posts.length > 0 ? (
               <div className="grid md:grid-cols-3 gap-8">
                 {posts.map((post) => {
-                  const image = getImage(post.frontmatter.thumbnail)
                   return (
                     <div key={post.id} className="bg-white rounded-lg p-4 shadow-sm hover:shadow-lg hover:scale-105 hover:border-blue-200 border border-transparent transition-all duration-300 aspect-square cursor-pointer">
                       {/* 썸네일 */}
                       <div className="mb-3">
                         <div className="w-full h-40 rounded-lg overflow-hidden bg-gray-100 shadow-sm">
-                          {image ? (
-                            <GatsbyImage
-                              image={image}
+                          {post.frontmatter.thumbnail ? (
+                            <img
+                              src={post.frontmatter.thumbnail}
                               alt={post.frontmatter.title}
                               className="w-3/4 h-3/4 object-contain mx-auto"
                             />
@@ -148,8 +147,8 @@ const IndexPage = ({ data }) => {
                       <div className="flex-shrink-0">
                         <div className="w-16 h-16 rounded-lg overflow-hidden bg-gray-100 shadow-sm">
                           {item.frontmatter.thumbnail ? (
-                            <GatsbyImage
-                              image={getImage(item.frontmatter.thumbnail)}
+                            <img
+                              src={item.frontmatter.thumbnail}
                               alt={item.frontmatter.title}
                               className="w-full h-full object-cover"
                             />
@@ -292,11 +291,7 @@ export const query = graphql`
           title
           date(formatString: "MMMM DD, YYYY")
           description
-          thumbnail {
-            childImageSharp {
-              gatsbyImageData(width: 192, height: 192, layout: CONSTRAINED)
-            }
-          }
+          thumbnail
         }
               }
       }
@@ -312,11 +307,7 @@ export const query = graphql`
             title
             date(formatString: "MMMM DD, YYYY")
             description
-            thumbnail {
-              childImageSharp {
-                gatsbyImageData(width: 64, height: 64, layout: CONSTRAINED)
-              }
-            }
+            thumbnail
           }
         }
       }
