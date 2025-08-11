@@ -15,7 +15,7 @@ module.exports = {
       summary: `Professor at Kangwon National University, specializing in Human-Computer Interaction and Ubiquitous Computing.`,
     },
     description: `Human-AI Interaction Lab at Kangwon National University. Research in HCI, Ubiquitous Computing, Machine Learning & Mobile Sensing.`,
-    siteUrl: `https://hailab.kangwon.ac.kr/`,
+    siteUrl: `https://hai-lab-knu.github.io/HAI-Lab-Website/`,
     social: {
       twitter: `aukkim`,
     },

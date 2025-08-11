@@ -1,0 +1,31 @@
+name: Deploy Gatsby site to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main # main 브랜치에 push될 때마다 실행
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest # Ubuntu 환경에서 실행
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4 # 저장소 코드 체크아웃
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18' # Node.js 버전 설정 (Gatsby 호환 버전)
+
+      - name: Install dependencies
+        run: npm install # 프로젝트 의존성 설치
+
+      - name: Build Gatsby site
+        run: npm run build # Gatsby 사이트 빌드
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }} # GitHub 토큰 (자동 생성됨)
+          publish_dir: ./public # 빌드된 파일이 있는 디렉토리 (Gatsby는 기본적으로 public 폴더에 빌드) 
