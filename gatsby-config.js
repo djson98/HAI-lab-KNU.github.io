@@ -8,7 +8,6 @@
  * @type {import('gatsby').GatsbyConfig}
  */
 module.exports = {
-  pathPrefix: `/HAI-Lab-Website`,
   siteMetadata: {
     title: `Human-AI Interaction Lab`,
     author: {
@@ -16,7 +15,9 @@ module.exports = {
       summary: `Human-AI Interaction Lab at Kangwon National University`,
     },
     description: `Human-AI Interaction Lab at Kangwon National University. Research in HCI, Ubiquitous Computing, Machine Learning & Mobile Sensing.`,
-    siteUrl: `https://hai-lab-knu.github.io/HAI-Lab-Website/`,
+    siteUrl: `https://hai-lab-knu.github.io/`,
+    email: `kimauk@kangwon.ac.kr`,
+    github: `https://github.com/aukkim`,
     social: {
       twitter: `aukkim`,
     },
