@@ -2,7 +2,6 @@ import * as React from "react";
 import { graphql, useStaticQuery, Link } from "gatsby";
 import { ReactNode, useEffect, useState } from "react";
 import { initFlowbite } from "flowbite";
-import { StaticImage } from "gatsby-plugin-image";
 import { FaGithub } from "react-icons/fa6";
 import { MdOutlineAlternateEmail } from "react-icons/md";
 import { SiResearchgate, SiGooglescholar } from "react-icons/si";
@@ -46,13 +45,12 @@ const Layout = ({ activeLink = "Projects", children }: LayoutProps) => {
         <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm border-b border-gray-200/50" role="navigation" aria-label="Main navigation">
           <div className="max-w-4xl mx-auto flex justify-between items-center px-6 py-4">
             <Link to="/" className="flex items-center mr-8 focus:outline-none rounded">
-              <StaticImage
-                src="../images/logo-hai.png"
+              <img
+                src="/images/logo-hai.png"
                 alt="HaiLab Logo - Return to homepage"
                 width={228}
                 height={50}
                 className="h-12 w-auto"
-                objectFit="contain"
               />
             </Link>
             
