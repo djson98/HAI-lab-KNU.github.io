@@ -2,6 +2,7 @@
 title: "Benefits of Mobile Contact Tracing on COVID-19: Tracing Capacity Perspectives"
 authors: "Uichin Lee, Auk Kim"
 journal: "Frontiers in Public Health"
+type: "Journal"
 year: "2021"
 date: "2021-03-18"
 doi: "10.3389/fpubh.2021.586615"

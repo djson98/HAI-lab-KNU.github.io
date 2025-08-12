@@ -2,6 +2,7 @@
 title: "Towards Flow Control of Driver-Vehicle Interactions"
 authors: "Uichin Lee, Auk Kim, Jungmi Park, Woohyeok Choi"
 journal: "International Conference on ICT Convergence (ICTC 2020)"
+type: "Conference"
 year: "2020"
 date: "2020-10-21"
 doi: ""

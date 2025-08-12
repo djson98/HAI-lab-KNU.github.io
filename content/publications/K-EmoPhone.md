@@ -2,6 +2,7 @@
 title: "K-EmoPhone: A Mobile and Wearable Dataset with In-Situ Emotion, Stress, and Attention Labels"
 authors: "Soowon Kang, Woohyeok Choi, Cheul Young Park, Narae Cha, Auk Kim, Ahsan Habib Khandoker, Leontios Hadjileontiadis, Heepyung Kim, Yong Jeong, Uichin Lee"
 journal: "Scientific Data"
+type: "Journal"
 year: "2023"
 date: "2023-06-02"
 doi: "10.1038/s41597-023-02253-5"

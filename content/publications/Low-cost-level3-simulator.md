@@ -2,6 +2,7 @@
 title: "Developing and Evaluating Low-Cost Level 3 Vehicle Simulator"
 authors: "Jiwoo Hwang, Mingyu Han, Minji Kim, Auk Kim"
 journal: "Proceedings of HCI Korea 2022"
+type: "Conference"
 year: "2022"
 date: "2022-01-01"
 doi: ""

@@ -30,28 +30,28 @@ const IndexPage = ({ data }) => {
             
             {/* Research Areas Section */}
             <div className="mt-16">
-              <div className="grid md:grid-cols-3 gap-8">
-                <div className="text-center p-4 rounded-lg bg-white border border-gray-200 shadow-sm focus-within:ring-2 focus-within:ring-blue-500 focus-within:ring-offset-2" tabIndex="0" role="region" aria-labelledby="hci-title">
-                  <FaRobot className="w-16 h-16 text-blue-600 mx-auto mb-2" aria-hidden="true" />
-                  <h3 className="text-sm font-semibold text-gray-900 mb-1" id="hci-title">
+              <div className="grid md:grid-cols-3 gap-4 md:gap-8">
+                <div className="text-center p-3 md:p-4 rounded-lg bg-white border border-gray-200 shadow-sm focus-within:ring-2 focus-within:ring-blue-500 focus-within:ring-offset-2" tabIndex="0" role="region" aria-labelledby="hci-title">
+                  <FaRobot className="w-12 h-12 md:w-16 md:h-16 text-blue-600 mx-auto mb-2" aria-hidden="true" />
+                  <h3 className="text-xs md:text-sm font-semibold text-gray-900 mb-1" id="hci-title">
                   Human-Computer Interaction
                   </h3>
                   <p className="text-gray-600 text-xs">
                     Designing intuitive and effective interfaces for human-AI interaction
                   </p>
                 </div>
-                <div className="text-center p-4 rounded-lg bg-white border border-gray-200 shadow-sm focus-within:ring-2 focus-within:ring-blue-500 focus-within:ring-offset-2" tabIndex="0" role="region" aria-labelledby="ubiquitous-title">
-                  <HiOutlineGlobeAlt className="w-16 h-16 text-blue-600 mx-auto mb-2" aria-hidden="true" />
-                  <h3 className="text-sm font-semibold text-gray-900 mb-1" id="ubiquitous-title">
+                <div className="text-center p-3 md:p-4 rounded-lg bg-white border border-gray-200 shadow-sm focus-within:ring-2 focus-within:ring-blue-500 focus-within:ring-offset-2" tabIndex="0" role="region" aria-labelledby="ubiquitous-title">
+                  <HiOutlineGlobeAlt className="w-12 h-12 md:w-16 md:h-16 text-blue-600 mx-auto mb-2" aria-hidden="true" />
+                  <h3 className="text-xs md:text-sm font-semibold text-gray-900 mb-1" id="ubiquitous-title">
                   Ubiquitous Computing
                   </h3>
                   <p className="text-xs text-gray-600">
                     Exploring AI systems that seamlessly integrate into everyday environments
                   </p>
                 </div>
-                <div className="text-center p-4 rounded-lg bg-white border border-gray-200 shadow-sm focus-within:ring-2 focus-within:ring-blue-500 focus-within:ring-offset-2" tabIndex="0" role="region" aria-labelledby="ml-title">
-                  <HiOutlineChip className="w-16 h-16 text-blue-600 mx-auto mb-2" aria-hidden="true" />
-                  <h3 className="text-sm font-semibold text-gray-900 mb-1" id="ml-title">
+                <div className="text-center p-3 md:p-4 rounded-lg bg-white border border-gray-200 shadow-sm focus-within:ring-2 focus-within:ring-blue-500 focus-within:ring-offset-2" tabIndex="0" role="region" aria-labelledby="ml-title">
+                  <HiOutlineChip className="w-12 h-12 md:w-16 md:h-16 text-blue-600 mx-auto mb-2" aria-hidden="true" />
+                  <h3 className="text-xs md:text-sm font-semibold text-gray-900 mb-1" id="ml-title">
                   Machine Learning & Mobile Sensing
                   </h3>
                   <p className="text-xs text-gray-600">
@@ -78,13 +78,13 @@ const IndexPage = ({ data }) => {
               </Link>
             </div>
             {posts.length > 0 ? (
-              <div className="grid md:grid-cols-3 gap-8">
+              <div className="grid md:grid-cols-3 gap-4 md:gap-8">
                 {posts.map((post) => {
                   return (
-                    <div key={post.id} className="bg-white rounded-lg p-4 shadow-sm hover:shadow-lg hover:scale-105 hover:border-blue-200 border border-transparent transition-all duration-300 aspect-square cursor-pointer">
+                    <div key={post.id} className="bg-white rounded-lg p-3 md:p-4 shadow-sm hover:shadow-lg hover:scale-105 hover:border-blue-200 border border-transparent transition-all duration-300 cursor-pointer">
                       {/* 썸네일 */}
                       <div className="mb-3">
-                        <div className="w-full h-40 rounded-lg overflow-hidden bg-gray-100 shadow-sm">
+                        <div className="w-full h-24 md:h-40 rounded-lg overflow-hidden bg-gray-100 shadow-sm">
                           {post.frontmatter.thumbnail ? (
                             <img
                               src={post.frontmatter.thumbnail}
@@ -93,7 +93,7 @@ const IndexPage = ({ data }) => {
                             />
                           ) : (
                             <div className="w-full h-full flex items-center justify-center text-gray-400 bg-gray-50">
-                              <span className="text-sm">No Image</span>
+                              <span className="text-xs md:text-sm">No Image</span>
                             </div>
                           )}
                         </div>
@@ -101,7 +101,7 @@ const IndexPage = ({ data }) => {
                       
                       {/* 프로젝트 제목만 */}
                       <div>
-                        <h3 className="text-sm font-semibold text-gray-900 line-clamp-3">
+                        <h3 className="text-xs md:text-sm font-semibold text-gray-900 line-clamp-2 md:line-clamp-3">
                           {post.frontmatter.title}
                         </h3>
                       </div>
@@ -141,11 +141,11 @@ const IndexPage = ({ data }) => {
             {news.length > 0 ? (
               <div className="space-y-4">
                 {news.map((item) => (
-                  <div key={item.id} className="bg-white rounded-2xl p-4 shadow-sm hover:shadow-lg hover:scale-105 hover:border-blue-200 border border-transparent transition-all duration-300 cursor-pointer">
-                    <div className="flex items-center space-x-4">
+                  <div key={item.id} className="bg-white rounded-2xl p-3 md:p-4 shadow-sm hover:shadow-lg hover:scale-105 hover:border-blue-200 border border-transparent transition-all duration-300 cursor-pointer">
+                    <div className="flex items-center space-x-3 md:space-x-4">
                       {/* 썸네일 */}
                       <div className="flex-shrink-0">
-                        <div className="w-16 h-16 rounded-lg overflow-hidden bg-gray-100 shadow-sm">
+                        <div className="w-12 h-12 md:w-16 md:h-16 rounded-lg overflow-hidden bg-gray-100 shadow-sm">
                           {item.frontmatter.thumbnail ? (
                             <img
                               src={item.frontmatter.thumbnail}
@@ -162,13 +162,13 @@ const IndexPage = ({ data }) => {
                       
                       {/* 뉴스 정보 */}
                       <div className="flex-1 min-w-0">
-                        <h3 className="text-lg font-semibold text-gray-900 mb-1 line-clamp-1">
+                        <h3 className="text-sm md:text-lg font-semibold text-gray-900 mb-1 line-clamp-1">
                           {item.frontmatter.title}
                         </h3>
-                        <p className="text-sm text-gray-500 mb-2">
+                        <p className="text-xs md:text-sm text-gray-500 mb-2">
                           {item.frontmatter.date}
                         </p>
-                        <p className="text-sm text-gray-600 line-clamp-2">
+                        <p className="text-xs md:text-sm text-gray-600 line-clamp-2">
                           {item.frontmatter.description || item.excerpt}
                         </p>
                       </div>
@@ -192,12 +192,12 @@ const IndexPage = ({ data }) => {
         </div>
 
         {/* Contact Section */}
-        <section className="py-16 bg-white rounded-2xl shadow-sm hover:shadow-lg hover:scale-105 hover:border-blue-200 border border-transparent transition-all duration-300 cursor-pointer mx-6" aria-labelledby="contact-heading">
-          <div className="max-w-4xl mx-auto px-6 text-center">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6" id="contact-heading">
+        <section className="py-12 md:py-16 bg-white rounded-2xl shadow-sm hover:shadow-lg hover:scale-105 hover:border-blue-200 border border-transparent transition-all duration-300 cursor-pointer mx-3 md:mx-6" aria-labelledby="contact-heading">
+          <div className="max-w-4xl mx-auto px-4 md:px-6 text-center">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4 md:mb-6" id="contact-heading">
             Contact Us
             </h2>
-            <p className="text-base text-gray-600 mb-8">
+            <p className="text-sm md:text-base text-gray-600 mb-6 md:mb-8">
             We're looking for passionate people to join the Human AI Interaction Lab.
 
 If you're excited about designing better interactions between humans and AI—

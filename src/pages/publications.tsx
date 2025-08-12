@@ -33,7 +33,7 @@ const PublicationsPage: React.FC<PageProps<DataProps>> = ({ data }) => {
   const publications = data.allMarkdownRemark.nodes
   const [startYear, setStartYear] = React.useState<string>("")
   const [endYear, setEndYear] = React.useState<string>("")
-  const [selectedType, setSelectedType] = React.useState<string>("")
+  const [selectedType, setSelectedType] = React.useState<string>("All")
 
   // 사용 가능한 연도 목록 생성 (최신순)
   const availableYears = React.useMemo(() => {
@@ -43,7 +43,7 @@ const PublicationsPage: React.FC<PageProps<DataProps>> = ({ data }) => {
 
   // 사용 가능한 타입 목록 생성
   const availableTypes = React.useMemo(() => {
-    const types = [...new Set(publications.map(pub => pub.frontmatter.type))].filter(type => type)
+    const types = ["All", ...new Set(publications.map(pub => pub.frontmatter.type))].filter(type => type)
     return types
   }, [publications])
 
@@ -53,7 +53,7 @@ const PublicationsPage: React.FC<PageProps<DataProps>> = ({ data }) => {
       const year = parseInt(pub.frontmatter.year)
       const start = startYear ? parseInt(startYear) : 0
       const end = endYear ? parseInt(endYear) : 9999
-      const typeMatch = !selectedType || pub.frontmatter.type === selectedType
+      const typeMatch = selectedType === "All" || pub.frontmatter.type === selectedType
       return year >= start && year <= end && typeMatch
     })
   }, [publications, startYear, endYear, selectedType])

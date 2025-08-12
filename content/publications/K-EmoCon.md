@@ -2,6 +2,7 @@
 title: "K-EmoCon, a Multimodal Sensor Dataset for Continuous Emotion Recognition in Naturalistic Conversations"
 authors: "Cheul Young Park, Narae Cha, Soowon Kang, Auk Kim, Ahsan Habib Khandoker, Leontios Hadjileontiadis, Alice Oh, Yong Jeong, Uichin Lee"
 journal: "Scientific Data"
+type: "Journal"
 year: "2020"
 date: "2020-09-08"
 doi: "10.1038/s41597-020-00630-y"

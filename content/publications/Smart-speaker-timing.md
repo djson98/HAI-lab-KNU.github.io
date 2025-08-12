@@ -2,6 +2,7 @@
 title: "Hello there! is now a good time to talk? Opportune moments for proactive interactions with smart speakers"
 authors: "Narae Cha, Auk Kim, Cheul Young Park, Soowon Kang, Mingyu Park, Jae-Gil Lee, Sangsu Lee, Uichin Lee"
 journal: "Proceedings of the ACM on Interactive, Mobile, Wearable and Ubiquitous Technologies"
+type: "Journal"
 year: "2020"
 date: "2020-09-04"
 doi: "10.1145/3411840"

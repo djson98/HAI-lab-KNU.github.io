@@ -12,6 +12,6 @@ abstract: |
   However, such proactive provision may distract users. This study explores users’ perceptions and the interruptibility of more-than-one-minute conversational microlearning via smart speakers.
   A three-week field study (n=28) revealed contextual factors influencing opportune moments and design implications for proactive microlearning services.
 paper: "/paper/CHI24Microlearning.pdf"
-slide: "test"
+slide: ""
 video: "https://www.youtube.com/watch?v=JBZ-uJym3hg"
 ---

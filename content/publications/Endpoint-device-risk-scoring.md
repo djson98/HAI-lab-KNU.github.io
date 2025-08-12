@@ -2,6 +2,7 @@
 title: "Endpoint Device Risk-Scoring Algorithm Proposal for Zero Trust"
 authors: "Ui Hyun Park, Jeong-hyeop Hong, Auk Kim, Kyung Ho Son"
 journal: "Electronics"
+type: "Journal"
 year: "2023"
 date: "2023-04-18"
 doi: "10.3390/electronics12081906"

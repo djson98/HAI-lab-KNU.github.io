@@ -24,9 +24,19 @@ const MENU = {
 
 const Layout = ({ activeLink = "Projects", children }: LayoutProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     initFlowbite();
+    
+    // 스크롤 이벤트 리스너 추가
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      setIsScrolled(scrollTop > 1); // 1px 이상 스크롤하면 페이지 제목 숨김
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const { site } = useStaticQuery(graphql`
@@ -42,15 +52,15 @@ const Layout = ({ activeLink = "Projects", children }: LayoutProps) => {
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900">
               {/* Navbar */}
-        <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm border-b border-gray-200/50" role="navigation" aria-label="Main navigation">
-          <div className="max-w-4xl mx-auto flex justify-between items-center px-6 py-4">
-            <Link to="/" className="flex items-center mr-8 focus:outline-none rounded">
+        <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm border-b border-gray-200/50 transition-all duration-300" role="navigation" aria-label="Main navigation">
+          <div className="max-w-4xl mx-auto flex justify-between items-center px-4 md:px-6 py-2 md:py-4">
+            <Link to="/" className="flex items-center mr-4 md:mr-8 focus:outline-none rounded">
               <img
                 src="/images/logo-hai.png"
                 alt="HaiLab Logo - Return to homepage"
                 width={228}
                 height={50}
-                className="h-12 w-auto"
+                className="h-8 md:h-12 w-auto"
               />
             </Link>
             
@@ -75,46 +85,69 @@ const Layout = ({ activeLink = "Projects", children }: LayoutProps) => {
 
             {/* 햄버거 메뉴 버튼 (모바일) */}
             <button
-              className="md:hidden p-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-gray-900 transition-colors duration-200"
+              className="md:hidden p-1.5 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-gray-900 transition-colors duration-200"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Toggle menu"
               aria-expanded={isMenuOpen}
             >
               {isMenuOpen ? (
-                <HiX className="w-6 h-6" />
+                <HiX className="w-5 h-5" />
               ) : (
-                <HiMenu className="w-6 h-6" />
+                <HiMenu className="w-5 h-5" />
               )}
             </button>
           </div>
+          
+          {/* 현재 페이지 제목 표시 (부드러운 애니메이션으로 나타나고 사라짐) */}
+          <div 
+            className={`md:hidden bg-white/95 backdrop-blur-sm overflow-hidden transition-all duration-300 ease-in-out ${
+              isScrolled ? 'max-h-0 opacity-0 py-0' : 'max-h-20 opacity-100 py-3'
+            }`}
+          >
+            <div className="text-center px-4">
+              <h1 className="text-lg font-semibold bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 bg-clip-text text-transparent">
+                {activeLink}
+              </h1>
+            </div>
+          </div>
 
           {/* 모바일 메뉴 */}
-          {isMenuOpen && (
-            <div className="md:hidden border-t border-gray-200 bg-white/95 backdrop-blur-sm">
-              <div className="px-6 py-4 space-y-2">
-                {Object.entries(MENU).map(([name, path]) => (
-                  <Link
-                    key={name}
-                    to={path}
-                    className={`block px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 ${
-                      activeLink.toLowerCase() === name.toLowerCase()
-                        ? "text-blue-600 bg-blue-50"
-                        : "text-gray-600 hover:bg-gray-50 hover:text-gray-900"
-                    }`}
-                    onClick={() => setIsMenuOpen(false)}
-                    role="menuitem"
-                    aria-current={activeLink.toLowerCase() === name.toLowerCase() ? "page" : undefined}
-                  >
-                    {name}
-                  </Link>
-                ))}
-              </div>
+          <div 
+            className={`md:hidden border-t border-gray-200 bg-white/95 backdrop-blur-sm overflow-hidden transition-all duration-300 ease-in-out ${
+              isMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+            }`}
+          >
+            <div className="px-4 md:px-6 py-3 md:py-4 space-y-1 md:space-y-2">
+              {Object.entries(MENU).map(([name, path]) => (
+                <Link
+                  key={name}
+                  to={path}
+                  className={`block px-3 md:px-4 py-2 md:py-3 rounded-lg text-sm font-medium transition-all duration-200 ${
+                    activeLink.toLowerCase() === name.toLowerCase()
+                      ? "text-blue-600 bg-blue-50"
+                      : "text-gray-600 hover:bg-gray-50 hover:text-gray-900"
+                  }`}
+                  onClick={() => setIsMenuOpen(false)}
+                  role="menuitem"
+                  aria-current={activeLink.toLowerCase() === name.toLowerCase() ? "page" : undefined}
+                >
+                  {name}
+                </Link>
+              ))}
             </div>
-          )}
+          </div>
         </nav>
 
               {/* Content */}
-        <main className="max-w-4xl mx-auto px-6 pt-24 pb-16" id="main-content" role="main">{children}</main>
+        <main 
+          className={`max-w-4xl mx-auto px-4 md:px-6 pb-16 transition-all duration-300 ease-in-out ${
+            isScrolled ? 'pt-20 md:pt-24' : 'pt-32 md:pt-36'
+          }`} 
+          id="main-content" 
+          role="main"
+        >
+          {children}
+        </main>
 
       {/* Footer */}
       <footer className="bg-gray-100 dark:bg-gray-800 py-6 mt-auto">

@@ -2,6 +2,7 @@
 title: "Effects of In-Vehicle Auditory Interactions on Takeover Performance in SAE L2 Semi-Automated Vehicles"
 authors: "Jiwoo Hwang, Woohyeok Choi, Auk Kim"
 journal: "International Journal of Human-Computer Studies"
+type: "Journal"
 volume: "196"
 article: "103401"
 date: "2025-02-01"

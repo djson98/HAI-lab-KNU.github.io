@@ -1,6 +1,7 @@
 import * as React from "react"
 import { graphql, PageProps } from "gatsby"
 import Layout from "../components/layout"
+import YearFilter from "../components/YearFilter"
 
 type DataProps = {
   allMarkdownRemark: {
@@ -21,9 +22,34 @@ type DataProps = {
 
 const LecturesPage: React.FC<PageProps<DataProps>> = ({ data }) => {
   const lectures = data.allMarkdownRemark.nodes
+  const [selectedType, setSelectedType] = React.useState("All")
+  const [startYear, setStartYear] = React.useState("")
+  const [endYear, setEndYear] = React.useState("")
+
+  // 사용 가능한 타입들
+  const availableTypes = ["All", "Major", "Liberal Arts"]
+
+  // 사용 가능한 연도들 (2020-2025)
+  const availableYears = Array.from({ length: 6 }, (_, i) => (2025 - i).toString())
+
+  // 타입별로 강의 분류
+  const getTypeFromMajor = (major: boolean) => {
+    return major ? "Major" : "Liberal Arts"
+  }
+
+  // 필터링된 강의들
+  const filteredLectures = lectures.filter((lecture) => {
+    const lectureType = getTypeFromMajor(lecture.frontmatter.major)
+    const lectureYear = new Date(lecture.frontmatter.date).getFullYear().toString()
+    
+    const typeMatch = selectedType === "All" || lectureType === selectedType
+    const yearMatch = (!startYear || lectureYear >= startYear) && (!endYear || lectureYear <= endYear)
+    
+    return typeMatch && yearMatch
+  })
 
   // 전공 강의를 먼저, 그 다음에 일반 강의를 정렬
-  const sortedLectures = [...lectures].sort((a, b) => {
+  const sortedLectures = [...filteredLectures].sort((a, b) => {
     if (a.frontmatter.major && !b.frontmatter.major) return -1
     if (!a.frontmatter.major && b.frontmatter.major) return 1
     return 0
@@ -32,8 +58,25 @@ const LecturesPage: React.FC<PageProps<DataProps>> = ({ data }) => {
   return (
     <Layout activeLink="Lectures">
       <div className="space-y-8">
+        {/* 필터 컴포넌트 */}
+        <YearFilter
+          startYear={startYear}
+          endYear={endYear}
+          onStartYearChange={setStartYear}
+          onEndYearChange={setEndYear}
+          selectedType={selectedType}
+          onTypeChange={setSelectedType}
+          availableTypes={availableTypes}
+          availableYears={availableYears}
+        />
+
+        {/* 결과 표시 */}
+        <div className="text-center text-sm text-blue-600 font-medium">
+          {sortedLectures.length} lecture{sortedLectures.length !== 1 ? 's' : ''} found
+        </div>
+
         {sortedLectures.length === 0 ? (
-          <p className="text-gray-600">No lectures available yet.</p>
+          <p className="text-gray-600 text-center">No lectures match the selected filters.</p>
         ) : (
           <div className="space-y-24">
             {sortedLectures.map((lecture) => (

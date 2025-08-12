@@ -2,6 +2,7 @@
 title: "Interruptibility for in-vehicle multitasking: influence of voice task demands and adaptive behaviors"
 authors: "Auk Kim, Jung-Mi Park, Uichin Lee"
 journal: "Proceedings of the ACM on Interactive, Mobile, Wearable and Ubiquitous Technologies"
+type: "Journal"
 year: "2020"
 date: "2020-03-18"
 doi: "10.1145/3381014"

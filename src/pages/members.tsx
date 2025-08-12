@@ -75,10 +75,10 @@ const MembersPage: React.FC<PageProps<DataProps>> = ({ data }) => {
 
   return (
     <Layout activeLink="People">
-      <div className="space-y-12">
+      <div className="space-y-10">
         {sortedPositions.map((position) => (
           <div key={position} className="space-y-6">
-                                    <h2 className="text-3xl font-bold text-gray-800 border-b-2 border-gray-300 pb-3 font-sans tracking-wide">
+                                    <h2 className="text-2xl md:text-3xl font-bold text-gray-800 border-b-2 border-gray-300 pb-4 font-sans tracking-wide">
               {position === 'Professor' ? 'Director' : position}
             </h2>
                                                 <div className="space-y-6">
@@ -92,11 +92,11 @@ const MembersPage: React.FC<PageProps<DataProps>> = ({ data }) => {
                               </div>
                             ) : (
                               // 기존 멤버들은 원래 스타일 유지
-                              <article key={member.id} className="bg-white rounded-lg shadow-sm border border-gray-100 p-6">
-                                <div className="flex items-start space-x-12">
-                                  {/* 왼쪽: 멤버 사진 */}
-                                  <div className="flex-shrink-0">
-                                    <div className="w-40 h-40 rounded-lg overflow-hidden bg-gray-100 flex items-center justify-center">
+                              <article key={member.id} className="bg-white rounded-lg shadow-sm border border-gray-100 p-4 md:p-6">
+                                <div className="flex flex-col md:flex-row md:items-start space-y-4 md:space-y-0 md:space-x-6 lg:space-x-8">
+                                  {/* 상단/왼쪽: 멤버 사진 */}
+                                  <div className="flex-shrink-0 w-full md:w-auto">
+                                    <div className="w-full h-80 md:w-64 md:h-80 rounded-lg overflow-hidden bg-gray-100 flex items-center justify-center">
                                       {member.frontmatter.name === "Auk Kim" ? (
                                         <img
                                           src="/images/members/aukkim.jpeg"
@@ -137,47 +137,20 @@ const MembersPage: React.FC<PageProps<DataProps>> = ({ data }) => {
                                     </div>
                                   </div>
                                   
-                                  {/* 오른쪽: 멤버 정보 */}
-                                  <div className="flex-1 min-w-0">
-                                    <h2 className="text-2xl font-bold text-gray-900 mb-2">
+                                  {/* 하단/오른쪽: 멤버 정보 */}
+                                  <div className="flex-1 min-w-0 text-left">
+                                    <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-2">
                                       {member.frontmatter.name}
                                     </h2>
-                                    <p className="text-lg text-blue-600 font-medium mb-4">
+                                    <p className="text-base md:text-lg text-blue-600 font-medium mb-4">
                                       {member.frontmatter.position}
                                     </p>
                                     <div 
-                                      className="prose prose-gray max-w-none mb-4"
+                                      className="prose prose-gray max-w-none mb-4 text-sm md:text-base"
                                       dangerouslySetInnerHTML={{ __html: member.html }} 
                                     />
                                                                           <div className="space-y-3">
-                                        {/* 홈페이지와 Scholar 아이콘 (클릭 가능한 링크) */}
-                                        <div className="flex space-x-3">
-                                          {member.frontmatter.homepage && (
-                                            <a 
-                                              href={member.frontmatter.homepage}
-                                              target="_blank"
-                                              rel="noopener noreferrer"
-                                              className="text-gray-600 hover:text-blue-600 transition-colors"
-                                              title="Visit homepage"
-                                            >
-                                              <FaHome className="w-4 h-4" />
-                                            </a>
-                                          )}
-                                          
-                                          {member.frontmatter.googleScholar && (
-                                            <a 
-                                              href={member.frontmatter.googleScholar}
-                                              target="_blank"
-                                              rel="noopener noreferrer"
-                                              className="text-gray-600 hover:text-blue-600 transition-colors"
-                                              title="View Google Scholar profile"
-                                            >
-                                              <SiGooglescholar className="w-4 h-4" />
-                                            </a>
-                                          )}
-                                        </div>
-                                        
-                                        {/* 이메일 아이콘과 주소 (SVG로 표시) */}
+                                        {/* 이메일 아이콘과 주소 (SVG로 표시) - 먼저 표시 */}
                                         {member.frontmatter.email && (
                                           <div className="flex items-center space-x-2">
                                             <MdEmail className="w-4 h-4 text-gray-600" />
@@ -206,6 +179,33 @@ const MembersPage: React.FC<PageProps<DataProps>> = ({ data }) => {
                                             </a>
                                           </div>
                                         )}
+                                        
+                                        {/* 홈페이지와 Scholar 아이콘 (클릭 가능한 링크) - 아래에 표시 */}
+                                        <div className="flex space-x-4">
+                                          {member.frontmatter.homepage && (
+                                            <a 
+                                              href={member.frontmatter.homepage}
+                                              target="_blank"
+                                              rel="noopener noreferrer"
+                                              className="text-gray-600 hover:text-blue-600 transition-colors"
+                                              title="Visit homepage"
+                                            >
+                                              <FaHome className="w-4 h-4" />
+                                            </a>
+                                          )}
+                                          
+                                          {member.frontmatter.googleScholar && (
+                                            <a 
+                                              href={member.frontmatter.googleScholar}
+                                              target="_blank"
+                                              rel="noopener noreferrer"
+                                              className="text-gray-600 hover:text-blue-600 transition-colors"
+                                              title="View Google Scholar profile"
+                                            >
+                                              <SiGooglescholar className="w-4 h-4" />
+                                            </a>
+                                          )}
+                                        </div>
                                       </div>
                                   </div>
                                 </div>

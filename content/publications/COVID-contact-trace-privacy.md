@@ -2,6 +2,7 @@
 title: "Too Much Information: Assessing Privacy Risks of Contact Trace Data Disclosure on People With COVID-19 in South Korea"
 authors: "G Jung, H Lee, A Kim, U Lee"
 journal: "Frontiers in Public Health"
+type: "Journal"
 year: "2020"
 date: "2020-06-18"
 doi: "10.3389/fpubh.2020.00305"

@@ -2,6 +2,7 @@
 title: "A Dataset on Takeover During Distracted L2 Automated Driving"
 authors: "Jiwoo Hwang, Woohyeok Choi, Jungmin Lee, Woojoo Kim, Jungwook Rhim, Auk Kim"
 journal: "Scientific Data"
+type: "Journal"
 volume: "12"
 issue: "1"
 page: "539"
