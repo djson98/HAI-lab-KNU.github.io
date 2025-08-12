@@ -42,6 +42,7 @@ const Seo = ({ description, title, children }) => {
       />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={metaDescription} />
+      <meta name="google-site-verification" content="google809d7094b6e3d475" />
       {children}
     </>
   )
