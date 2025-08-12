@@ -19,7 +19,7 @@ const MENU = {
   Projects: "/blog",
   Publications: "/publications",
   Lectures: "/lectures",
-  News: "/news",
+  // News: "/news", // Hidden for now, will be developed later
 };
 
 const Layout = ({ activeLink = "Projects", children }: LayoutProps) => {

@@ -153,7 +153,7 @@ const MembersPage: React.FC<PageProps<DataProps>> = ({ data }) => {
                                         {/* 이메일 아이콘과 주소 (SVG로 표시) - 먼저 표시 */}
                                         {member.frontmatter.email && (
                                           <div className="flex items-center space-x-2">
-                                            <MdEmail className="w-4 h-4 text-gray-600" />
+                                            <MdEmail className="w-5 h-5 text-gray-600 flex-shrink-0" />
                                             <a 
                                               href={`mailto:${member.frontmatter.email}`}
                                               className="inline-block"
@@ -173,37 +173,84 @@ const MembersPage: React.FC<PageProps<DataProps>> = ({ data }) => {
                                                   fill="#6B7280"
                                                   className="select-none"
                                                 >
-                                                  {member.frontmatter.email}
+                                                  {member.frontmatter.email.length > 35 ? 
+                                                    member.frontmatter.email.substring(0, 35) + '...' : 
+                                                    member.frontmatter.email
+                                                  }
                                                 </text>
                                               </svg>
                                             </a>
                                           </div>
                                         )}
                                         
-                                        {/* 홈페이지와 Scholar 아이콘 (클릭 가능한 링크) - 아래에 표시 */}
-                                        <div className="flex space-x-4">
+                                        {/* 홈페이지와 Scholar 아이콘과 주소 (SVG로 표시) - 아래에 표시 */}
+                                        <div className="space-y-3">
                                           {member.frontmatter.homepage && (
-                                            <a 
-                                              href={member.frontmatter.homepage}
-                                              target="_blank"
-                                              rel="noopener noreferrer"
-                                              className="text-gray-600 hover:text-blue-600 transition-colors"
-                                              title="Visit homepage"
-                                            >
-                                              <FaHome className="w-4 h-4" />
-                                            </a>
+                                            <div className="flex items-center space-x-2">
+                                              <FaHome className="w-5 h-5 text-gray-600 flex-shrink-0" />
+                                              <a 
+                                                href={member.frontmatter.homepage}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="inline-block"
+                                                title="Visit homepage"
+                                              >
+                                                                                              <svg 
+                                                className="h-5 w-auto" 
+                                                viewBox="0 0 300 20" 
+                                                xmlns="http://www.w3.org/2000/svg"
+                                              >
+                                                <text 
+                                                  x="0" 
+                                                  y="15" 
+                                                  fontFamily="system-ui, -apple-system, sans-serif" 
+                                                  fontSize="14" 
+                                                  fontWeight="500" 
+                                                  fill="#6B7280"
+                                                  className="select-none"
+                                                >
+                                                  {member.frontmatter.homepage.length > 35 ? 
+                                                    member.frontmatter.homepage.substring(0, 35) + '...' : 
+                                                    member.frontmatter.homepage
+                                                  }
+                                                </text>
+                                              </svg>
+                                              </a>
+                                            </div>
                                           )}
                                           
                                           {member.frontmatter.googleScholar && (
-                                            <a 
-                                              href={member.frontmatter.googleScholar}
-                                              target="_blank"
-                                              rel="noopener noreferrer"
-                                              className="text-gray-600 hover:text-blue-600 transition-colors"
-                                              title="View Google Scholar profile"
-                                            >
-                                              <SiGooglescholar className="w-4 h-4" />
-                                            </a>
+                                            <div className="flex items-center space-x-2">
+                                              <SiGooglescholar className="w-5 h-5 text-gray-600 flex-shrink-0" />
+                                              <a 
+                                                href={member.frontmatter.googleScholar}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="inline-block"
+                                                title="View Google Scholar profile"
+                                              >
+                                                <svg 
+                                                  className="h-5 w-auto" 
+                                                  viewBox="0 0 300 20" 
+                                                  xmlns="http://www.w3.org/2000/svg"
+                                                >
+                                                  <text 
+                                                    x="0" 
+                                                    y="15" 
+                                                    fontFamily="system-ui, -apple-system, sans-serif" 
+                                                    fontSize="14" 
+                                                    fontWeight="500" 
+                                                    fill="#6B7280"
+                                                    className="select-none"
+                                                  >
+                                                    {member.frontmatter.googleScholar.length > 35 ? 
+                                                      member.frontmatter.googleScholar.substring(0, 35) + '...' : 
+                                                      member.frontmatter.googleScholar
+                                                    }
+                                                  </text>
+                                                </svg>
+                                              </a>
+                                            </div>
                                           )}
                                         </div>
                                       </div>

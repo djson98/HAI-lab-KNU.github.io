@@ -15,7 +15,7 @@ const IndexPage = ({ data }) => {
     <Layout activeLink="Home">
       <div className="min-h-screen">
         {/* Hero Section */}
-        <section className="py-20 bg-gradient-to-br from-blue-50 to-white rounded-3xl mx-6">
+        <section className="py-20 bg-gradient-to-br from-blue-50 to-white rounded-3xl mx-6 hover:shadow-lg hover:scale-[1.02] transition-all duration-300 cursor-pointer">
           <div className="max-w-4xl mx-auto px-6 text-center">
             <h1 className="text-5xl font-bold bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 bg-clip-text text-transparent mb-6" id="main-heading">
              Human-AI Interaction Lab 
@@ -84,15 +84,15 @@ const IndexPage = ({ data }) => {
                     <div key={post.id} className="bg-white rounded-lg p-3 md:p-4 shadow-sm hover:shadow-lg hover:scale-105 hover:border-blue-200 border border-transparent transition-all duration-300 cursor-pointer">
                       {/* 썸네일 */}
                       <div className="mb-3">
-                        <div className="w-full h-24 md:h-40 rounded-lg overflow-hidden bg-gray-100 shadow-sm">
+                        <div className="w-full h-24 md:h-40 rounded-lg overflow-hidden shadow-sm">
                           {post.frontmatter.thumbnail ? (
                             <img
                               src={post.frontmatter.thumbnail}
                               alt={post.frontmatter.title}
-                              className="w-3/4 h-3/4 object-contain mx-auto"
+                              className="w-full h-full object-contain"
                             />
                           ) : (
-                            <div className="w-full h-full flex items-center justify-center text-gray-400 bg-gray-50">
+                            <div className="w-full h-full flex items-center justify-center text-gray-400">
                               <span className="text-xs md:text-sm">No Image</span>
                             </div>
                           )}
@@ -124,7 +124,8 @@ const IndexPage = ({ data }) => {
           <hr className="border-gray-200 opacity-50 my-8" />
         </div>
 
-        {/* Recent News Section */}
+        {/* Recent News Section - Hidden for now, will be developed later */}
+        {/* 
         <section className="py-16 bg-gradient-to-br from-blue-50 to-white rounded-3xl mx-6" aria-labelledby="news-heading">
           <div className="max-w-4xl mx-auto px-6">
             <div className="text-center mb-8">
@@ -143,7 +144,6 @@ const IndexPage = ({ data }) => {
                 {news.map((item) => (
                   <div key={item.id} className="bg-white rounded-2xl p-3 md:p-4 shadow-sm hover:shadow-lg hover:scale-105 hover:border-blue-200 border border-transparent transition-all duration-300 cursor-pointer">
                     <div className="flex items-center space-x-3 md:space-x-4">
-                      {/* 썸네일 */}
                       <div className="flex-shrink-0">
                         <div className="w-12 h-12 md:w-16 md:h-16 rounded-lg overflow-hidden bg-gray-100 shadow-sm">
                           {item.frontmatter.thumbnail ? (
@@ -159,8 +159,6 @@ const IndexPage = ({ data }) => {
                           )}
                         </div>
                       </div>
-                      
-                      {/* 뉴스 정보 */}
                       <div className="flex-1 min-w-0">
                         <h3 className="text-sm md:text-lg font-semibold text-gray-900 mb-1 line-clamp-1">
                           {item.frontmatter.title}
@@ -185,6 +183,7 @@ const IndexPage = ({ data }) => {
             )}
           </div>
         </section>
+        */}
 
         {/* 구분선 */}
         <div className="max-w-4xl mx-auto px-6">
@@ -192,12 +191,12 @@ const IndexPage = ({ data }) => {
         </div>
 
         {/* Contact Section */}
-        <section className="py-12 md:py-16 bg-white rounded-2xl shadow-sm hover:shadow-lg hover:scale-105 hover:border-blue-200 border border-transparent transition-all duration-300 cursor-pointer mx-3 md:mx-6" aria-labelledby="contact-heading">
-          <div className="max-w-4xl mx-auto px-4 md:px-6 text-center">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4 md:mb-6" id="contact-heading">
+        <section className="py-12 md:py-16 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl shadow-sm hover:shadow-lg hover:scale-105 hover:border-blue-200 border border-transparent transition-all duration-300 cursor-pointer mx-3 md:mx-6" aria-labelledby="contact-heading">
+          <div className="max-w-4xl mx-auto px-4 md:px-6">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4 md:mb-6 text-center" id="contact-heading">
             Contact Us
             </h2>
-            <p className="text-sm md:text-base text-gray-600 mb-6 md:mb-8">
+            <p className="text-sm md:text-base text-gray-600 mb-6 md:mb-8 text-left">
             We're looking for passionate people to join the Human AI Interaction Lab.
 
 If you're excited about designing better interactions between humans and AI—
@@ -207,9 +206,9 @@ join us.
             </p>
             
             {/* 연락처 정보 */}
-            <div className="space-y-4 text-center">
+            <div className="space-y-4 text-left">
               {/* 이메일 */}
-              <div className="flex items-center justify-center space-x-3">
+              <div className="flex items-center space-x-3">
                 <a 
                   href="mailto:kimauk@hai.kangwon.ac.kr"
                   className="flex items-center space-x-3 hover:scale-105 transition-transform duration-200"
@@ -225,14 +224,13 @@ join us.
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <text 
-                      x="150" 
+                      x="0" 
                       y="15" 
                       fontFamily="system-ui, -apple-system, sans-serif" 
                       fontSize="14" 
                       fontWeight="500" 
                       fill="#6B7280"
                       className="select-none"
-                      textAnchor="middle"
                     >
                       kimauk@hai.kangwon.ac.kr
                     </text>
@@ -241,7 +239,7 @@ join us.
               </div>
               
               {/* 룸 넘버 */}
-              <div className="flex items-center justify-center space-x-3">
+              <div className="flex items-center space-x-3">
                 <svg className="w-5 h-5 text-blue-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
                 </svg>
@@ -251,14 +249,13 @@ join us.
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <text 
-                    x="200" 
+                    x="0" 
                     y="15" 
                     fontFamily="system-ui, -apple-system, sans-serif" 
                     fontSize="14" 
                     fontWeight="500" 
                     fill="#6B7280"
                     className="select-none"
-                    textAnchor="middle"
                   >
                     Room 512, College of Engineering 6
                   </text>

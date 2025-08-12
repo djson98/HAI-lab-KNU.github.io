@@ -70,10 +70,7 @@ const LecturesPage: React.FC<PageProps<DataProps>> = ({ data }) => {
           availableYears={availableYears}
         />
 
-        {/* 결과 표시 */}
-        <div className="text-center text-sm text-blue-600 font-medium">
-          {sortedLectures.length} lecture{sortedLectures.length !== 1 ? 's' : ''} found
-        </div>
+
 
         {sortedLectures.length === 0 ? (
           <p className="text-gray-600 text-center">No lectures match the selected filters.</p>

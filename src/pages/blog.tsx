@@ -39,15 +39,15 @@ const BlogPage: React.FC<PageProps<DataProps>> = ({ data }) => {
                     <div className="flex flex-col md:flex-row md:items-center space-y-4 md:space-y-0 md:space-x-8">
                       {/* 썸네일 이미지 - 모바일에서는 위에, 데스크톱에서는 오른쪽 */}
                       <div className="flex-shrink-0 mx-auto md:mx-0">
-                        <div className="w-48 h-48 md:w-56 md:h-56 rounded-lg overflow-hidden bg-gray-100 shadow-sm group-hover:shadow-lg group-hover:scale-105 transition-all duration-300">
+                        <div className="w-48 h-48 md:w-56 md:h-56 rounded-lg overflow-hidden shadow-sm group-hover:shadow-lg group-hover:scale-105 transition-all duration-300">
                           {post.frontmatter.thumbnail ? (
                             <img
                               src={post.frontmatter.thumbnail}
                               alt={post.frontmatter.title}
-                              className="w-3/4 h-3/4 object-contain group-hover:scale-110 transition-transform duration-300 mx-auto"
+                              className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-300"
                             />
                           ) : (
-                            <div className="w-full h-full flex items-center justify-center text-gray-400 bg-gray-50 group-hover:bg-gray-100 transition-colors duration-300">
+                            <div className="w-full h-full flex items-center justify-center text-gray-400 group-hover:text-gray-500 transition-colors duration-300">
                               <span className="text-sm">No Image</span>
                             </div>
                           )}
