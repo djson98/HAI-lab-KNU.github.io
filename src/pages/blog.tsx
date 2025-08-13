@@ -16,6 +16,10 @@ type DataProps = {
         date: string
         description: string
         thumbnail: string
+        image1: string
+        image2: string
+        image3: string
+        image4: string
       }
     }[]
   }
@@ -40,13 +44,78 @@ const BlogPage: React.FC<PageProps<DataProps>> = ({ data }) => {
                       {/* 썸네일 이미지 - 모바일에서는 위에, 데스크톱에서는 오른쪽 */}
                       <div className="flex-shrink-0 mx-auto md:mx-0">
                         <div className="w-48 h-48 md:w-56 md:h-56 rounded-lg overflow-hidden shadow-sm group-hover:shadow-lg group-hover:scale-105 transition-all duration-300">
-                          {post.frontmatter.thumbnail ? (
+                          {post.frontmatter.image1 && post.frontmatter.image2 && post.frontmatter.image3 && post.frontmatter.image4 ? (
+                            // 4개 이미지: car1, car2 좌우, car3, car4 아래 좌우
+                            <div className="w-full h-full flex flex-col">
+                              <div className="w-full h-1/2 flex">
+                                <img
+                                  src={post.frontmatter.image1}
+                                  alt={`${post.frontmatter.title} - Image 1`}
+                                  className="w-1/2 h-full object-contain group-hover:scale-110 transition-transform duration-300"
+                                />
+                                <img
+                                  src={post.frontmatter.image2}
+                                  alt={`${post.frontmatter.title} - Image 2`}
+                                  className="w-1/2 h-full object-contain group-hover:scale-110 transition-transform duration-300"
+                                />
+                              </div>
+                              <div className="w-full h-1/2 flex">
+                                <img
+                                  src={post.frontmatter.image3}
+                                  alt={`${post.frontmatter.title} - Image 3`}
+                                  className="w-1/2 h-full object-contain group-hover:scale-110 transition-transform duration-300"
+                                />
+                                <img
+                                  src={post.frontmatter.image4}
+                                  alt={`${post.frontmatter.title} - Image 4`}
+                                  className="w-1/2 h-full object-contain group-hover:scale-110 transition-transform duration-300"
+                                />
+                              </div>
+                            </div>
+                          ) : post.frontmatter.image1 && post.frontmatter.image2 && post.frontmatter.image3 ? (
+                            // 3개 이미지: car1, car2 좌우, car3 아래
+                            <div className="w-full h-full flex flex-col">
+                              <div className="w-full h-2/3 flex">
+                                <img
+                                  src={post.frontmatter.image1}
+                                  alt={`${post.frontmatter.title} - Image 1`}
+                                  className="w-1/2 h-full object-contain group-hover:scale-110 transition-transform duration-300"
+                                />
+                                <img
+                                  src={post.frontmatter.image2}
+                                  alt={`${post.frontmatter.title} - Image 2`}
+                                  className="w-1/2 h-full object-contain group-hover:scale-110 transition-transform duration-300"
+                                />
+                              </div>
+                              <img
+                                src={post.frontmatter.image3}
+                                alt={`${post.frontmatter.title} - Image 3`}
+                                className="w-full h-1/3 object-contain group-hover:scale-110 transition-transform duration-300"
+                              />
+                            </div>
+                          ) : post.frontmatter.image1 && post.frontmatter.image2 ? (
+                            // IoT 프로젝트는 상하로, 다른 프로젝트는 좌우로 표시
+                            <div className={`w-full h-full ${post.frontmatter.title.includes('IoT-Enabled') ? 'flex flex-col' : 'flex'}`}>
+                              <img
+                                src={post.frontmatter.image1}
+                                alt={`${post.frontmatter.title} - Image 1`}
+                                className={`${post.frontmatter.title.includes('IoT-Enabled') ? 'w-full h-1/2' : 'w-1/2 h-full'} object-contain group-hover:scale-110 transition-transform duration-300`}
+                              />
+                              <img
+                                src={post.frontmatter.image2}
+                                alt={`${post.frontmatter.title} - Image 2`}
+                                className={`${post.frontmatter.title.includes('IoT-Enabled') ? 'w-full h-1/2' : 'w-1/2 h-full'} object-contain group-hover:scale-110 transition-transform duration-300`}
+                              />
+                            </div>
+                          ) : post.frontmatter.thumbnail ? (
+                            // 일반 프로젝트: 썸네일 표시
                             <img
                               src={post.frontmatter.thumbnail}
                               alt={post.frontmatter.title}
                               className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-300"
                             />
                           ) : (
+                            // 이미지 없음
                             <div className="w-full h-full flex items-center justify-center text-gray-400 group-hover:text-gray-500 transition-colors duration-300">
                               <span className="text-sm">No Image</span>
                             </div>
@@ -95,6 +164,10 @@ export const query = graphql`
           date(formatString: "MMMM DD, YYYY")
           description
           thumbnail
+          image1
+          image2
+          image3
+          image4
         }
       }
     }
