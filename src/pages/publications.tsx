@@ -43,7 +43,7 @@ const PublicationsPage: React.FC<PageProps<DataProps>> = ({ data }) => {
 
   // 사용 가능한 타입 목록 생성
   const availableTypes = React.useMemo(() => {
-    const types = ["All", ...new Set(publications.map(pub => pub.frontmatter.type))].filter(type => type)
+    const types = ["All", "Journal", "Conference", "Patent"]
     return types
   }, [publications])
 
@@ -89,7 +89,7 @@ const PublicationsPage: React.FC<PageProps<DataProps>> = ({ data }) => {
         />
 
         {filteredPublications.length === 0 ? (
-          <p className="text-gray-600">선택한 연도 범위에 해당하는 논문이 없습니다.</p>
+          <p className="text-gray-600">No publications found for the selected filters.</p>
         ) : (
           <div className="space-y-8">
             {sortedYears.map((year) => (
