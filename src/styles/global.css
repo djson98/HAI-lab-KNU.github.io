@@ -5,6 +5,11 @@
 @layer base {
   html {
     font-family: 'Inter', 'Noto Sans KR', system-ui, sans-serif;
+    overflow-x: hidden;
+  }
+  
+  body {
+    overflow-x: hidden;
   }
   
   h1, h2, h3, h4, h5, h6 {

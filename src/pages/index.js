@@ -15,9 +15,9 @@ const IndexPage = ({ data }) => {
     <Layout activeLink="Home">
       <div className="min-h-screen">
         {/* Hero Section */}
-        <section className="py-20 bg-gradient-to-br from-blue-50 to-white rounded-3xl mx-6 hover:shadow-lg hover:scale-[1.02] transition-all duration-300 cursor-pointer">
-          <div className="max-w-4xl mx-auto px-6 text-center">
-            <h1 className="text-5xl font-bold bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 bg-clip-text text-transparent mb-6" id="main-heading">
+        <section className="py-20 bg-gradient-to-br from-blue-50 to-white rounded-3xl mx-2 md:mx-6 hover:shadow-lg hover:scale-[1.02] transition-all duration-300 cursor-pointer">
+          <div className="max-w-4xl mx-auto px-4 md:px-6 text-center">
+            <h1 className="text-3xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 bg-clip-text text-transparent mb-6" id="main-heading">
              Human-AI Interaction Lab 
             </h1>
             <p className="text-xl font-semibold text-gray-800 mb-6 leading-tight tracking-wide">
@@ -65,7 +65,7 @@ const IndexPage = ({ data }) => {
 
         {/* Recent Publications Section */}
         <section className="py-16 bg-white" aria-labelledby="recent-projects-heading">
-          <div className="max-w-4xl mx-auto px-6">
+          <div className="max-w-4xl mx-auto px-4 md:px-6">
             <div className="text-center mb-8">
               <h2 className="text-3xl font-bold text-gray-900 mb-4" id="recent-projects-heading">
                 Recent Projects
@@ -185,7 +185,7 @@ const IndexPage = ({ data }) => {
         </section>
 
         {/* 구분선 */}
-        <div className="max-w-4xl mx-auto px-6">
+        <div className="max-w-4xl mx-auto px-4 md:px-6">
           <hr className="border-gray-200 opacity-50 my-8" />
         </div>
 
@@ -251,7 +251,7 @@ const IndexPage = ({ data }) => {
         */}
 
         {/* 구분선 */}
-        <div className="max-w-4xl mx-auto px-6">
+        <div className="max-w-4xl mx-auto px-4 md:px-6">
           <hr className="border-gray-200 opacity-50 my-8" />
         </div>
 
