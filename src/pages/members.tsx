@@ -81,14 +81,61 @@ const MembersPage: React.FC<PageProps<DataProps>> = ({ data }) => {
                                     <h2 className="text-2xl md:text-3xl font-bold text-gray-800 border-b-2 border-gray-300 pb-4 font-sans tracking-wide">
               {position === 'Professor' ? 'Director' : position}
             </h2>
-                                                <div className="space-y-6">
-                          {groupedMembers[position].map((member) => (
+            <div className={position === 'Alumni' ? 'grid grid-cols-2 md:grid-cols-4 gap-6' : 'space-y-6'}>
+              {groupedMembers[position].map((member) => (
                             position === 'Alumni' ? (
-                              // Alumni는 이름만 표시
-                              <div key={member.id} className="py-2">
-                                <span className="text-lg font-medium text-gray-900">
-                                  {member.frontmatter.name}
-                                </span>
+                              // Alumni는 카드 형태로 표시
+                              <div key={member.id} className="bg-white rounded-lg shadow-sm border border-gray-100 p-4 text-center">
+                                <div className="w-20 h-20 mx-auto mb-3 rounded-lg overflow-hidden bg-gray-100">
+                                  {member.frontmatter.name === "Ji Wook Lee" ? (
+                                    <img
+                                      src="/images/이지욱_2.jpg"
+                                      alt={member.frontmatter.name}
+                                      className="w-full h-full object-cover"
+                                    />
+                                  ) : member.frontmatter.name === "Min Gyu Han" ? (
+                                    <img
+                                      src="/images/한민규.jpeg"
+                                      alt={member.frontmatter.name}
+                                      className="w-full h-full object-cover"
+                                    />
+                                  ) : member.frontmatter.name === "Min Ji Kim" ? (
+                                    <img
+                                      src="/images/김민지_3.JPG"
+                                      alt={member.frontmatter.name}
+                                      className="w-full h-full object-cover"
+                                    />
+                                  ) : member.frontmatter.name === "Min Young Kim" ? (
+                                    <img
+                                      src="/images/김민영.jpg"
+                                      alt={member.frontmatter.name}
+                                      className="w-full h-full object-cover"
+                                    />
+                                  ) : (
+                                    <img
+                                      src="/images/profile-pic.png"
+                                      alt={member.frontmatter.name}
+                                      className="w-full h-full object-cover"
+                                    />
+                                  )}
+                                </div>
+                                <h3 className="text-lg font-semibold text-gray-900 mb-1">
+                                  {member.frontmatter.name === "Ji Wook Lee" ? "Jiwook Lee" :
+                                   member.frontmatter.name === "Min Gyu Han" ? "Mingyu Han" :
+                                   member.frontmatter.name === "Min Ji Kim" ? "Minji Kim" :
+                                   member.frontmatter.name === "Min Young Kim" ? "Minyoung Kim" :
+                                   member.frontmatter.name}
+                                </h3>
+                                {member.frontmatter.graduation && (
+                                  <p className="text-sm text-gray-600 mb-1">
+                                    {member.frontmatter.graduation}
+                                  </p>
+                                )}
+                                {member.frontmatter.current && member.frontmatter.current !== "Current Position" && (
+                                  <p className="text-sm text-gray-500">
+                                    at {member.frontmatter.current}
+                                  </p>
+                                )}
                               </div>
                             ) : (
                               // 기존 멤버들은 원래 스타일 유지
@@ -96,7 +143,7 @@ const MembersPage: React.FC<PageProps<DataProps>> = ({ data }) => {
                                 <div className="flex flex-col md:flex-row md:items-start space-y-4 md:space-y-0 md:space-x-6 lg:space-x-8">
                                   {/* 상단/왼쪽: 멤버 사진 */}
                                   <div className="flex-shrink-0 w-full md:w-auto">
-                                    <div className="w-full h-80 md:w-64 md:h-80 rounded-lg overflow-hidden bg-gray-100 flex items-center justify-center">
+                                    <div className="w-full h-64 md:w-48 md:h-64 rounded-lg overflow-hidden bg-gray-100 flex items-center justify-center">
                                       {member.frontmatter.name === "Auk Kim" ? (
                                         <img
                                           src="/images/members/aukkim.jpeg"
@@ -283,7 +330,6 @@ export const query = graphql`
           homepage
           googleScholar
           graduation
-          current
         }
       }
     }

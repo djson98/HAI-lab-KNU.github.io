@@ -43,7 +43,7 @@ const PublicationsPage: React.FC<PageProps<DataProps>> = ({ data }) => {
 
   // 사용 가능한 타입 목록 생성
   const availableTypes = React.useMemo(() => {
-    const types = ["All", "Journal", "Conference", "Patent"]
+    const types = ["All", "Journal", "Conference"]
     return types
   }, [publications])
 
@@ -124,7 +124,7 @@ const PublicationsPage: React.FC<PageProps<DataProps>> = ({ data }) => {
                               href={pub.frontmatter.paper}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="px-3 py-1.5 text-xs font-medium bg-sky-100 text-sky-700 rounded-md shadow-sm hover:bg-sky-200 hover:shadow-md transition-all duration-200"
+                              className="px-3 py-1.5 text-xs font-medium bg-sky-100 text-sky-700 rounded-md shadow-sm hover:bg-sky-200 hover:shadow-lg hover:scale-110 hover:text-sky-800 hover:-translate-y-1 transition-all duration-300 cursor-pointer"
                             >
                               paper
                             </a>
@@ -144,7 +144,7 @@ const PublicationsPage: React.FC<PageProps<DataProps>> = ({ data }) => {
                               href={pub.frontmatter.video}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="px-3 py-1.5 text-xs font-medium bg-yellow-100 text-yellow-700 rounded-md shadow-sm hover:bg-yellow-200 hover:shadow-md transition-all duration-200"
+                              className="px-3 py-1.5 text-xs font-medium bg-yellow-100 text-yellow-700 rounded-md shadow-sm hover:bg-yellow-200 hover:shadow-lg hover:scale-110 hover:text-yellow-800 hover:-translate-y-1 transition-all duration-300 cursor-pointer"
                             >
                               video
                             </a>
