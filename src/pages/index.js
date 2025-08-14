@@ -163,12 +163,12 @@ const IndexPage = ({ data }) => {
                           </div>
                         </div>
                         
-                        {/* 프로젝트 제목만 */}
-                        <div>
-                          <h3 className="text-xs md:text-sm font-semibold text-gray-900 line-clamp-2 md:line-clamp-3">
-                            {post.frontmatter.title}
-                          </h3>
-                        </div>
+                                              {/* 프로젝트 제목만 */}
+                      <div>
+                        <h3 className="text-xs md:text-sm font-semibold text-gray-900 line-clamp-2 md:line-clamp-3">
+                          {post.frontmatter.title}
+                        </h3>
+                      </div>
                       </Link>
                     )
                   })}

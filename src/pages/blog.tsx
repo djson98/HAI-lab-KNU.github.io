@@ -131,9 +131,7 @@ const BlogPage: React.FC<PageProps<DataProps>> = ({ data }) => {
                         <p className="text-sm text-gray-500 mb-3 group-hover:text-gray-600 transition-colors duration-300">
                           {post.frontmatter.date}
                         </p>
-                        <p className="text-sm md:text-base text-gray-600 leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
-                          {post.frontmatter.description || post.excerpt}
-                        </p>
+                        {/* 프로젝트 설명 제거 - 제목과 날짜만 표시 */}
                       </div>
                     </div>
                   </Link>

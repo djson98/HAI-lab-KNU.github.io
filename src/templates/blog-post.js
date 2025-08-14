@@ -32,19 +32,7 @@ const BlogPostTemplate = ({
         </header>
 
 
-        {/* Hero Image - Abstract 위에 표시 */}
-        {post.frontmatter.hero_image && (
-          <section className="mb-12">
-            <div className="flex justify-center">
-              <img
-                src={post.frontmatter.hero_image}
-                alt={post.frontmatter.title}
-                className="max-w-full h-auto rounded-lg shadow-lg"
-                style={{ maxHeight: '400px' }}
-              />
-            </div>
-          </section>
-        )}
+
 
         {/* Abstract 섹션 */}
         {post.frontmatter.description && (
@@ -62,18 +50,18 @@ const BlogPostTemplate = ({
         {post.frontmatter.publications && 
          post.frontmatter.publications.length > 0 && 
          post.frontmatter.publications.some(pub => pub.title && pub.title.trim() !== '') && (
-          <section className="mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">Publications</h2>
-            <div className="space-y-6">
+          <section className="mb-8">
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">Publications</h2>
+            <div className="space-y-3">
               {post.frontmatter.publications
                 .filter(pub => pub.title && pub.title.trim() !== '')
                 .map((pub, index) => (
-                <div key={index} className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                <div key={index} className="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-1">
                     {pub.title}
                   </h3>
-                  <p className="text-gray-600 mb-2">{pub.authors}</p>
-                  <p className="text-gray-500 mb-4">{pub.venue}</p>
+                  <p className="text-gray-600 text-sm mb-1">{pub.authors}</p>
+                  <p className="text-gray-500 text-sm mb-2">{pub.venue}</p>
                   
                   {/* PDF/Code 버튼들 */}
                   <div className="flex space-x-2">
@@ -82,9 +70,9 @@ const BlogPostTemplate = ({
                         href={pub.pdf}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center px-3 py-1.5 bg-red-500 text-white text-sm font-medium rounded-md hover:bg-red-600 transition-colors duration-200"
+                        className="inline-flex items-center px-2 py-1 bg-red-500 text-white text-xs font-medium rounded hover:bg-red-600 transition-colors duration-200"
                       >
-                        <FaFilePdf className="mr-1.5 w-3 h-3" />
+                        <FaFilePdf className="mr-1 w-2.5 h-2.5" />
                         PDF
                       </a>
                     )}
@@ -93,12 +81,12 @@ const BlogPostTemplate = ({
                         href={pub.code}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center px-3 py-1.5 bg-gray-500 text-white text-sm font-medium rounded-md hover:bg-gray-600 transition-colors duration-200"
+                        className="inline-flex items-center px-2 py-1 bg-gray-500 text-white text-xs font-medium rounded hover:bg-gray-600 transition-colors duration-200"
                       >
-                        <FaCode className="mr-1.5 w-3 h-3" />
+                        <FaCode className="mr-1 w-2.5 h-2.5" />
                         Code
                       </a>
-                    )}
+                      )}
                   </div>
                 </div>
               ))}
@@ -110,38 +98,40 @@ const BlogPostTemplate = ({
         {post.frontmatter.people && post.frontmatter.people.length > 0 && (
           <section className="mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-6">People</h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-              {post.frontmatter.people.map((person, index) => (
-                <div key={index} className="text-center">
-                  <div className="w-24 h-24 md:w-32 md:h-32 mx-auto mb-3 rounded-full overflow-hidden border-4 border-gray-200">
-                    {person.photo ? (
-                      <img
-                        src={person.photo}
-                        alt={person.name}
-                        className="w-full h-full object-cover"
-                      />
-                    ) : (
-                      <div className="w-full h-full bg-gray-300 flex items-center justify-center">
-                        <span className="text-gray-500 text-2xl font-bold">
-                          {person.name.charAt(0)}
-                        </span>
-                      </div>
+            <div className="flex justify-center">
+              <div className="flex gap-8 max-w-6xl">
+                {post.frontmatter.people.map((person, index) => (
+                  <div key={index} className="text-center">
+                    <div className="w-20 h-20 md:w-24 md:h-24 mx-auto mb-2 rounded-full overflow-hidden border-3 border-gray-200">
+                      {person.photo ? (
+                        <img
+                          src={person.photo}
+                          alt={person.name}
+                          className="w-full h-full object-cover"
+                        />
+                      ) : (
+                        <div className="w-full h-full bg-gray-300 flex items-center justify-center">
+                          <span className="text-gray-500 text-xl font-bold">
+                            {person.name.charAt(0)}
+                          </span>
+                        </div>
+                      )}
+                    </div>
+                    <h3 className="font-bold text-gray-900 mb-1 text-sm">{person.name}</h3>
+                    <p className="text-gray-600 text-xs mb-1">{person.affiliation}</p>
+                    {person.homepage && (
+                      <a
+                        href={person.homepage}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center text-blue-600 hover:text-blue-700 transition-colors duration-200"
+                      >
+                        <FaHome className="w-3 h-3" />
+                      </a>
                     )}
                   </div>
-                  <h3 className="font-bold text-gray-900 mb-1">{person.name}</h3>
-                  <p className="text-gray-600 text-sm mb-2">{person.affiliation}</p>
-                  {person.homepage && (
-                    <a
-                      href={person.homepage}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center text-blue-600 hover:text-blue-700 transition-colors duration-200"
-                    >
-                      <FaHome className="w-4 h-4" />
-                    </a>
-                  )}
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </section>
         )}
@@ -183,7 +173,6 @@ export const pageQuery = graphql`
           subtitle
           date(formatString: "MMMM DD, YYYY")
           description
-          hero_image
           publications {
             title
             authors
