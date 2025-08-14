@@ -43,7 +43,7 @@ const PublicationsPage: React.FC<PageProps<DataProps>> = ({ data }) => {
 
   // 사용 가능한 타입 목록 생성
   const availableTypes = React.useMemo(() => {
-    const types = ["All", "Journal", "Conference"]
+    const types = ["All", "Journal", "Conference", "Poster"]
     return types
   }, [publications])
 
