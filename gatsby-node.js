@@ -125,12 +125,25 @@ exports.createSchemaCustomization = ({ actions }) => {
       slide: String
       video: String
       thumbnail: String
+      image1: String
+      image2: String
+      image3: String
+      image4: String
       name: String
       position: String
       email: String
       homepage: String
       github: String
       googleScholar: String
+      articles: [Article]
+    }
+
+    type Article {
+      title: String
+      source: String
+      date: String
+      url: String
+      description: String
     }
 
     type Fields {

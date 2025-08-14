@@ -1,38 +1,34 @@
 ---
-title: "Interrupting for Microlearning: Understanding Perceptions and Interruptibility of Proactive Conversational Microlearning Services"
-subtitle: "Smart Speaker Timing for Microlearning"
+title: "SmartSpeaker"
+subtitle: "Proactive Conversational Microlearning Services on Smart Speakers"
 date: "2024-01-15"
-description: "This project investigates the design and implementation of proactive conversational microlearning services using smart speakers. The research focuses on understanding when and how to deliver bite-sized learning content without disrupting users' daily activities."
+description: "As smart speakers with AI voice assistants become embedded in everyday home life, there is growing interest in leveraging them to proactively deliver services. Maximizing the user experience of such proactive services requires identifying opportune moments (i.e., user contexts in which people are highly interruptible and receptive). This project examined which contextual factors are necessary to identify opportune moments for proactively delivering services in domestic settings. We designed a conversational microlearning service for English practice, and conducted six pilot studies and a three-week in-the-wild user studies. The findings provide initial insights into how the duration of conversational services and the user context prior to engaging in the services influence opportune moments when such services are proactively delivered in domestic settings."
 thumbnail: "/images/speaker.png"
 publications:
-  - title: "Interrupting for Microlearning: Understanding Perceptions and Interruptibility"
-    authors: "HAI Lab Team"
-    venue: "Internal Research Project, 2024"
-    pdf: ""
-    code: ""
+  - title: "Interrupting for Microlearning: Understanding Perceptions and Interruptibility of Proactive Conversational Microlearning Services"
+    authors: "Minyeong Kim, Jiwook Lee, Youngji Koh, Chanhee Lee, Uichin Lee, Auk Kim"
+    venue: "Proceedings of the CHI Conference on Human Factors in Computing Systems (CHI '24)"
+    pdf: "/paper/CHI24Microlearning.pdf"
+    video: "https://www.youtube.com/watch?v=JBZ-uJym3hg"
 people:
-  - name: "HAI Lab Members"
+  - name: "Min Young Kim"
     affiliation: "Kangwon National University"
-    photo: ""
+    photo: "/images/김민영.jpg"
     homepage: ""
+  - name: "Ji Wook Lee"
+    affiliation: "Kangwon National University"
+    photo: "/images/이지욱_2.jpg"
+    homepage: ""
+  - name: "Jiwoo Hwang"
+    affiliation: "Kangwon National University"
+    photo: "/images/members/jiwoohwang.jpeg"
+    homepage: "https://hwang-jiwoo.github.io/"
+  - name: "Sunatullaev Golibjon"
+    affiliation: "Kangwon National University"
+    photo: "/images/members/golibjon.png"
+    homepage: ""
+  - name: "Auk Kim"
+    affiliation: "Kangwon National University"
+    photo: "/images/members/aukkim.jpeg"
+    homepage: "https://kimauk.github.io/"
 ---
-
-This project investigates the design and implementation of proactive conversational microlearning services using smart speakers. The research focuses on understanding when and how to deliver bite-sized learning content without disrupting users' daily activities.
-
-**Key Research Areas:**
-- Microlearning delivery timing
-- User interruptibility patterns
-- Conversational AI for education
-- Smart speaker interaction design
-
-**Methodology:**
-- Field studies with smart speaker users
-- Interruptibility assessment frameworks
-- Conversational microlearning prototypes
-
-**Expected Outcomes:**
-- Guidelines for timing microlearning delivery
-- User perception insights
-- Design recommendations for proactive learning services
-
-<!-- Updated for Gatsby rebuild --> 
