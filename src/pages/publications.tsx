@@ -2,7 +2,7 @@ import * as React from "react"
 import { graphql, PageProps, Link } from "gatsby"
 import Layout from "../components/layout"
 import YearFilter from "../components/YearFilter"
-import { FaTrophy } from "react-icons/fa"
+import { FaTrophy, FaChartBar } from "react-icons/fa"
 
 type DataProps = {
   allMarkdownRemark: {
@@ -107,15 +107,41 @@ const PublicationsPage: React.FC<PageProps<DataProps>> = ({ data }) => {
                           <p className="mb-1">{pub.frontmatter.authors}</p>
                           <p className="italic mb-2">{pub.frontmatter.journal}, {pub.frontmatter.year}</p>
                           
-                          {/* 수상 배지 */}
-                          {pub.frontmatter.award && (
-                            <div className="mb-2">
+                          {/* Top Conference와 수상 배지를 같은 줄에 표시 */}
+                          <div className="mb-2 flex flex-wrap gap-2">
+                            {/* Top Conference 배지 */}
+                            {pub.frontmatter.journal && (
+                              pub.frontmatter.journal.includes('CHI') || 
+                              pub.frontmatter.journal.includes('UbiComp') || 
+                              pub.frontmatter.journal.includes('IMWUT') ||
+                              pub.frontmatter.journal.includes('Ubicomp')
+                            ) && (
+                              <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-semibold bg-gradient-to-r from-purple-50 to-indigo-50 text-purple-800 shadow-sm border border-purple-200">
+                                <FaTrophy className="w-3 h-3 mr-1 text-purple-600" />
+                                Top Conference
+                              </span>
+                            )}
+                            
+                            {/* JCR 배지 */}
+                            {pub.frontmatter.journal && (
+                              pub.frontmatter.journal.includes('International Journal of Human-Computer Studies') ||
+                              pub.frontmatter.journal.includes('Computers & Education') ||
+                              pub.frontmatter.journal.includes('Computers in Human Behavior')
+                            ) && (
+                              <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-semibold bg-gradient-to-r from-green-50 to-emerald-50 text-green-800 shadow-sm border border-green-200">
+                                <FaChartBar className="w-3 h-3 mr-1 text-green-600" />
+                                JCR 7%
+                              </span>
+                            )}
+                            
+                            {/* 수상 배지 */}
+                            {pub.frontmatter.award && (
                               <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-gradient-to-r from-amber-50 to-yellow-50 text-amber-800 shadow-sm border border-amber-200">
                                 <FaTrophy className="w-4 h-4 mr-1 text-amber-600" />
                                 {pub.frontmatter.award}
                               </span>
-                            </div>
-                          )}
+                            )}
+                          </div>
                         </div>
                         
                         <div className="flex space-x-4">
