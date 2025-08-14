@@ -66,8 +66,8 @@ const IndexPage = ({ data }) => {
         {/* Recent Publications Section */}
         <section className="py-16 bg-white" aria-labelledby="recent-projects-heading">
           <div className="max-w-4xl mx-auto px-4 md:px-6">
-            <div className="text-center mb-8">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4" id="recent-projects-heading">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6" id="recent-projects-heading">
                 Recent Projects
               </h2>
             </div>
@@ -164,8 +164,8 @@ const IndexPage = ({ data }) => {
                         </div>
                         
                                               {/* 프로젝트 제목만 */}
-                      <div>
-                        <h3 className="text-xs md:text-sm font-semibold text-gray-900 line-clamp-2 md:line-clamp-3">
+                      <div className="text-center">
+                        <h3 className="text-base md:text-lg font-bold text-gray-900 line-clamp-2 md:line-clamp-3">
                           {post.frontmatter.title}
                         </h3>
                       </div>

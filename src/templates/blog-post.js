@@ -33,10 +33,10 @@ const BlogPostTemplate = ({
 
         {/* Abstract 섹션 */}
         {post.frontmatter.description && (
-          <section className="mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">Abstract</h2>
-            <div className="bg-gray-50 rounded-lg p-6">
-              <p className="text-lg text-gray-700 leading-relaxed">
+          <section className="mb-8 md:mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4 md:mb-6">Abstract</h2>
+            <div className="bg-gray-50 rounded-lg p-4 md:p-6">
+              <p className="text-base md:text-lg text-gray-700 leading-relaxed">
                 {post.frontmatter.description}
               </p>
             </div>
@@ -47,18 +47,18 @@ const BlogPostTemplate = ({
         {post.frontmatter.publications && 
          post.frontmatter.publications.length > 0 && 
          post.frontmatter.publications.some(pub => pub.title && pub.title.trim() !== '') && (
-          <section className="mb-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">Publications</h2>
-            <div className="space-y-3">
+          <section className="mb-6 md:mb-8">
+            <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-3 md:mb-4">Publications</h2>
+            <div className="space-y-2 md:space-y-3">
               {post.frontmatter.publications
                 .filter(pub => pub.title && pub.title.trim() !== '')
                 .map((pub, index) => (
-                <div key={index} className="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-1">
+                <div key={index} className="bg-white border border-gray-200 rounded-lg p-3 md:p-4 shadow-sm">
+                  <h3 className="text-base md:text-lg font-semibold text-gray-900 mb-1">
                     {pub.title}
                   </h3>
-                  <p className="text-gray-600 text-sm mb-1">{pub.authors}</p>
-                  <p className="text-gray-500 text-sm mb-2">{pub.venue}</p>
+                  <p className="text-gray-600 text-xs md:text-sm mb-1">{pub.authors}</p>
+                  <p className="text-gray-500 text-xs md:text-sm mb-2">{pub.venue}</p>
                   
                   {/* PDF/Code/Video 버튼들 */}
                   <div className="flex space-x-2">
@@ -106,17 +106,17 @@ const BlogPostTemplate = ({
         {post.frontmatter.articles && 
          post.frontmatter.articles.length > 0 && 
          post.frontmatter.articles.some(article => article.title && article.title.trim() !== '') && (
-          <section className="mb-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">Articles</h2>
-            <div className="space-y-3">
+          <section className="mb-6 md:mb-8">
+            <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-3 md:mb-4">Articles</h2>
+            <div className="space-y-2 md:space-y-3">
               {post.frontmatter.articles
                 .filter(article => article.title && article.title.trim() !== '')
                 .map((article, index) => (
-                <div key={index} className="bg-white border border-gray-200 rounded-lg p-4 shadow-sm">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-1">
+                <div key={index} className="bg-white border border-gray-200 rounded-lg p-3 md:p-4 shadow-sm">
+                  <h3 className="text-base md:text-lg font-semibold text-gray-900 mb-1">
                     {article.title}
                   </h3>
-                  <p className="text-gray-600 text-sm mb-1">{article.source} • {article.date}</p>
+                  <p className="text-gray-600 text-xs md:text-sm mb-1">{article.source} • {article.date}</p>
                   
                   {/* Article Link 버튼 */}
                   <div className="flex space-x-2">
@@ -140,29 +140,32 @@ const BlogPostTemplate = ({
 
         {/* People 섹션 */}
         {post.frontmatter.people && post.frontmatter.people.length > 0 && (
-          <section className="mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">People</h2>
+          <section className="mb-8 md:mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4 md:mb-6">People</h2>
             <div className="flex justify-center">
-              <div className="flex gap-8 max-w-6xl">
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6 max-w-6xl">
                 {post.frontmatter.people.map((person, index) => (
                   <div key={index} className="text-center">
-                    <div className="w-20 h-20 md:w-24 md:h-24 mx-auto mb-2 rounded-full overflow-hidden border-3 border-gray-200">
+                    <div className="w-16 h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 mx-auto mb-3 rounded-full overflow-hidden border-2 border-gray-200 bg-gray-100">
                       {person.photo ? (
                         <img
                           src={person.photo}
                           alt={person.name}
                           className="w-full h-full object-cover"
+                          onError={(e) => {
+                            e.target.style.display = 'none';
+                            e.target.nextSibling.style.display = 'flex';
+                          }}
                         />
-                      ) : (
-                        <div className="w-full h-full bg-gray-300 flex items-center justify-center">
-                          <span className="text-gray-500 text-xl font-bold">
-                            {person.name.charAt(0)}
-                          </span>
-                        </div>
-                      )}
+                      ) : null}
+                      <div className={`w-full h-full bg-gray-300 flex items-center justify-center ${person.photo ? 'hidden' : 'flex'}`}>
+                        <span className="text-gray-600 text-lg md:text-xl font-bold">
+                          {person.name.charAt(0)}
+                        </span>
+                      </div>
                     </div>
-                    <h3 className="font-bold text-gray-900 mb-1 text-sm">{person.name}</h3>
-                    <p className="text-gray-600 text-xs mb-1">{person.affiliation}</p>
+                    <h3 className="font-bold text-gray-900 mb-1 text-xs md:text-sm">{person.name}</h3>
+                    <p className="text-gray-600 text-xs mb-2">{person.affiliation}</p>
                     {person.homepage && (
                       <a
                         href={person.homepage}
@@ -170,7 +173,7 @@ const BlogPostTemplate = ({
                         rel="noopener noreferrer"
                         className="inline-flex items-center text-blue-600 hover:text-blue-700 transition-colors duration-200"
                       >
-                        <FaHome className="w-3 h-3" />
+                        <FaHome className="w-2 h-2 md:w-3 md:h-3" />
                       </a>
                     )}
                   </div>
