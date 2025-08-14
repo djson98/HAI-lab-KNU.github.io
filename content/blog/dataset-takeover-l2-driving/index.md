@@ -1,11 +1,33 @@
 ---
-title: "A Dataset on Takeover during Distracted L2 Automated Driving"
+title: "스마트카-제목수정필요"
+subtitle: "Driver Behavior Analysis in Automated Driving"
 date: "2024-01-15"
-description: "Dataset for studying driver takeover behavior during distracted L2 automated driving scenarios"
+description: "앱스트도 수정필요"
+hero_image: "/images/car1.png"
 image1: "/images/car1.png"
 image2: "/images/car2.png"
 image3: "/images/car3.png"
 image4: "/images/car4.png"
+publications:
+  - title: "A Dataset on Takeover During Distracted L2 Automated Driving"
+    authors: "Jiwoo Hwang, Woohyeok Choi, Jungmin Lee, Woojoo Kim, Jungwook Rhim, Auk Kim"
+    venue: "Scientific Data, 2025"
+    pdf: "/paper/A_Dataset_on_Takeover_during_Distracted_L2_Automated_Driving.pdf"
+    code: ""
+  - title: "Effects of In-Vehicle Auditory Interactions on Takeover Performance in SAE L2 Semi-Automated Vehicles"
+    authors: "Jiwoo Hwang, Woohyeok Choi, Auk Kim"
+    venue: "International Journal of Human-Computer Studies, 2025"
+    pdf: "/paper/Effects-of-In-Vehicle-Auditory-Interactions.pdf"
+    code: ""
+people:
+  - name: "Auk Kim"
+    affiliation: "Kangwon National University"
+    photo: "/images/members/aukkim.jpeg"
+    homepage: ""
+  - name: "Jiwoo Hwang"
+    affiliation: "Kangwon National University"
+    photo: "/images/members/jiwoohwang.jpeg"
+    homepage: ""
 ---
 
 A Dataset on Takeover during Distracted L2 Automated Driving

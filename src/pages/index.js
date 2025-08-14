@@ -70,110 +70,120 @@ const IndexPage = ({ data }) => {
               <h2 className="text-3xl font-bold text-gray-900 mb-4" id="recent-projects-heading">
                 Recent Projects
               </h2>
-              <Link
-                to="/blog"
-                className="text-blue-500 hover:text-blue-600 font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded px-2 py-1"
-              >
-                View All 
-              </Link>
             </div>
             {posts.length > 0 ? (
-              <div className="grid md:grid-cols-3 gap-4 md:gap-8">
-                {posts.map((post) => {
-                  return (
-                    <div key={post.id} className="bg-white rounded-lg p-3 md:p-4 shadow-sm hover:shadow-lg hover:scale-105 hover:border-blue-200 border border-transparent transition-all duration-300 cursor-pointer">
-                      {/* 썸네일 */}
-                      <div className="mb-3">
-                        <div className="w-full h-24 md:h-40 rounded-lg overflow-hidden shadow-sm">
-                          {post.frontmatter.image1 && post.frontmatter.image2 && post.frontmatter.image3 && post.frontmatter.image4 ? (
-                            // 4개 이미지: car1, car2 좌우, car3, car4 아래 좌우
-                            <div className="w-full h-full flex flex-col">
-                              <div className="w-full h-1/2 flex">
-                                <img
-                                  src={post.frontmatter.image1}
-                                  alt={`${post.frontmatter.title} - Image 1`}
-                                  className="w-1/2 h-full object-contain"
-                                />
-                                <img
-                                  src={post.frontmatter.image2}
-                                  alt={`${post.frontmatter.title} - Image 2`}
-                                  className="w-1/2 h-full object-contain"
-                                />
+              <>
+                <div className="grid md:grid-cols-3 gap-4 md:gap-8">
+                  {posts.map((post) => {
+                    return (
+                      <Link 
+                        to={post.fields.slug} 
+                        key={post.id} 
+                        className="block bg-white rounded-lg p-3 md:p-4 shadow-sm hover:shadow-lg hover:scale-105 hover:border-blue-200 border border-transparent transition-all duration-300 cursor-pointer"
+                      >
+                        {/* 썸네일 */}
+                        <div className="mb-3">
+                          <div className="w-full h-24 md:h-40 rounded-lg overflow-hidden shadow-sm">
+                            {post.frontmatter.image1 && post.frontmatter.image2 && post.frontmatter.image3 && post.frontmatter.image4 ? (
+                              // 4개 이미지: car1, car2 좌우, car3, car4 아래 좌우
+                              <div className="w-full h-full flex flex-col">
+                                <div className="w-full h-1/2 flex">
+                                  <img
+                                    src={post.frontmatter.image1}
+                                    alt={`${post.frontmatter.title} - Image 1`}
+                                    className="w-1/2 h-full object-contain"
+                                  />
+                                  <img
+                                    src={post.frontmatter.image2}
+                                    alt={`${post.frontmatter.title} - Image 2`}
+                                    className="w-1/2 h-full object-contain"
+                                  />
+                                </div>
+                                <div className="w-full h-1/2 flex">
+                                  <img
+                                    src={post.frontmatter.image3}
+                                    alt={`${post.frontmatter.title} - Image 3`}
+                                    className="w-1/2 h-full object-contain"
+                                  />
+                                  <img
+                                    src={post.frontmatter.image4}
+                                    alt={`${post.frontmatter.title} - Image 4`}
+                                    className="w-1/2 h-full object-contain"
+                                  />
+                                </div>
                               </div>
-                              <div className="w-full h-1/2 flex">
+                            ) : post.frontmatter.image1 && post.frontmatter.image2 && post.frontmatter.image3 ? (
+                              // 3개 이미지: car1, car2 좌우, car3 아래
+                              <div className="w-full h-full flex flex-col">
+                                <div className="w-full h-2/3 flex">
+                                  <img
+                                    src={post.frontmatter.image1}
+                                    alt={`${post.frontmatter.title} - Image 1`}
+                                    className="w-1/2 h-full object-contain"
+                                  />
+                                  <img
+                                    src={post.frontmatter.image2}
+                                    alt={`${post.frontmatter.title} - Image 2`}
+                                    className="w-1/2 h-full object-contain"
+                                  />
+                                </div>
                                 <img
                                   src={post.frontmatter.image3}
                                   alt={`${post.frontmatter.title} - Image 3`}
-                                  className="w-1/2 h-full object-contain"
-                                />
-                                <img
-                                  src={post.frontmatter.image4}
-                                  alt={`${post.frontmatter.title} - Image 4`}
-                                  className="w-1/2 h-full object-contain"
+                                  className="w-full h-1/3 object-contain"
                                 />
                               </div>
-                            </div>
-                          ) : post.frontmatter.image1 && post.frontmatter.image2 && post.frontmatter.image3 ? (
-                            // 3개 이미지: car1, car2 좌우, car3 아래
-                            <div className="w-full h-full flex flex-col">
-                              <div className="w-full h-2/3 flex">
+                            ) : post.frontmatter.image1 && post.frontmatter.image2 ? (
+                              // IoT 프로젝트는 상하로, 다른 프로젝트는 좌우로 표시
+                              <div className={`w-full h-full ${post.frontmatter.title.includes('IoT-Enabled') ? 'flex flex-col' : 'flex'}`}>
                                 <img
                                   src={post.frontmatter.image1}
                                   alt={`${post.frontmatter.title} - Image 1`}
-                                  className="w-1/2 h-full object-contain"
+                                  className={`${post.frontmatter.title.includes('IoT-Enabled') ? 'w-full h-1/2' : 'w-1/2 h-full'} object-contain`}
                                 />
                                 <img
                                   src={post.frontmatter.image2}
                                   alt={`${post.frontmatter.title} - Image 2`}
-                                  className="w-1/2 h-full object-contain"
+                                  className={`${post.frontmatter.title.includes('IoT-Enabled') ? 'w-full h-1/2' : 'w-1/2 h-full'} object-contain`}
                                 />
                               </div>
+                            ) : post.frontmatter.thumbnail ? (
+                              // 일반 프로젝트: 썸네일 표시
                               <img
-                                src={post.frontmatter.image3}
-                                alt={`${post.frontmatter.title} - Image 3`}
-                                className="w-full h-1/3 object-contain"
+                                src={post.frontmatter.thumbnail}
+                                alt={post.frontmatter.title}
+                                className="w-full h-full object-contain"
                               />
-                            </div>
-                          ) : post.frontmatter.image1 && post.frontmatter.image2 ? (
-                            // IoT 프로젝트는 상하로, 다른 프로젝트는 좌우로 표시
-                            <div className={`w-full h-full ${post.frontmatter.title.includes('IoT-Enabled') ? 'flex flex-col' : 'flex'}`}>
-                              <img
-                                src={post.frontmatter.image1}
-                                alt={`${post.frontmatter.title} - Image 1`}
-                                className={`${post.frontmatter.title.includes('IoT-Enabled') ? 'w-full h-1/2' : 'w-1/2 h-full'} object-contain`}
-                              />
-                              <img
-                                src={post.frontmatter.image2}
-                                alt={`${post.frontmatter.title} - Image 2`}
-                                className={`${post.frontmatter.title.includes('IoT-Enabled') ? 'w-full h-1/2' : 'w-1/2 h-full'} object-contain`}
-                              />
-                            </div>
-                          ) : post.frontmatter.thumbnail ? (
-                            // 일반 프로젝트: 썸네일 표시
-                            <img
-                              src={post.frontmatter.thumbnail}
-                              alt={post.frontmatter.title}
-                              className="w-full h-full object-contain"
-                            />
-                          ) : (
-                            // 이미지 없음
-                            <div className="w-full h-full flex items-center justify-center text-gray-400">
-                              <span className="text-xs md:text-sm">No Image</span>
-                            </div>
-                          )}
+                            ) : (
+                              // 이미지 없음
+                              <div className="w-full h-full flex items-center justify-center text-gray-400">
+                                <span className="text-xs md:text-sm">No Image</span>
+                              </div>
+                            )}
+                          </div>
                         </div>
-                      </div>
-                      
-                      {/* 프로젝트 제목만 */}
-                      <div>
-                        <h3 className="text-xs md:text-sm font-semibold text-gray-900 line-clamp-2 md:line-clamp-3">
-                          {post.frontmatter.title}
-                        </h3>
-                      </div>
-                    </div>
-                  )
-                })}
-              </div>
+                        
+                        {/* 프로젝트 제목만 */}
+                        <div>
+                          <h3 className="text-xs md:text-sm font-semibold text-gray-900 line-clamp-2 md:line-clamp-3">
+                            {post.frontmatter.title}
+                          </h3>
+                        </div>
+                      </Link>
+                    )
+                  })}
+                </div>
+                
+                {/* View All 링크를 프로젝트들 아래에 배치 */}
+                <div className="text-center mt-8">
+                  <Link
+                    to="/blog"
+                    className="inline-block text-blue-500 hover:text-blue-600 font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded px-4 py-2 transition-all duration-200"
+                  >
+                    View All Projects
+                  </Link>
+                </div>
+              </>
             ) : (
               <div className="bg-white rounded-lg p-6 shadow-sm">
                 <p className="text-gray-600 text-center py-8">
