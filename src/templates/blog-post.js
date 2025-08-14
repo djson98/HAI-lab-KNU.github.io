@@ -31,6 +31,23 @@ const BlogPostTemplate = ({
 
 
 
+        {/* 썸네일 이미지 섹션 */}
+        {(post.frontmatter.image1 || post.frontmatter.thumbnail) && (
+          <section className="mb-8 md:mb-12">
+            <div className="w-full max-w-4xl mx-auto">
+              <div className="w-full h-64 md:h-80 rounded-lg overflow-hidden shadow-sm border border-gray-200">
+                <img
+                  src={post.frontmatter.image1 || post.frontmatter.thumbnail}
+                  alt={post.frontmatter.title}
+                  className="w-full h-full object-contain"
+                />
+              </div>
+            </div>
+          </section>
+        )}
+        
+
+
         {/* Abstract 섹션 */}
         {post.frontmatter.description && (
           <section className="mb-8 md:mb-12">
@@ -217,10 +234,13 @@ export const pageQuery = graphql`
       html
               frontmatter {
           title
-          subtitle
           date(formatString: "MMMM DD, YYYY")
           description
           thumbnail
+          image1
+          image2
+          image3
+          image4
           publications {
             title
             authors

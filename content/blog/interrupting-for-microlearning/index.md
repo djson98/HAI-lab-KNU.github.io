@@ -1,6 +1,6 @@
 ---
-title: "SmartSpeaker"
-subtitle: "Proactive Conversational Microlearning Services on Smart Speakers"
+title: "Detecting Opportune Moments for Proactive Conversational Service Delivery in Home Environments"
+
 date: "2024-01-15"
 description: "As smart speakers with AI voice assistants become embedded in everyday home life, there is growing interest in leveraging them to proactively deliver services. Maximizing the user experience of such proactive services requires identifying opportune moments (i.e., user contexts in which people are highly interruptible and receptive). This project examined which contextual factors are necessary to identify opportune moments for proactively delivering services in domestic settings. We designed a conversational microlearning service for English practice, and conducted six pilot studies and a three-week in-the-wild user studies. The findings provide initial insights into how the duration of conversational services and the user context prior to engaging in the services influence opportune moments when such services are proactively delivered in domestic settings."
 thumbnail: "/images/speaker.png"
@@ -19,14 +19,7 @@ people:
     affiliation: "Kangwon National University"
     photo: "/images/이지욱_2.jpg"
     homepage: ""
-  - name: "Jiwoo Hwang"
-    affiliation: "Kangwon National University"
-    photo: "/images/members/jiwoohwang.jpeg"
-    homepage: "https://hwang-jiwoo.github.io/"
-  - name: "Sunatullaev Golibjon"
-    affiliation: "Kangwon National University"
-    photo: "/images/members/golibjon.png"
-    homepage: ""
+
   - name: "Auk Kim"
     affiliation: "Kangwon National University"
     photo: "/images/members/aukkim.jpeg"

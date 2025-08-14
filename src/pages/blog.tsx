@@ -38,7 +38,7 @@ const BlogPage: React.FC<PageProps<DataProps>> = ({ data }) => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {posts.map((post) => {
               return (
-                <article key={post.id} className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-gray-100 hover:border-blue-200">
+                <article key={post.id} className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-500 hover:-translate-y-2 border border-gray-100 hover:border-blue-200">
                   <Link to={post.fields.slug} className="block">
                     {/* 썸네일 이미지 */}
                     <div className="w-full h-64 overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100 group-hover:from-blue-50 group-hover:to-indigo-50 transition-all duration-500">

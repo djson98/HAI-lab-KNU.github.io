@@ -1,6 +1,6 @@
 ---
 title: "AI Complaint Classification for University IT Service Management"
-subtitle: "AI-powered IT Service Management System"
+
 date: "2024-01-10"
 description: "University complaint systems require significant time and effort to route complaints to appropriate personnel. This project developed an AI system that automatically reads and routes complaints, improving processing efficiency. The AI uses vector search to understand complaint content and classify it based on similar cases. The system continuously improves performance using accumulated data, ensuring long-term value. After implementing the AI complaint classification system, Kangwon National University's IT Service Team improved processing speed across various IT services. This enables faster and higher-quality support for campus members."
 thumbnail: "/images/itsm3.png"

@@ -165,7 +165,7 @@ const IndexPage = ({ data }) => {
                         
                                               {/* 프로젝트 제목만 */}
                       <div className="text-center">
-                        <h3 className="text-base md:text-lg font-bold text-gray-900 line-clamp-2 md:line-clamp-3">
+                        <h3 className="text-base md:text-lg font-bold text-gray-900">
                           {post.frontmatter.title}
                         </h3>
                       </div>
@@ -272,13 +272,9 @@ const IndexPage = ({ data }) => {
             Contact Us
             </h2>
             <p className="text-sm md:text-base text-gray-600 mb-6 md:mb-8 text-left">
-            We're looking for passionate people to join the Human AI Interaction Lab.
-
-If you're excited about designing better interactions between humans and AI—
-and want to explore the intersection of HCI, Ubiquitous Computing, Behavioral Science, and Machine Learning—
-join us.
-
             </p>
+            
+            
             
             {/* 연락처 정보 */}
             <div className="space-y-4 text-left">

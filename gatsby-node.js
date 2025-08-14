@@ -135,7 +135,18 @@ exports.createSchemaCustomization = ({ actions }) => {
       homepage: String
       github: String
       googleScholar: String
+      publications: [Publication]
       articles: [Article]
+      people: [Person]
+    }
+
+    type Publication {
+      title: String
+      authors: String
+      venue: String
+      pdf: String
+      video: String
+      code: String
     }
 
     type Article {
@@ -144,6 +155,13 @@ exports.createSchemaCustomization = ({ actions }) => {
       date: String
       url: String
       description: String
+    }
+
+    type Person {
+      name: String
+      affiliation: String
+      photo: String
+      homepage: String
     }
 
     type Fields {
