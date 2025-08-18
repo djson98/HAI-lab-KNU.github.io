@@ -1,7 +1,8 @@
 ---
-title: "A Survey on Design for Development of Voice Driving Assistance Agent"
+title: "음성 운전 보조 에이전트 개발을 위한 디자인 요구사항 조사"
+subtitle: "A Survey on Design for Development of Voice Driving Assistance Agent"
 authors: "Minji Kim, Mingyu Han, Jiwoo Hwang, Auk Kim"
-journal: "Proceedings of HCI Korea 2022"
+journal: "PROCEEDINGS OF HCI KOREA 2022 학술대회 발표 논문집, 283-288 (HCIK 2022)"
 type: "Conference"
 year: "2022"
 date: "2022-01-01"

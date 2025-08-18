@@ -5,7 +5,7 @@ description: "Drivers must maintain awareness of traffic conditions to prevent a
 thumbnail: "/images/driving-assitance.png"
 
 publications:
-  - title: "A Survey on Design for Development of Voice Driving Assistance Agent"
+  - title: "음성 운전 보조 에이전트 개발을 위한 디자인 요구사항 조사"
     authors: "Minji Kim, Mingyu Han, Jiwoo Hwang, Auk Kim"
     venue: "Proceedings of HCI Korea 2022, 2022"
     pdf: "/paper/HCIK22_intelligentVehicleAgent.pdf"
