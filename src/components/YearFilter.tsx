@@ -25,12 +25,12 @@ const YearFilter: React.FC<YearFilterProps> = ({
     <div className="mb-6">
       <div className="space-y-4">
         {/* 타입 필터 */}
-        <div className="flex flex-wrap justify-center gap-3">
+        <div className="flex flex-nowrap justify-center gap-2 overflow-x-auto pb-2">
           {availableTypes.map((type) => (
             <button
               key={type}
               onClick={() => onTypeChange(type)}
-              className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
+              className={`px-3 py-2 rounded-lg font-medium transition-all duration-200 text-sm whitespace-nowrap flex-shrink-0 ${
                 selectedType === type
                   ? "bg-blue-600 text-white shadow-lg"
                   : "bg-white text-blue-600 border border-gray-300 hover:bg-gray-50 hover:border-blue-400 hover:shadow-md"
