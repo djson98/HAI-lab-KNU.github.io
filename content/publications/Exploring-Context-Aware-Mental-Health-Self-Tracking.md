@@ -12,4 +12,5 @@ abstract: |
 paper: "/paper/CHI24Multimodal.pdf"
 slide: ""
 video: "https://www.youtube.com/watch?v=GqpiW3gaO4s"
+tags: ["Top Conference"]
 ---

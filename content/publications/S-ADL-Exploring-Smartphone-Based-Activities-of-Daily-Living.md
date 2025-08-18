@@ -13,4 +13,5 @@ abstract: |
 paper: "/paper/CHI24SADL.pdf"
 slide: ""
 video: "https://www.youtube.com/watch?v=X4jMDuCoaOA"
+tags: ["Top Conference"]
 ---

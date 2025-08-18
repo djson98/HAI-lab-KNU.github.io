@@ -9,6 +9,7 @@ doi: "10.1145/3491102.3517644"
 paper: "/paper/CHI22_ESM.pdf"
 slide: ""
 video: "https://www.youtube.com/watch?v=CCw1uEOuhZM"
+tags: ["Top Conference"]
 ---
 
 # Understanding emotion changes in mobile experience sampling

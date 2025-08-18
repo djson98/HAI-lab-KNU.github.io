@@ -199,66 +199,7 @@ const IndexPage = ({ data }) => {
           <hr className="border-gray-200 opacity-50 my-8" />
         </div>
 
-        {/* Recent News Section - Hidden for now, will be developed later */}
-        {/* 
-        <section className="py-16 bg-gradient-to-br from-blue-50 to-white rounded-3xl mx-6" aria-labelledby="news-heading">
-          <div className="max-w-4xl mx-auto px-6">
-            <div className="text-center mb-8">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4" id="news-heading">
-               News
-              </h2>
-              <Link
-                to="/news"
-                className="text-blue-500 hover:text-blue-600 font-medium focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 rounded px-2 py-1"
-              >
-                View All 
-              </Link>
-            </div>
-            {news.length > 0 ? (
-              <div className="space-y-4">
-                {news.map((item) => (
-                  <div key={item.id} className="bg-white rounded-2xl p-3 md:p-4 shadow-sm hover:shadow-lg hover:scale-105 hover:border-blue-200 border border-transparent transition-all duration-300 cursor-pointer">
-                    <div className="flex items-center space-x-3 md:space-x-4">
-                      <div className="flex-shrink-0">
-                        <div className="w-12 h-12 md:w-16 md:h-16 rounded-lg overflow-hidden bg-gray-100 shadow-sm">
-                          {item.frontmatter.thumbnail ? (
-                            <img
-                              src={item.frontmatter.thumbnail}
-                              alt={item.frontmatter.title}
-                              className="w-full h-full object-cover"
-                            />
-                          ) : (
-                            <div className="w-full h-full flex items-center justify-center text-gray-400 bg-gray-50">
-                              <span className="text-xs">No Image</span>
-                            </div>
-                          )}
-                        </div>
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <h3 className="text-sm md:text-lg font-semibold text-gray-900 mb-1 line-clamp-1">
-                          {item.frontmatter.title}
-                        </h3>
-                        <p className="text-xs md:text-sm text-gray-500 mb-2">
-                          {item.frontmatter.date}
-                        </p>
-                        <p className="text-xs md:text-sm text-gray-600 line-clamp-2">
-                          {item.frontmatter.description || item.excerpt}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            ) : (
-              <div className="bg-white rounded-lg p-6 shadow-sm">
-                <p className="text-gray-600 text-center py-8">
-                  최근 뉴스가 여기에 표시됩니다.
-                </p>
-              </div>
-            )}
-          </div>
-        </section>
-        */}
+
 
         {/* 구분선 */}
         <div className="max-w-4xl mx-auto px-4 md:px-6">

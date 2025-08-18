@@ -110,12 +110,7 @@ const PublicationsPage: React.FC<PageProps<DataProps>> = ({ data }) => {
                           {/* Top Conference와 수상 배지를 같은 줄에 표시 */}
                           <div className="mb-2 flex flex-wrap gap-2">
                             {/* Top Conference 배지 */}
-                            {pub.frontmatter.journal && (
-                              pub.frontmatter.journal.includes('CHI') || 
-                              pub.frontmatter.journal.includes('UbiComp') || 
-                              pub.frontmatter.journal.includes('IMWUT') ||
-                              pub.frontmatter.journal.includes('Ubicomp')
-                            ) && (
+                            {pub.frontmatter.tags && pub.frontmatter.tags.includes('Top Conference') && (
                               <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-semibold bg-gradient-to-r from-purple-50 to-indigo-50 text-purple-800 shadow-sm border border-purple-200">
                                 <FaTrophy className="w-3 h-3 mr-1 text-purple-600" />
                                 Top Conference
@@ -213,6 +208,7 @@ export const query = graphql`
           slide
           video
           award
+          tags
         }
       }
     }

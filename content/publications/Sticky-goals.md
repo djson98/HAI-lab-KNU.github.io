@@ -9,6 +9,7 @@ doi: "10.1145/3411764.3445760"
 paper: "/paper/CHI21_commitments.pdf"
 slide: ""
 video: "https://www.youtube.com/watch?v=mSCXgOceCpA"
+tags: ["Top Conference"]
 ---
 
 # Sticky Goals: Understanding Goal Commitments for Behavioral Changes in the Wild
