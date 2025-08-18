@@ -1,6 +1,6 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
-import { FaFilePdf, FaCode, FaHome, FaPlay } from "react-icons/fa"
+import { FaFilePdf, FaCode, FaHome, FaPlay, FaGithub } from "react-icons/fa"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
@@ -108,10 +108,10 @@ const BlogPostTemplate = ({
                         rel="noopener noreferrer"
                         className="inline-flex items-center px-2 py-1 bg-gray-500 text-white text-xs font-medium rounded hover:bg-gray-600 transition-colors duration-200"
                       >
-                        <FaCode className="mr-1 w-2.5 h-2.5" />
-                        Code
+                        <FaGithub className="mr-1 w-2.5 h-2.5" />
+                        GitHub
                       </a>
-                      )}
+                    )}
                   </div>
                 </div>
               ))}

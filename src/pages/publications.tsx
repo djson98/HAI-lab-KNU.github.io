@@ -2,7 +2,8 @@ import * as React from "react"
 import { graphql, PageProps, Link } from "gatsby"
 import Layout from "../components/layout"
 import YearFilter from "../components/YearFilter"
-import { FaTrophy, FaChartBar } from "react-icons/fa"
+import { FaTrophy, FaChartBar, FaFilePdf, FaPlay } from "react-icons/fa"
+import { FaGithub } from "react-icons/fa"
 
 type DataProps = {
   allMarkdownRemark: {
@@ -23,6 +24,7 @@ type DataProps = {
         paper: string
         slide: string
         video: string
+        github: string
         award?: string
       }
     }[]
@@ -145,8 +147,9 @@ const PublicationsPage: React.FC<PageProps<DataProps>> = ({ data }) => {
                               href={pub.frontmatter.paper}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="px-3 py-1.5 text-xs font-medium bg-sky-100 text-sky-700 rounded-md shadow-sm hover:bg-sky-200 hover:shadow-lg hover:scale-110 hover:text-sky-800 hover:-translate-y-1 transition-all duration-300 cursor-pointer"
+                              className="px-3 py-1.5 text-xs font-medium bg-sky-100 text-sky-700 rounded-md shadow-sm hover:bg-sky-200 hover:shadow-lg hover:scale-110 hover:text-sky-800 hover:-translate-y-1 transition-all duration-300 cursor-pointer flex items-center"
                             >
+                              <FaFilePdf className="w-3 h-3 mr-1" />
                               paper
                             </a>
                           )}
@@ -165,9 +168,21 @@ const PublicationsPage: React.FC<PageProps<DataProps>> = ({ data }) => {
                               href={pub.frontmatter.video}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="px-3 py-1.5 text-xs font-medium bg-yellow-100 text-yellow-700 rounded-md shadow-sm hover:bg-yellow-200 hover:shadow-lg hover:scale-110 hover:text-yellow-800 hover:-translate-y-1 transition-all duration-300 cursor-pointer"
+                              className="px-3 py-1.5 text-xs font-medium bg-yellow-100 text-yellow-700 rounded-md shadow-sm hover:bg-yellow-200 hover:shadow-lg hover:scale-110 hover:text-yellow-800 hover:-translate-y-1 transition-all duration-300 cursor-pointer flex items-center"
                             >
+                              <FaPlay className="w-3 h-3 mr-1" />
                               video
+                            </a>
+                          )}
+                          {pub.frontmatter.github && (
+                            <a 
+                              href={pub.frontmatter.github}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="px-3 py-1.5 text-xs font-medium bg-gray-100 text-gray-700 rounded-md shadow-sm hover:bg-gray-200 hover:shadow-lg hover:scale-110 hover:text-gray-800 hover:-translate-y-1 transition-all duration-300 cursor-pointer flex items-center"
+                            >
+                              <FaGithub className="w-3 h-3 mr-1" />
+                              GitHub
                             </a>
                           )}
                         </div>
@@ -207,6 +222,7 @@ export const query = graphql`
           paper
           slide
           video
+          github
           award
           tags
         }

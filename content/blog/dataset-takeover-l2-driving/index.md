@@ -13,7 +13,7 @@ publications:
     authors: "Jiwoo Hwang, Woohyeok Choi, Jungmin Lee, Woojoo Kim, Jungwook Rhim, Auk Kim"
     venue: "Scientific Data, 2025"
     pdf: "/paper/A_Dataset_on_Takeover_during_Distracted_L2_Automated_Driving.pdf"
-    code: ""
+    code: "https://github.com/HAI-lab-KNU/TD2D_SupplementaryCodes"
   - title: "Effects of in-vehicle auditory interactions on takeover performance in SAE L2 semi-automated vehicles"
     authors: "Jiwoo Hwang, Woohyeok Choi, Auk Kim"
     venue: "International Journal of Human-Computer Studies, 2025"
