@@ -151,9 +151,9 @@ const Layout = ({ activeLink = "Projects", children }: LayoutProps) => {
         </main>
 
       {/* Footer */}
-      <footer className="bg-gray-100 dark:bg-gray-800 py-6 mt-auto">
+      <footer className="bg-gray-100 py-6 mt-auto">
         <div className="max-w-4xl mx-auto px-6">
-          <div className="text-sm text-gray-500 dark:text-gray-400">
+          <div className="text-sm text-gray-500">
             <div className="max-w-xs">
               <div className="text-xs text-gray-400 whitespace-pre-line mb-2">
                 Kangwon National University College of Engineering 6, Room 512<br />

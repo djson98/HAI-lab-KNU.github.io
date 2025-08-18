@@ -19,6 +19,11 @@ publications:
     venue: "International Journal of Human-Computer Studies, 2025"
     pdf: "/paper/Effects-of-In-Vehicle-Auditory-Interactions.pdf"
     code: ""
+  - title: "Developing and Evaluating Low-Cost Level 3 Vehicle Simulator"
+    authors: "Jiwoo Hwang, Jungmin Lee, Auk Kim"
+    venue: "HCI Korea 2022"
+    pdf: "/paper/HCIK22_simulater.pdf"
+    code: ""
 people:
   - name: "Jiwoo Hwang"
     affiliation: "Kangwon National University"
