@@ -9,9 +9,6 @@ const ContactPage = () => {
         <div className="max-w-6xl mx-auto px-4 md:px-6">
           {/* Google Maps 섹션 */}
           <div className="w-full max-w-6xl mx-auto mb-12">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-center">
-              Location
-            </h2>
             <div className="w-full h-96 md:h-[600px] rounded-lg overflow-hidden shadow-lg border border-gray-200">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3149.674111118664!2d127.73666439999999!3d37.867763599999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3562e9c8c8c8c8c8%3A0x8c8c8c8c8c8c8c8!2z6rCV7JuQ64yA7ZWZ6rWQIOqzte2VmTbtmLjqtIA!5e0!3m2!1sko!2skr!4v1755483537137"
@@ -34,9 +31,6 @@ const ContactPage = () => {
 
           {/* 연락처 정보 섹션 */}
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-center">
-              Contact Information
-            </h2>
             <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl p-8 shadow-sm border border-blue-200">
               <div className="space-y-6">
                 {/* 이메일 */}
