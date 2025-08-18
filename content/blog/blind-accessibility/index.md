@@ -15,7 +15,7 @@ people:
   - name: "Jungmin Lee"
     affiliation: "Kangwon National University"
     photo: "/images/members/jungminlee.png"
-    homepage: ""
+    homepage: "https://lsom5064.github.io/"
   - name: "Jiwoo Hwang"
     affiliation: "Kangwon National University"
     photo: "/images/members/jiwoohwang.jpeg"

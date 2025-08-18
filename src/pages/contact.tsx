@@ -43,7 +43,7 @@ const ContactPage = () => {
                     <p className="text-sm text-gray-600 mb-1">Email</p>
                     <a 
                       href="mailto:kimauk@hai.kangwon.ac.kr"
-                      className="text-lg font-medium text-blue-600 hover:text-blue-800 transition-colors duration-200"
+                      className="text-lg font-medium text-blue-600 hover:text-blue-800 transition-colors duration-200 select-none"
                     >
                       kimauk@hai.kangwon.ac.kr
                     </a>

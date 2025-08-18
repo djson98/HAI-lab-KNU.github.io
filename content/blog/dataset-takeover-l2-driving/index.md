@@ -40,7 +40,7 @@ people:
   - name: "Jungmin Lee"
     affiliation: "Kangwon National University"
     photo: "/images/members/jungminlee.png"
-    homepage: ""
+    homepage: "https://lsom5064.github.io/"
   - name: "Auk Kim"
     affiliation: "Kangwon National University"
     photo: "/images/members/aukkim.jpeg"

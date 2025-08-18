@@ -24,15 +24,15 @@ people:
   - name: "Jiwoo Hwang"
     affiliation: "Kangwon National University"
     photo: "/images/members/jiwoohwang.jpeg"
-    homepage: ""
+    homepage: "https://hwang-jiwoo.github.io/"
   - name: "Jungmin Lee"
     affiliation: "Kangwon National University"
     photo: "/images/members/jungminlee.png"
-    homepage: ""
+    homepage: "https://lsom5064.github.io/"
   - name: "Auk Kim"
     affiliation: "Kangwon National University"
     photo: "/images/members/aukkim.jpeg"
-    homepage: ""
+    homepage: "https://kimauk.github.io/"
 ---
 
 ## Abstract
