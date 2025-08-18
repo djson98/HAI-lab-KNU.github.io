@@ -652,3 +652,39 @@
     background-color: rgb(185 28 28) !important;
   }
 }
+
+/* 스크롤바 숨기기 */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari and Opera */
+}
+
+/* 텍스트 줄 제한 */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* 프로젝트 카드 컨테이너 */
+.projects-scroll-container {
+  scroll-padding-left: 0;
+  scroll-padding-right: 0;
+}
+
+/* 첫 번째 카드가 잘리지 않도록 */
+.projects-scroll-container > div:first-child {
+  margin-left: 0;
+}

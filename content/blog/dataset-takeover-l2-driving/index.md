@@ -17,7 +17,7 @@ publications:
   - title: "Effects of in-vehicle auditory interactions on takeover performance in SAE L2 semi-automated vehicles"
     authors: "Jiwoo Hwang, Woohyeok Choi, Auk Kim"
     venue: "International Journal of Human-Computer Studies, 2025"
-    pdf: "/paper/Effects-of-In-Vehicle-Auditory-Interactions.pdf"
+    pdf: "/paper/IJHCS_smartCar.pdf"
     code: ""
   - title: "2단계 자율주행 중 시각 및 청각 이차 과제 수행이 제어권 전환 능력에 미치는 영향"
     authors: "Jiwoo Hwang, Auk Kim"

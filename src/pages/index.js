@@ -2,14 +2,12 @@ import * as React from "react"
 import { Link, graphql } from "gatsby"
 import { FaRobot } from "react-icons/fa"
 import { HiOutlineGlobeAlt, HiOutlineChip } from "react-icons/hi"
-
-
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
 const IndexPage = ({ data }) => {
-  const posts = data.allMarkdownRemark.nodes.slice(0, 3) // 최신 프로젝트 3개 가져오기
-  const news = data.allNews.nodes.slice(0, 3) // 최신 뉴스 3개 가져오기
+  const posts = data.allMarkdownRemark.nodes.slice(0, 3) // 최신 프로젝트 3개로 되돌림
+  const news = data.allNews.nodes.slice(0, 3) // 최신 뉴스 3개
   
   return (
     <Layout activeLink="Home">
@@ -63,7 +61,7 @@ const IndexPage = ({ data }) => {
           </div>
         </section>
 
-        {/* Recent Publications Section */}
+        {/* Recent Projects Section */}
         <section className="py-16 bg-white" aria-labelledby="recent-projects-heading">
           <div className="max-w-4xl mx-auto px-4 md:px-6">
             <div className="text-center mb-12">
@@ -163,12 +161,12 @@ const IndexPage = ({ data }) => {
                           </div>
                         </div>
                         
-                                              {/* 프로젝트 제목만 */}
-                      <div className="text-center">
-                        <h3 className="text-base md:text-lg font-bold text-gray-900">
-                          {post.frontmatter.title}
-                        </h3>
-                      </div>
+                        {/* 프로젝트 제목만 */}
+                        <div className="text-center">
+                          <h3 className="text-base md:text-lg font-bold text-gray-900">
+                            {post.frontmatter.title}
+                          </h3>
+                        </div>
                       </Link>
                     )
                   })}
@@ -198,8 +196,6 @@ const IndexPage = ({ data }) => {
         <div className="max-w-4xl mx-auto px-4 md:px-6">
           <hr className="border-gray-200 opacity-50 my-8" />
         </div>
-
-
 
         {/* 구분선 */}
         <div className="max-w-4xl mx-auto px-4 md:px-6">
