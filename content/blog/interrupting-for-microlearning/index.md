@@ -10,6 +10,7 @@ publications:
     venue: "Proceedings of the CHI Conference on Human Factors in Computing Systems (CHI '24)"
     pdf: "/paper/CHI24Microlearning.pdf"
     video: "https://www.youtube.com/watch?v=JBZ-uJym3hg"
+    doi: "https://doi.org/10.1145/3613904.3642778"
 people:
   - name: "Min Young Kim"
     affiliation: "Kangwon National University"

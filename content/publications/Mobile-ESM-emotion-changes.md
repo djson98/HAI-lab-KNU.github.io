@@ -5,7 +5,7 @@ journal: "Proceedings of the 2022 CHI conference on human factors in computing s
 type: "Conference"
 year: "2022"
 date: "2022-04-29"
-doi: "10.1145/3491102.3517644"
+doi: "10.1145/3491102.3501944"
 paper: "/paper/CHI22_ESM.pdf"
 slide: ""
 video: "https://www.youtube.com/watch?v=CCw1uEOuhZM"

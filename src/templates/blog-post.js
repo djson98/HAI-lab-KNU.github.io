@@ -1,6 +1,7 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
-import { FaFilePdf, FaCode, FaHome, FaPlay, FaGithub } from "react-icons/fa"
+import { FaFilePdf, FaHome, FaPlay, FaGithub, FaPython, FaJava, FaAndroid } from "react-icons/fa"
+import { SiJupyter } from "react-icons/si"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
@@ -19,11 +20,6 @@ const BlogPostTemplate = ({
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             {post.frontmatter.title}
           </h1>
-          {post.frontmatter.subtitle && (
-            <p className="text-xl md:text-2xl text-gray-600 font-medium">
-              {post.frontmatter.subtitle}
-            </p>
-          )}
         </header>
 
 
@@ -70,10 +66,23 @@ const BlogPostTemplate = ({
               {post.frontmatter.publications
                 .filter(pub => pub.title && pub.title.trim() !== '')
                 .map((pub, index) => (
-                <div key={index} className="bg-white border border-gray-200 rounded-lg p-3 md:p-4 shadow-sm">
-                  <h3 className="text-base md:text-lg font-semibold text-gray-900 mb-1">
-                    {pub.title}
-                  </h3>
+                <div key={index} className="bg-white border border-gray-200 rounded-lg p-3 md:p-4 shadow-sm hover:bg-gray-50 transition-colors duration-200">
+                  {pub.doi ? (
+                    <a
+                      href={pub.doi.startsWith('http') ? pub.doi : `https://doi.org/${pub.doi}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block"
+                    >
+                      <h3 className="text-base md:text-lg font-semibold text-gray-900 mb-1 hover:text-blue-600 transition-colors duration-200 cursor-pointer">
+                        {pub.title}
+                      </h3>
+                    </a>
+                  ) : (
+                    <h3 className="text-base md:text-lg font-semibold text-gray-900 mb-1">
+                      {pub.title}
+                    </h3>
+                  )}
                   <p className="text-gray-600 text-xs md:text-sm mb-1">{pub.authors}</p>
                   <p className="text-gray-500 text-xs md:text-sm mb-2">{pub.venue}</p>
                   
@@ -84,7 +93,7 @@ const BlogPostTemplate = ({
                         href={pub.pdf}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center px-2 py-1 bg-red-500 text-white text-xs font-medium rounded hover:bg-red-600 transition-colors duration-200"
+                        className="inline-flex items-center px-2 py-1 bg-red-100 text-red-700 border border-red-200 text-xs font-medium rounded-md hover:bg-red-200 hover:border-red-300 transition-all duration-200"
                       >
                         <FaFilePdf className="mr-1 w-2.5 h-2.5" />
                         PDF
@@ -95,23 +104,13 @@ const BlogPostTemplate = ({
                         href={pub.video}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center px-2 py-1 bg-blue-500 text-white text-xs font-medium rounded hover:bg-blue-600 transition-colors duration-200"
+                        className="inline-flex items-center px-2 py-1 bg-blue-100 text-blue-700 border border-blue-200 text-xs font-medium rounded-md hover:bg-blue-200 hover:border-blue-300 transition-all duration-200"
                       >
                         <FaPlay className="mr-1 w-2.5 h-2.5" />
                         Video
                       </a>
                     )}
-                    {pub.code && pub.code.trim() !== '' && (
-                      <a
-                        href={pub.code}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center px-2 py-1 bg-gray-500 text-white text-xs font-medium rounded hover:bg-gray-600 transition-colors duration-200"
-                      >
-                        <FaGithub className="mr-1 w-2.5 h-2.5" />
-                        GitHub
-                      </a>
-                    )}
+
                   </div>
                 </div>
               ))}
@@ -129,10 +128,17 @@ const BlogPostTemplate = ({
               {post.frontmatter.articles
                 .filter(article => article.title && article.title.trim() !== '')
                 .map((article, index) => (
-                <div key={index} className="bg-white border border-gray-200 rounded-lg p-3 md:p-4 shadow-sm">
-                  <h3 className="text-base md:text-lg font-semibold text-gray-900 mb-1">
-                    {article.title}
-                  </h3>
+                <div key={index} className="bg-white border border-gray-200 rounded-lg p-3 md:p-4 shadow-sm hover:bg-gray-50 transition-colors duration-200">
+                  <a
+                    href={article.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block"
+                  >
+                    <h3 className="text-base md:text-lg font-semibold text-gray-900 mb-1 hover:text-blue-600 transition-colors duration-200 cursor-pointer">
+                      {article.title}
+                    </h3>
+                  </a>
                   <p className="text-gray-600 text-xs md:text-sm mb-1">{article.source} • {article.date}</p>
                   
                   {/* Article Link 버튼 */}
@@ -153,7 +159,73 @@ const BlogPostTemplate = ({
           </section>
         )}
 
+        {/* Dataset 섹션 - 실제 내용이 있을 때만 표시 */}
+        {post.frontmatter.datasets && 
+         post.frontmatter.datasets.length > 0 && 
+         post.frontmatter.datasets.some(dataset => dataset.title && dataset.title.trim() !== '') && (
+          <section className="mb-6 md:mb-8">
+            <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-3 md:mb-4">Datasets</h2>
+            <div className="space-y-2 md:space-y-3">
+              {post.frontmatter.datasets
+                .filter(dataset => dataset.title && dataset.title.trim() !== '')
+                .map((dataset, index) => (
+                <div key={index} className="bg-white border border-gray-200 rounded-lg p-3 md:p-4 shadow-sm hover:bg-gray-50 transition-colors duration-200">
+                  {dataset.zenodo ? (
+                    <a
+                      href={dataset.zenodo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block"
+                    >
+                      <h3 className="text-base md:text-lg font-semibold text-gray-900 mb-2 hover:text-blue-600 transition-colors duration-200">
+                        {dataset.title}
+                      </h3>
+                    </a>
+                  ) : (
+                    <h3 className="text-base md:text-lg font-semibold text-gray-900 mb-2">
+                      {dataset.title}
+                    </h3>
+                  )}
+                  
 
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* Source Code 섹션 - 실제 내용이 있을 때만 표시 */}
+        {post.frontmatter.sourcecode && 
+         post.frontmatter.sourcecode.length > 0 && 
+         post.frontmatter.sourcecode.some(code => code.title && code.title.trim() !== '') && (
+          <section className="mb-6 md:mb-8">
+            <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-3 md:mb-4">Source Code</h2>
+            <div className="space-y-2 md:space-y-3">
+              {post.frontmatter.sourcecode
+                .filter(code => code.title && code.title.trim() !== '')
+                .map((code, index) => (
+                <div key={index} className="bg-white border border-gray-200 rounded-lg p-3 md:p-4 shadow-sm hover:bg-gray-50 transition-colors duration-200">
+                  {code.github ? (
+                    <a
+                      href={code.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block"
+                    >
+                      <h3 className="text-base md:text-lg font-semibold text-gray-900 mb-2 hover:text-blue-600 transition-colors duration-200">
+                        {code.title}
+                      </h3>
+                    </a>
+                  ) : (
+                    <h3 className="text-base md:text-lg font-semibold text-gray-900 mb-2">
+                      {code.title}
+                    </h3>
+                  )}
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
 
         {/* People 섹션 */}
         {post.frontmatter.people && post.frontmatter.people.length > 0 && (
@@ -248,6 +320,7 @@ export const pageQuery = graphql`
             pdf
             video
             code
+            doi
           }
           articles {
             title
@@ -261,6 +334,20 @@ export const pageQuery = graphql`
             affiliation
             photo
             homepage
+          }
+          datasets {
+            title
+            description
+            zenodo
+            size
+            license
+          }
+          sourcecode {
+            title
+            description
+            language
+            framework
+            github
           }
         }
     }

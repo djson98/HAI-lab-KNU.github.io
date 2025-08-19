@@ -5,7 +5,7 @@ journal: "Proceedings of the ACM on Interactive, Mobile, Wearable and Ubiquitous
 type: "Journal"
 year: "2020"
 date: "2020-03-18"
-doi: "10.1145/3381014"
+doi: "10.1145/3381009"
 paper: "/paper/IMWUT20_Interruptibility.pdf"
 slide: ""
 video: "https://www.youtube.com/watch?v=5qufUKQC8_g"

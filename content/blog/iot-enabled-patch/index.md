@@ -11,6 +11,7 @@ publications:
     venue: "Translational Vision Science & Technology, 2024"
     pdf: "/paper/TVST2024.pdf"
     code: ""
+    doi: "https://tvst.arvojournals.org/article.aspx?articleid=2793685#247703055"
 software:
   - title: "가림패치 착용 시간 기록을 위한 모바일 애플리케이션"
     type: "Mobile Application"

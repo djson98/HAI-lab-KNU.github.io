@@ -5,7 +5,7 @@ journal: "Proceedings of the ACM on Interactive, Mobile, Wearable and Ubiquitous
 type: "Journal"
 year: "2020"
 date: "2020-09-04"
-doi: "10.1145/3411840"
+doi: "10.1145/3411810"
 paper: "/paper/IMWUT20_smartspeaker.pdf"
 slide: ""
 video: "https://www.youtube.com/watch?v=0G-XhcPJNiw"

@@ -3,7 +3,6 @@ import { graphql, PageProps, Link } from "gatsby"
 import Layout from "../components/layout"
 import YearFilter from "../components/YearFilter"
 import { FaTrophy, FaChartBar, FaFilePdf, FaPlay } from "react-icons/fa"
-import { FaGithub } from "react-icons/fa"
 
 type DataProps = {
   allMarkdownRemark: {
@@ -24,7 +23,6 @@ type DataProps = {
         paper: string
         slide: string
         video: string
-        github: string
         award?: string
       }
     }[]
@@ -97,13 +95,26 @@ const PublicationsPage: React.FC<PageProps<DataProps>> = ({ data }) => {
             {sortedYears.map((year) => (
               <div key={year} className="space-y-1">
                 <h2 className="text-lg font-bold text-gray-800 border-b border-gray-200 pb-1">{year}</h2>
-                <div className="space-y-0">
+                <div className="space-y-6">
                   {groupedPublications[year].map((pub) => (
-                    <article key={pub.id} className="bg-white border-b border-gray-200 py-4">
+                    <article key={pub.id} className="bg-white rounded-lg p-6 shadow-sm hover:bg-gray-50 transition-colors duration-200">
                       <div className="space-y-2">
-                        <h2 className="text-lg font-semibold text-gray-900">
-                          {pub.frontmatter.title}
-                        </h2>
+                        {pub.frontmatter.doi ? (
+                          <a
+                            href={pub.frontmatter.doi.startsWith('http') ? pub.frontmatter.doi : `https://doi.org/${pub.frontmatter.doi}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="block"
+                          >
+                            <h2 className="text-lg font-semibold text-gray-900 hover:text-blue-600 transition-colors duration-200 cursor-pointer">
+                              {pub.frontmatter.title}
+                            </h2>
+                          </a>
+                        ) : (
+                          <h2 className="text-lg font-semibold text-gray-900">
+                            {pub.frontmatter.title}
+                          </h2>
+                        )}
                         
                         <div className="text-xs text-gray-600">
                           <p className="mb-1">{pub.frontmatter.authors}</p>
@@ -113,8 +124,8 @@ const PublicationsPage: React.FC<PageProps<DataProps>> = ({ data }) => {
                           <div className="mb-2 flex flex-wrap gap-2">
                             {/* Top Conference 배지 */}
                             {pub.frontmatter.tags && pub.frontmatter.tags.includes('Top Conference') && (
-                              <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-semibold bg-gradient-to-r from-purple-50 to-indigo-50 text-purple-800 shadow-sm border border-purple-200">
-                                <FaTrophy className="w-3 h-3 mr-1 text-purple-600" />
+                              <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-semibold bg-gradient-to-r from-yellow-50 to-amber-50 text-yellow-700 shadow-sm border border-yellow-300">
+                                <FaTrophy className="w-3 h-3 mr-1 text-yellow-600" />
                                 Top Conference
                               </span>
                             )}
@@ -133,8 +144,8 @@ const PublicationsPage: React.FC<PageProps<DataProps>> = ({ data }) => {
                             
                             {/* 수상 배지 */}
                             {pub.frontmatter.award && (
-                              <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-gradient-to-r from-amber-50 to-yellow-50 text-amber-800 shadow-sm border border-amber-200">
-                                <FaTrophy className="w-4 h-4 mr-1 text-amber-600" />
+                              <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-gradient-to-r from-orange-100 to-amber-100 text-orange-800 shadow-sm border border-orange-300">
+                                <FaTrophy className="w-4 h-4 mr-1 text-orange-600" />
                                 {pub.frontmatter.award}
                               </span>
                             )}
@@ -147,10 +158,10 @@ const PublicationsPage: React.FC<PageProps<DataProps>> = ({ data }) => {
                               href={pub.frontmatter.paper}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="px-3 py-1.5 text-xs font-medium bg-sky-100 text-sky-700 rounded-md shadow-sm hover:bg-sky-200 hover:shadow-lg hover:scale-110 hover:text-sky-800 hover:-translate-y-1 transition-all duration-300 cursor-pointer flex items-center"
+                              className="inline-flex items-center px-2 py-1 bg-rose-50 text-rose-600 border border-rose-200 text-xs font-medium rounded-md hover:bg-rose-100 hover:border-rose-300 transition-all duration-200"
                             >
-                              <FaFilePdf className="w-3 h-3 mr-1" />
-                              paper
+                              <FaFilePdf className="mr-1 w-2.5 h-2.5" />
+                              PDF
                             </a>
                           )}
                           {pub.frontmatter.slide && (
@@ -158,7 +169,7 @@ const PublicationsPage: React.FC<PageProps<DataProps>> = ({ data }) => {
                               href={pub.frontmatter.slide}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="px-3 py-1.5 text-xs font-medium bg-orange-100 text-orange-700 rounded-md shadow-sm hover:bg-orange-200 hover:shadow-md transition-all duration-200"
+                              className="inline-flex items-center px-2 py-1 bg-amber-50 text-amber-600 border border-amber-200 text-xs font-medium rounded-md hover:bg-amber-100 hover:border-amber-300 transition-all duration-200"
                             >
                               slide
                             </a>
@@ -168,23 +179,13 @@ const PublicationsPage: React.FC<PageProps<DataProps>> = ({ data }) => {
                               href={pub.frontmatter.video}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="px-3 py-1.5 text-xs font-medium bg-yellow-100 text-yellow-700 rounded-md shadow-sm hover:bg-yellow-200 hover:shadow-lg hover:scale-110 hover:text-yellow-800 hover:-translate-y-1 transition-all duration-300 cursor-pointer flex items-center"
+                              className="inline-flex items-center px-2 py-1 bg-sky-50 text-sky-600 border border-sky-200 text-xs font-medium rounded-md hover:bg-sky-100 hover:border-sky-300 transition-all duration-200"
                             >
-                              <FaPlay className="w-3 h-3 mr-1" />
-                              video
+                              <FaPlay className="mr-1 w-2.5 h-2.5" />
+                              Video
                             </a>
                           )}
-                          {pub.frontmatter.github && (
-                            <a 
-                              href={pub.frontmatter.github}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="px-3 py-1.5 text-xs font-medium bg-gray-100 text-gray-700 rounded-md shadow-sm hover:bg-gray-200 hover:shadow-lg hover:scale-110 hover:text-gray-800 hover:-translate-y-1 transition-all duration-300 cursor-pointer flex items-center"
-                            >
-                              <FaGithub className="w-3 h-3 mr-1" />
-                              GitHub
-                            </a>
-                          )}
+
                         </div>
                       </div>
                     </article>
@@ -222,7 +223,6 @@ export const query = graphql`
           paper
           slide
           video
-          github
           award
           tags
         }

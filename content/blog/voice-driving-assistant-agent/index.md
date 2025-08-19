@@ -10,6 +10,7 @@ publications:
     venue: "Proceedings of HCI Korea 2022, 2022"
     pdf: "/paper/HCIK22_intelligentVehicleAgent.pdf"
     code: ""
+    doi: "https://www.dbpia.co.kr/Journal/articleDetail?nodeId=NODE11043828"
 
 people:
   - name: "Minji Kim"

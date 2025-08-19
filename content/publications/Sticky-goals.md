@@ -5,7 +5,7 @@ journal: "Proceedings of the 2021 CHI Conference on Human Factors in Computing S
 type: "Conference"
 year: "2021"
 date: "2021-05-06"
-doi: "10.1145/3411764.3445760"
+doi: "10.1145/3411764.3445295"
 paper: "/paper/CHI21_commitments.pdf"
 slide: ""
 video: "https://www.youtube.com/watch?v=mSCXgOceCpA"

@@ -6,7 +6,7 @@ journal: "PROCEEDINGS OF HCI KOREA 2022 학술대회 발표 논문집, 283-288 (
 type: "Conference"
 year: "2022"
 date: "2022-01-01"
-doi: ""
+doi: "https://www.dbpia.co.kr/Journal/articleDetail?nodeId=NODE11043828"
 paper: "/paper/HCIK22_intelligentVehicleAgent.pdf"
 slide: ""
 video: ""
