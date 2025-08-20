@@ -23,7 +23,7 @@ const IndexPage = ({ data }) => {
             </p>
             <p className="text-base text-gray-600 leading-relaxed max-w-2xl mx-auto font-medium">
               We focus on how to design and support meaningful human interactions with AI systems in everyday life.
-              Our research investigates when and how AI should engage with people—respectfully, effectively, and intelligently.
+              Our research investigates when and how AI should engage with people.
             </p>
             
             {/* Research Areas Section */}
