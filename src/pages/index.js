@@ -77,7 +77,7 @@ const IndexPage = ({ data }) => {
                       <Link 
                         to={post.fields.slug} 
                         key={post.id} 
-                        className="block bg-white rounded-lg p-3 md:p-4 shadow-sm hover:shadow-lg hover:scale-105 hover:border-blue-200 border border-transparent transition-all duration-300 cursor-pointer"
+                        className="block bg-white rounded-lg p-3 md:p-4 shadow-sm hover:shadow-lg hover:scale-105 border border-gray-200 hover:border-blue-300 transition-all duration-300 cursor-pointer"
                       >
                         {/* 썸네일 */}
                         <div className="mb-3">
