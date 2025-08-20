@@ -13,7 +13,7 @@ const IndexPage = ({ data }) => {
     <Layout activeLink="Home">
       <div className="min-h-screen">
         {/* Hero Section */}
-        <section className="py-20 bg-gradient-to-br from-blue-50 to-white rounded-3xl mx-2 md:mx-6 hover:shadow-lg hover:scale-[1.02] transition-all duration-300 cursor-pointer">
+        <section className="py-20 bg-gradient-to-br from-blue-50 to-white rounded-3xl mx-2 md:mx-6">
           <div className="max-w-4xl mx-auto px-4 md:px-6 text-center">
             <h1 className="text-3xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 bg-clip-text text-transparent mb-6" id="main-heading">
              Human-AI Interaction Lab 
@@ -167,6 +167,38 @@ const IndexPage = ({ data }) => {
                             {post.frontmatter.title}
                           </h3>
                         </div>
+                        
+                        {/* 참여자 정보 */}
+                        {post.frontmatter.people && post.frontmatter.people.length > 0 && (
+                          <div className="mt-3 pt-3 border-t border-gray-100">
+                            <div className="flex items-center justify-center">
+                              <div className="flex -space-x-1">
+                                {post.frontmatter.people.slice(0, 4).map((person, index) => (
+                                  <div key={index} className="relative group">
+                                    <img
+                                      src={person.photo}
+                                      alt={person.name}
+                                      className="w-6 h-6 rounded-full border border-white object-cover shadow-sm hover:scale-110 transition-transform duration-200"
+                                      title={person.name}
+                                    />
+                                    {/* 툴팁 */}
+                                    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-1 px-2 py-1 bg-gray-800 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-10">
+                                      {person.name}
+                                      <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-2 border-r-2 border-t-2 border-transparent border-t-gray-800"></div>
+                                    </div>
+                                  </div>
+                                ))}
+                                {post.frontmatter.people.length > 4 && (
+                                  <div className="w-6 h-6 rounded-full bg-gray-300 border border-white flex items-center justify-center shadow-sm">
+                                    <span className="text-xs text-gray-600 font-medium">
+                                      +{post.frontmatter.people.length - 4}
+                                    </span>
+                                  </div>
+                                )}
+                              </div>
+                            </div>
+                          </div>
+                        )}
                       </Link>
                     )
                   })}
@@ -221,35 +253,41 @@ export const query = graphql`
         fields {
           slug
         }
-              frontmatter {
-        title
-        date(formatString: "MMMM DD, YYYY")
-        description
-        thumbnail
-        image1
-        image2
-        image3
-        image4
-      }
-              }
-      }
-      allNews: allMarkdownRemark(
-        filter: { fileAbsolutePath: { regex: "/content/news/" } }
-        sort: { frontmatter: { date: DESC } }
-        limit: 3
-      ) {
-        nodes {
-          id
-          excerpt
-          frontmatter {
-            title
-            date(formatString: "MMMM DD, YYYY")
-            description
-            thumbnail
+        frontmatter {
+          title
+          date(formatString: "MMMM DD, YYYY")
+          description
+          thumbnail
+          image1
+          image2
+          image3
+          image4
+          people {
+            name
+            affiliation
+            photo
+            homepage
           }
         }
       }
     }
-  `
+    allNews: allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: "/content/news/" } }
+      sort: { frontmatter: { date: DESC } }
+      limit: 3
+    ) {
+      nodes {
+        id
+        excerpt
+        frontmatter {
+          title
+          date(formatString: "MMMM DD, YYYY")
+          description
+          thumbnail
+        }
+      }
+    }
+  }
+`
 
 export const Head = () => <Seo title="HaiLab - 인공지능 연구실" />

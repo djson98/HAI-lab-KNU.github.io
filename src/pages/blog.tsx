@@ -20,6 +20,12 @@ type DataProps = {
         image2: string
         image3: string
         image4: string
+        people: {
+          name: string
+          affiliation: string
+          photo: string
+          homepage: string
+        }[]
       }
     }[]
   }
@@ -167,6 +173,12 @@ export const query = graphql`
           image2
           image3
           image4
+          people {
+            name
+            affiliation
+            photo
+            homepage
+          }
         }
       }
     }
