@@ -290,4 +290,4 @@ export const query = graphql`
   }
 `
 
-export const Head = () => <Seo title="HaiLab - 인공지능 연구실" />
+export const Head = () => <Seo title="HAI LAB" />

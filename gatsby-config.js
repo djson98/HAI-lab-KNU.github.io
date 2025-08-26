@@ -9,7 +9,7 @@
  */
 module.exports = {
   siteMetadata: {
-    title: `Human-AI Interaction Lab`,
+    title: `HAI LAB`,
     author: {
       name: `HAI Lab`,
       summary: `Human-AI Interaction Lab at Kangwon National University`,
@@ -92,8 +92,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Human-AI Interaction Lab`,
-        short_name: `HAI Lab`,
+        name: `HAI LAB`,
+        short_name: `HAI LAB`,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#663399`,
