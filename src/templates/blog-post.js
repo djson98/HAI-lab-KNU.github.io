@@ -17,7 +17,7 @@ const BlogPostTemplate = ({
       <article className="max-w-4xl mx-auto px-4 md:px-6 py-8">
         {/* 제목 섹션 */}
         <header className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h1 className="text-2xl font-bold text-gray-900 mb-4">
             {post.frontmatter.title}
           </h1>
         </header>
@@ -31,7 +31,7 @@ const BlogPostTemplate = ({
         {(post.frontmatter.image1 || post.frontmatter.thumbnail) && (
           <section className="mb-8 md:mb-12">
             <div className="w-full max-w-4xl mx-auto">
-              <div className="w-full h-64 md:h-80 rounded-lg overflow-hidden shadow-sm border border-gray-200">
+              <div className="w-full h-64 md:h-80 overflow-hidden">
                 <img
                   src={post.frontmatter.image1 || post.frontmatter.thumbnail}
                   alt={post.frontmatter.title}
@@ -47,9 +47,9 @@ const BlogPostTemplate = ({
         {/* Abstract 섹션 */}
         {post.frontmatter.description && (
           <section className="mb-8 md:mb-12">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4 md:mb-6">Abstract</h2>
+            <h2 className="text-xl font-bold text-gray-900 mb-4 md:mb-6">Abstract</h2>
             <div className="bg-gray-50 rounded-lg p-4 md:p-6">
-              <p className="text-base md:text-lg text-gray-700 leading-relaxed">
+              <p className="text-sm md:text-base text-gray-700 leading-relaxed">
                 {post.frontmatter.description}
               </p>
             </div>
@@ -61,7 +61,7 @@ const BlogPostTemplate = ({
          post.frontmatter.publications.length > 0 && 
          post.frontmatter.publications.some(pub => pub.title && pub.title.trim() !== '') && (
           <section className="mb-6 md:mb-8">
-            <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-3 md:mb-4">Publications</h2>
+            <h2 className="text-xl font-bold text-gray-900 mb-3 md:mb-4">Publications</h2>
             <div className="space-y-2 md:space-y-3">
               {post.frontmatter.publications
                 .filter(pub => pub.title && pub.title.trim() !== '')
@@ -74,17 +74,17 @@ const BlogPostTemplate = ({
                       rel="noopener noreferrer"
                       className="block"
                     >
-                      <h3 className="text-base md:text-lg font-semibold text-gray-900 mb-1 hover:text-blue-600 transition-colors duration-200 cursor-pointer">
+                      <h3 className="text-sm md:text-base font-semibold text-gray-900 mb-1 hover:text-blue-600 transition-colors duration-200 cursor-pointer">
                         {pub.title}
                       </h3>
                     </a>
                   ) : (
-                    <h3 className="text-base md:text-lg font-semibold text-gray-900 mb-1">
+                    <h3 className="text-sm md:text-base font-semibold text-gray-900 mb-1">
                       {pub.title}
                     </h3>
                   )}
-                  <p className="text-gray-600 text-xs md:text-sm mb-1">{pub.authors}</p>
-                  <p className="text-gray-500 text-xs md:text-sm mb-2">{pub.venue}</p>
+                  <p className="text-gray-600 text-xs mb-1">{pub.authors}</p>
+                  <p className="text-gray-500 text-xs mb-2">{pub.venue}</p>
                   
                   {/* PDF/Code/Video 버튼들 */}
                   <div className="flex space-x-2">
@@ -199,7 +199,7 @@ const BlogPostTemplate = ({
          post.frontmatter.sourcecode.length > 0 && 
          post.frontmatter.sourcecode.some(code => code.title && code.title.trim() !== '') && (
           <section className="mb-6 md:mb-8">
-            <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-3 md:mb-4">Source Code</h2>
+            <h2 className="text-xl font-bold text-gray-900 mb-3 md:mb-4">Source Code</h2>
             <div className="space-y-2 md:space-y-3">
               {post.frontmatter.sourcecode
                 .filter(code => code.title && code.title.trim() !== '')
@@ -230,7 +230,7 @@ const BlogPostTemplate = ({
         {/* People 섹션 */}
         {post.frontmatter.people && post.frontmatter.people.length > 0 && (
           <section className="mb-8 md:mb-12">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4 md:mb-6">People</h2>
+            <h2 className="text-xl font-bold text-gray-900 mb-4 md:mb-6">People</h2>
             <div className="flex justify-center">
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6 max-w-6xl">
                 {post.frontmatter.people.map((person, index) => (
