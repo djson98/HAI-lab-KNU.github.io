@@ -76,16 +76,20 @@ const MembersPage: React.FC<PageProps<DataProps>> = ({ data }) => {
   return (
     <Layout activeLink="People">
       <div className="space-y-10">
-        {sortedPositions.map((position) => (
-          <div key={position} className="space-y-6">
-                                    <h2 className="text-2xl md:text-3xl font-bold text-gray-800 border-b-2 border-gray-300 pb-4 font-sans tracking-wide">
-              {position === 'Professor' ? 'Director' : position}
-            </h2>
+                {sortedPositions.map((position, index) => (
+          <div key={position}>
+            {index > 0 && (
+              <div className="border-t border-gray-200 my-8"></div>
+            )}
+            <div className="space-y-6">
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-800 font-sans tracking-wide">
+                {position === 'Professor' ? 'Director' : position}
+              </h2>
             <div className={position === 'Alumni' ? 'grid grid-cols-2 md:grid-cols-4 gap-6' : 'space-y-6'}>
               {groupedMembers[position].map((member) => (
                             position === 'Alumni' ? (
                               // Alumni는 카드 형태로 표시
-                              <div key={member.id} className="bg-white rounded-lg shadow-sm border border-gray-100 p-4 text-center">
+                              <div key={member.id} className="bg-white rounded-lg border border-gray-100 p-4 text-center">
                                 <div className="w-20 h-20 mx-auto mb-3 rounded-lg overflow-hidden bg-gray-100">
                                   {member.frontmatter.name === "Ji Wook Lee" ? (
                                     <img
@@ -139,7 +143,7 @@ const MembersPage: React.FC<PageProps<DataProps>> = ({ data }) => {
                               </div>
                             ) : (
                               // 기존 멤버들은 원래 스타일 유지
-                              <article key={member.id} className="bg-white rounded-lg shadow-sm border border-gray-100 p-4 md:p-6">
+                              <article key={member.id} className="bg-white rounded-lg border border-gray-100 p-4 md:p-6">
                                 <div className="flex flex-col md:flex-row md:items-start space-y-4 md:space-y-0 md:space-x-6 lg:space-x-8">
                                   {/* 상단/왼쪽: 멤버 사진 */}
                                   <div className="flex-shrink-0 w-full md:w-auto">
@@ -306,7 +310,8 @@ const MembersPage: React.FC<PageProps<DataProps>> = ({ data }) => {
                               </article>
                             )
                           ))}
-                        </div>
+                          </div>
+            </div>
           </div>
         ))}
       </div>

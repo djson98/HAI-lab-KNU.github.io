@@ -107,7 +107,7 @@ const Layout = ({ activeLink = "Projects", children }: LayoutProps) => {
           >
             <div className="text-center px-4">
               <h1 className="text-lg font-semibold bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 bg-clip-text text-transparent">
-                HAI LAB
+                {activeLink}
               </h1>
             </div>
           </div>

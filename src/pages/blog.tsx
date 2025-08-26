@@ -41,13 +41,14 @@ const BlogPage: React.FC<PageProps<DataProps>> = ({ data }) => {
         {posts.length === 0 ? (
           <p className="text-gray-600">No projects yet.</p>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="space-y-6">
             {posts.map((post) => {
               return (
-                <article key={post.id} className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-500 hover:-translate-y-2 border border-gray-100 hover:border-blue-200">
+                <article key={post.id} className="group bg-white hover:bg-gray-50 transition-all duration-300 border-b border-gray-200 py-4">
                   <Link to={post.fields.slug} className="block">
-                    {/* 썸네일 이미지 */}
-                    <div className="w-full h-64 overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100 group-hover:from-blue-50 group-hover:to-indigo-50 transition-all duration-500">
+                    <div className="flex flex-col md:flex-row items-center">
+                      {/* 왼쪽: 썸네일 이미지 */}
+                      <div className="w-full md:w-1/4 h-32 md:h-24 overflow-hidden">
                       {post.frontmatter.image1 && post.frontmatter.image2 && post.frontmatter.image3 && post.frontmatter.image4 ? (
                         // 4개 이미지: car1, car2 좌우, car3, car4 아래 좌우
                         <div className="w-full h-full flex flex-col p-2">
@@ -135,11 +136,12 @@ const BlogPage: React.FC<PageProps<DataProps>> = ({ data }) => {
                       )}
                     </div>
                     
-                    {/* 텍스트 내용 */}
-                    <div className="p-4 bg-gradient-to-r from-white to-gray-50 h-1/4 flex items-center justify-center">
-                      <h2 className="text-xl font-bold text-gray-800 group-hover:text-blue-600 transition-all duration-300 leading-tight text-center px-2">
-                        {post.frontmatter.title}
-                      </h2>
+                      {/* 오른쪽: 텍스트 내용 */}
+                      <div className="w-full md:w-3/4 pl-4 md:pl-6">
+                        <h2 className="text-lg font-semibold text-gray-800 group-hover:text-blue-600 transition-all duration-300 leading-tight">
+                          {post.frontmatter.title}
+                        </h2>
+                      </div>
                     </div>
                   </Link>
                 </article>
