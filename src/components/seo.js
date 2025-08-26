@@ -30,9 +30,9 @@ const Seo = ({ description, title, children }) => {
 
   return (
     <>
-      <title>{defaultTitle ? `${title} | ${defaultTitle}` : title}</title>
+      <title>HAI LAB</title>
       <meta name="description" content={metaDescription} />
-      <meta property="og:title" content={title} />
+      <meta property="og:title" content="HAI LAB" />
       <meta property="og:description" content={metaDescription} />
       <meta property="og:type" content="website" />
       <meta name="twitter:card" content="summary" />
@@ -40,7 +40,7 @@ const Seo = ({ description, title, children }) => {
         name="twitter:creator"
         content={site.siteMetadata?.social?.twitter || ``}
       />
-      <meta name="twitter:title" content={title} />
+      <meta name="twitter:title" content="HAI LAB" />
       <meta name="twitter:description" content={metaDescription} />
       <meta name="google-site-verification" content="google809d7094b6e3d475" />
       {children}
