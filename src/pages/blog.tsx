@@ -2,6 +2,7 @@ import * as React from "react"
 import { graphql, PageProps, Link } from "gatsby"
 
 import Layout from "../components/layout"
+import Seo from "../components/seo"
 
 type DataProps = {
   allMarkdownRemark: {
@@ -187,4 +188,6 @@ export const query = graphql`
   }
 `
 
-export default BlogPage 
+export default BlogPage
+
+export const Head = () => <Seo title="HAI LAB" /> 

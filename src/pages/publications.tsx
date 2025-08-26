@@ -3,6 +3,7 @@ import { graphql, PageProps, Link } from "gatsby"
 import Layout from "../components/layout"
 import YearFilter from "../components/YearFilter"
 import { FaTrophy, FaChartBar, FaFilePdf, FaPlay } from "react-icons/fa"
+import Seo from "../components/seo"
 
 type DataProps = {
   allMarkdownRemark: {
@@ -231,4 +232,6 @@ export const query = graphql`
   }
 `
 
-export default PublicationsPage 
+export default PublicationsPage
+
+export const Head = () => <Seo title="HAI LAB" /> 

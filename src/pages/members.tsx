@@ -4,6 +4,7 @@ import Layout from "../components/layout"
 import { MdEmail } from "react-icons/md"
 import { SiGooglescholar } from "react-icons/si"
 import { FaHome } from "react-icons/fa"
+import Seo from "../components/seo"
 
 type DataProps = {
   allMarkdownRemark: {
@@ -342,3 +343,5 @@ export const query = graphql`
 `
 
 export default MembersPage
+
+export const Head = () => <Seo title="HAI LAB" />

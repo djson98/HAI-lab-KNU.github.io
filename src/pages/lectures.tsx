@@ -2,6 +2,7 @@ import * as React from "react"
 import { graphql, PageProps } from "gatsby"
 import Layout from "../components/layout"
 import YearFilter from "../components/YearFilter"
+import Seo from "../components/seo"
 
 type DataProps = {
   allMarkdownRemark: {
@@ -125,4 +126,6 @@ export const query = graphql`
   }
 `
 
-export default LecturesPage 
+export default LecturesPage
+
+export const Head = () => <Seo title="HAI LAB" /> 
