@@ -19,7 +19,7 @@ const MENU = {
   Projects: "/blog",
   Publications: "/publications",
   Lectures: "/lectures",
-  Contact: "/contact",
+  // Contact: "/contact", // Hidden for now
   // News: "/news", // Hidden for now, will be developed later
 };
 
@@ -71,7 +71,7 @@ const Layout = ({ activeLink = "Projects", children }: LayoutProps) => {
                 <Link
                   key={name}
                   to={path}
-                  className={`px-4 py-2 rounded-lg text-xs font-medium font-display transition-all duration-200 focus:outline-none ${
+                  className={`px-4 py-2 rounded-lg text-base font-medium font-display transition-all duration-200 focus:outline-none ${
                     activeLink.toLowerCase() === name.toLowerCase()
                       ? "text-blue-600"
                       : "text-gray-600 hover:bg-gray-50 hover:text-gray-900"
@@ -107,7 +107,7 @@ const Layout = ({ activeLink = "Projects", children }: LayoutProps) => {
           >
             <div className="text-center px-4">
               <h1 className="text-lg font-semibold bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 bg-clip-text text-transparent">
-                {activeLink}
+                HAI LAB
               </h1>
             </div>
           </div>
@@ -154,11 +154,10 @@ const Layout = ({ activeLink = "Projects", children }: LayoutProps) => {
       <footer className="bg-gray-100 py-6 mt-auto">
         <div className="max-w-4xl mx-auto px-6">
           <div className="text-sm text-gray-500">
-            <div className="max-w-xs">
+            <div className="max-w-2xl">
               <div className="text-xs text-gray-400 whitespace-pre-line mb-2">
                 Kangwon National University College of Engineering 6, Room 512<br />
-                1 Gangwondaehakgil, Chuncheon-si, Gangwon-do (24341)<br />
-                Republic of Korea
+                1, Gangwondaehakgil, Chuncheon-si, Gangwon-do (24341)
               </div>
               <span className="block text-xs text-gray-400">© 2025 Human-AI Interaction Lab</span>
             </div>

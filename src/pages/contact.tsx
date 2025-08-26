@@ -7,47 +7,6 @@ const ContactPage = () => {
     <Layout activeLink="Contact">
       <div className="min-h-screen py-8 md:py-12">
         <div className="max-w-6xl mx-auto px-4 md:px-6">
-          {/* Google Maps와 Calendar를 좌우로 배치 */}
-          <div className="w-full max-w-6xl mx-auto mb-12">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              {/* Google Maps 섹션 */}
-              <div className="w-full">
-                <div className="w-full h-96 md:h-[500px] rounded-lg overflow-hidden shadow-lg border border-gray-200">
-                  <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3149.674111118664!2d127.73666439999999!3d37.867763599999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3562e9c8c8c8c8c8%3A0x8c8c8c8c8c8c8c8!2z6rCV7JuQ64yA7ZWZ6rWQIOqzte2VmTbtmLjqtIA!5e0!3m2!1sko!2skr!4v1755483537137"
-                    width="100%"
-                    height="100%"
-                    style={{ border: 0 }}
-                    allowFullScreen={true}
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    title="Human-AI Interaction Lab Location"
-                    aria-label="Kangwon National University College of Engineering 6 Location Map"
-                  ></iframe>
-                </div>
-                <div className="mt-4 text-center">
-                  <p className="text-sm text-gray-500">
-                    Kangwon National University College of Engineering 6, Room 512
-                  </p>
-                </div>
-              </div>
-
-              {/* Google Calendar 섹션 */}
-              <div className="w-full">
-                <div className="w-full h-96 md:h-[500px] rounded-lg overflow-hidden shadow-lg border border-gray-200">
-                  <iframe
-                    src="https://calendar.google.com/calendar/embed?src=kimauk%40gmail.com&ctz=Asia%2FSeoul&mode=WEEK"
-                    width="100%"
-                    height="100%"
-                    style={{ border: 0 }}
-                    title="Prof. Kim Auk's Calendar"
-                    aria-label="Professor Kim Auk's Google Calendar showing weekly schedule"
-                  ></iframe>
-                </div>
-              </div>
-            </div>
-          </div>
-
           {/* 연락처 정보 섹션 */}
           <div className="max-w-4xl mx-auto">
             <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl p-8 shadow-sm border border-blue-200">
