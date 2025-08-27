@@ -14,7 +14,9 @@ const BlogPostTemplate = ({
 
   return (
     <Layout location={location} title={siteTitle}>
-      <article className="max-w-4xl mx-auto px-4 md:px-6 py-8">
+      <div className="flex max-w-7xl mx-auto px-4 md:px-6 py-8">
+        {/* 메인 콘텐츠 */}
+        <article className="flex-1 max-w-4xl">
         {/* 제목 섹션 */}
         <header className="text-center mb-12">
           <h1 className="text-2xl font-bold text-gray-900 mb-4">
@@ -46,7 +48,7 @@ const BlogPostTemplate = ({
 
         {/* Abstract 섹션 */}
         {post.frontmatter.description && (
-          <section className="mb-8 md:mb-12">
+          <section id="abstract" className="mb-8 md:mb-12">
             <h2 className="text-xl font-bold text-gray-900 mb-4 md:mb-6">Abstract</h2>
             <div className="bg-gray-50 rounded-lg p-4 md:p-6">
               <p className="text-sm md:text-base text-gray-700 leading-relaxed">
@@ -60,7 +62,7 @@ const BlogPostTemplate = ({
         {post.frontmatter.publications && 
          post.frontmatter.publications.length > 0 && 
          post.frontmatter.publications.some(pub => pub.title && pub.title.trim() !== '') && (
-          <section className="mb-6 md:mb-8">
+          <section id="publications" className="mb-6 md:mb-8">
             <h2 className="text-xl font-bold text-gray-900 mb-3 md:mb-4">Publications</h2>
             <div className="space-y-2 md:space-y-3">
               {post.frontmatter.publications
@@ -163,7 +165,7 @@ const BlogPostTemplate = ({
         {post.frontmatter.datasets && 
          post.frontmatter.datasets.length > 0 && 
          post.frontmatter.datasets.some(dataset => dataset.title && dataset.title.trim() !== '') && (
-          <section className="mb-6 md:mb-8">
+          <section id="datasets" className="mb-6 md:mb-8">
             <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-3 md:mb-4">Datasets</h2>
             <div className="space-y-2 md:space-y-3">
               {post.frontmatter.datasets
@@ -198,7 +200,7 @@ const BlogPostTemplate = ({
         {post.frontmatter.sourcecode && 
          post.frontmatter.sourcecode.length > 0 && 
          post.frontmatter.sourcecode.some(code => code.title && code.title.trim() !== '') && (
-          <section className="mb-6 md:mb-8">
+          <section id="sourcecode" className="mb-6 md:mb-8">
             <h2 className="text-xl font-bold text-gray-900 mb-3 md:mb-4">Source Code</h2>
             <div className="space-y-2 md:space-y-3">
               {post.frontmatter.sourcecode
@@ -229,7 +231,7 @@ const BlogPostTemplate = ({
 
         {/* People 섹션 */}
         {post.frontmatter.people && post.frontmatter.people.length > 0 && (
-          <section className="mb-8 md:mb-12">
+          <section id="people" className="mb-8 md:mb-12">
             <h2 className="text-xl font-bold text-gray-900 mb-4 md:mb-6">People</h2>
             <div className="flex justify-center">
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6 max-w-6xl">
@@ -272,8 +274,56 @@ const BlogPostTemplate = ({
           </section>
         )}
 
+        </article>
 
-      </article>
+        {/* 오른쪽 떠다니는 인덱스 */}
+        <div className="hidden lg:block w-36 ml-32 flex-shrink-0">
+          <div className="sticky top-4 space-y-4 z-10">
+            <nav className="space-y-2">
+              {post.frontmatter.description && (
+                <a
+                  href="#abstract"
+                  className="block text-sm text-gray-600 hover:text-blue-600 transition-colors duration-200 py-1"
+                >
+                  Abstract
+                </a>
+              )}
+              {post.frontmatter.publications && post.frontmatter.publications.length > 0 && (
+                <a
+                  href="#publications"
+                  className="block text-sm text-gray-600 hover:text-blue-600 transition-colors duration-200 py-1"
+                >
+                  Publications
+                </a>
+              )}
+              {post.frontmatter.datasets && post.frontmatter.datasets.length > 0 && (
+                <a
+                  href="#datasets"
+                  className="block text-sm text-gray-600 hover:text-blue-600 transition-colors duration-200 py-1"
+                >
+                  Datasets
+                </a>
+              )}
+              {post.frontmatter.sourcecode && post.frontmatter.sourcecode.length > 0 && (
+                <a
+                  href="#sourcecode"
+                  className="block text-sm text-gray-600 hover:text-blue-600 transition-colors duration-200 py-1"
+                >
+                  Source Code
+                </a>
+              )}
+              {post.frontmatter.people && post.frontmatter.people.length > 0 && (
+                <a
+                  href="#people"
+                  className="block text-sm text-gray-600 hover:text-blue-600 transition-colors duration-200 py-1"
+                >
+                  People
+                </a>
+              )}
+            </nav>
+          </div>
+        </div>
+      </div>
     </Layout>
   )
 }
