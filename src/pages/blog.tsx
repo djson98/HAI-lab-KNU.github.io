@@ -68,17 +68,17 @@ const BlogPage: React.FC<PageProps<DataProps>> = ({ data }) => {
       <div className="space-y-8">
         {/* 태그 필터 */}
         {availableTags.length > 0 && (
-          <div className="mb-6">
-            <h3 className="text-sm font-medium text-gray-700 mb-3 text-center">Research Area</h3>
-            <div className="flex flex-wrap justify-center gap-2">
+          <div className="mb-4">
+            <h3 className="text-xs font-medium text-gray-600 mb-2 text-center">Research Area</h3>
+            <div className="flex flex-wrap justify-center gap-1">
               {availableTags.map((tag) => (
                 <button
                   key={tag}
                   onClick={() => handleTagToggle(tag)}
-                  className={`px-3 py-2 rounded-lg font-medium transition-all duration-200 text-sm whitespace-nowrap ${
+                  className={`px-2 py-1 rounded-md font-medium transition-all duration-200 text-xs whitespace-nowrap ${
                     selectedTags.includes(tag)
-                      ? "bg-blue-600 text-white shadow-lg"
-                      : "bg-white text-blue-600 border border-gray-300 hover:bg-gray-50 hover:border-blue-400 hover:shadow-md"
+                      ? "bg-blue-600 text-white shadow-sm"
+                      : "bg-white text-blue-600 border border-gray-300 hover:bg-gray-50 hover:border-blue-400 hover:shadow-sm"
                   }`}
                 >
                   {tag}
@@ -87,6 +87,9 @@ const BlogPage: React.FC<PageProps<DataProps>> = ({ data }) => {
             </div>
           </div>
         )}
+        
+        {/* 구분선 */}
+        <hr className="border-gray-200 opacity-50" />
         
         {filteredPosts.length === 0 ? (
           <p className="text-gray-600">No projects yet.</p>
