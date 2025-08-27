@@ -27,7 +27,7 @@ type DataProps = {
 const MembersPage: React.FC<PageProps<DataProps>> = ({ data }) => {
   const members = data.allMarkdownRemark.nodes
 
-  // 직급별로 그룹화 (박사와 석사를 하나의 그룹으로)
+  // 직급별로 그룹화
   const groupedMembers = members.reduce((groups: { [key: string]: any[] }, member) => {
     let groupKey = member.frontmatter.position
     
@@ -77,265 +77,174 @@ const MembersPage: React.FC<PageProps<DataProps>> = ({ data }) => {
   return (
     <Layout activeLink="People">
       <div className="space-y-10">
-                {sortedPositions.map((position, index) => (
-          <div key={position}>
+        {sortedPositions.map((position, index) => (
+          <div key={position} id={position.toLowerCase().replace(/\s+/g, '-')}>
             {index > 0 && (
               <div className="border-t border-gray-200 my-8"></div>
             )}
             <div className="space-y-6">
-              <h2 className="text-2xl md:text-3xl font-bold text-gray-800 font-sans tracking-wide">
+              <h2 className="text-lg md:text-xl font-normal text-gray-600 font-sans tracking-wide text-left">
                 {position === 'Professor' ? 'Director' : position}
               </h2>
-            <div className={position === 'Alumni' ? 'grid grid-cols-2 md:grid-cols-4 gap-6' : 'space-y-6'}>
-              {groupedMembers[position].map((member) => (
-                            position === 'Alumni' ? (
-                              // Alumni는 카드 형태로 표시
-                              <div key={member.id} className="bg-white rounded-lg border border-gray-100 p-4 text-center">
-                                <div className="w-20 h-20 mx-auto mb-3 rounded-lg overflow-hidden bg-gray-100">
-                                  {member.frontmatter.name === "Ji Wook Lee" ? (
-                                    <img
-                                      src="/images/이지욱_2.jpg"
-                                      alt={member.frontmatter.name}
-                                      className="w-full h-full object-cover"
-                                    />
-                                  ) : member.frontmatter.name === "Min Gyu Han" ? (
-                                    <img
-                                      src="/images/한민규.jpeg"
-                                      alt={member.frontmatter.name}
-                                      className="w-full h-full object-cover"
-                                    />
-                                  ) : member.frontmatter.name === "Min Ji Kim" ? (
-                                    <img
-                                      src="/images/김민지_3.JPG"
-                                      alt={member.frontmatter.name}
-                                      className="w-full h-full object-cover"
-                                    />
-                                  ) : member.frontmatter.name === "Min Young Kim" ? (
-                                    <img
-                                      src="/images/김민영.jpg"
-                                      alt={member.frontmatter.name}
-                                      className="w-full h-full object-cover"
-                                    />
-                                  ) : (
-                                    <img
-                                      src="/images/profile-pic.png"
-                                      alt={member.frontmatter.name}
-                                      className="w-full h-full object-cover"
-                                    />
-                                  )}
-                                </div>
-                                <h3 className="text-lg font-semibold text-gray-900 mb-1">
-                                  {member.frontmatter.name === "Ji Wook Lee" ? "Jiwook Lee" :
-                                   member.frontmatter.name === "Min Gyu Han" ? "Mingyu Han" :
-                                   member.frontmatter.name === "Min Ji Kim" ? "Minji Kim" :
-                                   member.frontmatter.name === "Min Young Kim" ? "Minyoung Kim" :
-                                   member.frontmatter.name}
-                                </h3>
-                                {member.frontmatter.graduation && (
-                                  <p className="text-sm text-gray-600 mb-1">
-                                    {member.frontmatter.graduation}
-                                  </p>
-                                )}
-                                {member.frontmatter.current && member.frontmatter.current !== "Current Position" && (
-                                  <p className="text-sm text-gray-500">
-                                    at {member.frontmatter.current}
-                                  </p>
-                                )}
-                              </div>
-                            ) : (
-                              // 기존 멤버들은 원래 스타일 유지
-                              <article key={member.id} className="bg-white rounded-lg border border-gray-100 p-4 md:p-6">
-                                <div className="flex flex-col md:flex-row md:items-start space-y-4 md:space-y-0 md:space-x-6 lg:space-x-8">
-                                  {/* 상단/왼쪽: 멤버 사진 */}
-                                  <div className="flex-shrink-0 w-full md:w-auto">
-                                    <div className="w-full h-64 md:w-48 md:h-64 rounded-lg overflow-hidden bg-gray-100 flex items-center justify-center">
-                                      {member.frontmatter.name === "Auk Kim" ? (
-                                        <img
-                                          src="/images/members/aukkim.jpeg"
-                                          alt={member.frontmatter.name}
-                                          className="w-full h-full object-cover"
-                                        />
-                                      ) : member.frontmatter.name === "Jiwoo Hwang" ? (
-                                        <img
-                                          src="/images/members/jiwoohwang.jpeg"
-                                          alt={member.frontmatter.name}
-                                          className="w-full h-full object-cover"
-                                        />
-                                      ) : member.frontmatter.name === "Jungmin Lee" ? (
-                                        <img
-                                          src="/images/members/jungminlee.png"
-                                          alt={member.frontmatter.name}
-                                          className="w-full h-full object-cover"
-                                        />
-                                      ) : member.frontmatter.name === "Sunatullaev Golibjon" ? (
-                                        <img
-                                          src="/images/members/golibjon.png"
-                                          alt={member.frontmatter.name}
-                                          className="w-full h-full object-cover"
-                                        />
-                                      ) : member.frontmatter.name === "Dongju Son" ? (
-                                        <img
-                                          src="/images/members/dongjuson.png"
-                                          alt={member.frontmatter.name}
-                                          className="w-full h-full object-cover"
-                                        />
-                                      ) : member.frontmatter.name === "Younghwan Kim" ? (
-                                        <img
-                                          src="/images/김영환.png"
-                                          alt={member.frontmatter.name}
-                                          className="w-full h-full object-cover"
-                                        />
-                                      ) : member.frontmatter.name === "Yeongju Mun" ? (
-                                        <img
-                                          src="/images/문영주.jpg"
-                                          alt={member.frontmatter.name}
-                                          className="w-full h-full object-cover"
-                                        />
-                                      ) : member.frontmatter.name === "Seongeun Lee" ? (
-                                        <img
-                                          src="/images/이성은.png"
-                                          alt={member.frontmatter.name}
-                                          className="w-full h-full object-cover"
-                                        />
-                                      ) : member.frontmatter.name === "Kyoyoung Choi" ? (
-                                        <img
-                                          src="/images/최교영.jpg"
-                                          alt={member.frontmatter.name}
-                                          className="w-full h-full object-cover"
-                                        />
-                                      ) : (
-                                        <img
-                                          src="/images/profile-pic.png"
-                                          alt={member.frontmatter.name}
-                                          className="w-full h-full object-cover"
-                                        />
-                                      )}
-                                    </div>
-                                  </div>
-                                  
-                                  {/* 하단/오른쪽: 멤버 정보 */}
-                                  <div className="flex-1 min-w-0 text-left">
-                                    <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-2">
-                                      {member.frontmatter.name}
-                                    </h2>
-                                    <p className="text-base md:text-lg text-blue-600 font-medium mb-4">
-                                      {member.frontmatter.position}
-                                    </p>
-                                    <div 
-                                      className="prose prose-gray max-w-none mb-4 text-sm md:text-base"
-                                      dangerouslySetInnerHTML={{ __html: member.html }} 
-                                    />
-                                                                          <div className="space-y-3">
-                                        {/* 이메일 아이콘과 주소 (SVG로 표시) - 먼저 표시 */}
-                                        {member.frontmatter.email && (
-                                          <div className="flex items-center space-x-2">
-                                            <MdEmail className="w-5 h-5 text-gray-600 flex-shrink-0" />
-                                            <a 
-                                              href={`mailto:${member.frontmatter.email}`}
-                                              className="inline-block"
-                                              title="Click to send email"
-                                            >
-                                              <svg 
-                                                className="h-5 w-auto" 
-                                                viewBox="0 0 300 20" 
-                                                xmlns="http://www.w3.org/2000/svg"
-                                              >
-                                                <text 
-                                                  x="0" 
-                                                  y="15" 
-                                                  fontFamily="system-ui, -apple-system, sans-serif" 
-                                                  fontSize="14" 
-                                                  fontWeight="500" 
-                                                  fill="#6B7280"
-                                                  className="select-none"
-                                                >
-                                                  {member.frontmatter.email.length > 35 ? 
-                                                    member.frontmatter.email.substring(0, 35) + '...' : 
-                                                    member.frontmatter.email
-                                                  }
-                                                </text>
-                                              </svg>
-                                            </a>
-                                          </div>
-                                        )}
-                                        
-                                        {/* 홈페이지와 Scholar 아이콘과 주소 (SVG로 표시) - 아래에 표시 */}
-                                        <div className="space-y-3">
-                                          {member.frontmatter.homepage && (
-                                            <div className="flex items-center space-x-2">
-                                              <FaHome className="w-5 h-5 text-gray-600 flex-shrink-0" />
-                                              <a 
-                                                href={member.frontmatter.homepage}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="inline-block"
-                                                title="Visit homepage"
-                                              >
-                                                                                              <svg 
-                                                className="h-5 w-auto" 
-                                                viewBox="0 0 300 20" 
-                                                xmlns="http://www.w3.org/2000/svg"
-                                              >
-                                                <text 
-                                                  x="0" 
-                                                  y="15" 
-                                                  fontFamily="system-ui, -apple-system, sans-serif" 
-                                                  fontSize="14" 
-                                                  fontWeight="500" 
-                                                  fill="#6B7280"
-                                                  className="select-none"
-                                                >
-                                                  {member.frontmatter.homepage.length > 35 ? 
-                                                    member.frontmatter.homepage.substring(0, 35) + '...' : 
-                                                    member.frontmatter.homepage
-                                                  }
-                                                </text>
-                                              </svg>
-                                              </a>
-                                            </div>
-                                          )}
-                                          
-                                          {member.frontmatter.googleScholar && (
-                                            <div className="flex items-center space-x-2">
-                                              <SiGooglescholar className="w-5 h-5 text-gray-600 flex-shrink-0" />
-                                              <a 
-                                                href={member.frontmatter.googleScholar}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="inline-block"
-                                                title="View Google Scholar profile"
-                                              >
-                                                <svg 
-                                                  className="h-5 w-auto" 
-                                                  viewBox="0 0 300 20" 
-                                                  xmlns="http://www.w3.org/2000/svg"
-                                                >
-                                                  <text 
-                                                    x="0" 
-                                                    y="15" 
-                                                    fontFamily="system-ui, -apple-system, sans-serif" 
-                                                    fontSize="14" 
-                                                    fontWeight="500" 
-                                                    fill="#6B7280"
-                                                    className="select-none"
-                                                  >
-                                                    {member.frontmatter.googleScholar.length > 35 ? 
-                                                      member.frontmatter.googleScholar.substring(0, 35) + '...' : 
-                                                      member.frontmatter.googleScholar
-                                                    }
-                                                  </text>
-                                                </svg>
-                                              </a>
-                                            </div>
-                                          )}
-                                        </div>
-                                      </div>
-                                  </div>
-                                </div>
-                              </article>
-                            )
-                          ))}
-                          </div>
+              
+              {/* 그리드 레이아웃으로 멤버 표시 */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                {groupedMembers[position].map((member) => (
+                  <div key={member.id} className="bg-white rounded-lg p-4 text-center hover:bg-gray-50 transition-colors duration-200">
+                    {/* 멤버 사진 */}
+                    <div className="w-48 h-48 mx-auto mb-4 rounded-full overflow-hidden bg-gray-100">
+                      {member.frontmatter.name === "Auk Kim" ? (
+                        <img
+                          src="/images/members/aukkim.jpeg"
+                          alt={member.frontmatter.name}
+                          className="w-full h-full object-cover object-center"
+                        />
+                      ) : member.frontmatter.name === "Jiwoo Hwang" ? (
+                        <img
+                          src="/images/members/jiwoohwang.jpeg"
+                          alt={member.frontmatter.name}
+                          className="w-full h-full object-cover"
+                        />
+                      ) : member.frontmatter.name === "Jungmin Lee" ? (
+                        <img
+                          src="/images/members/jungminlee.png"
+                          alt={member.frontmatter.name}
+                          className="w-full h-full object-cover"
+                        />
+                      ) : member.frontmatter.name === "Sunatullaev Golibjon" ? (
+                        <img
+                          src="/images/members/golibjon.png"
+                          alt={member.frontmatter.name}
+                          className="w-full h-full object-cover"
+                        />
+                      ) : member.frontmatter.name === "Dongju Son" ? (
+                        <img
+                          src="/images/members/dongjuson.png"
+                          alt={member.frontmatter.name}
+                          className="w-full h-full object-cover"
+                        />
+                      ) : member.frontmatter.name === "Younghwan Kim" ? (
+                        <img
+                          src="/images/김영환.png"
+                          alt={member.frontmatter.name}
+                          className="w-full h-full object-cover"
+                        />
+                      ) : member.frontmatter.name === "Yeongju Mun" ? (
+                        <img
+                          src="/images/문영주.jpg"
+                          alt={member.frontmatter.name}
+                          className="w-full h-full object-cover"
+                        />
+                      ) : member.frontmatter.name === "Seongeun Lee" ? (
+                        <img
+                          src="/images/이성은.png"
+                          alt={member.frontmatter.name}
+                          className="w-full h-full object-cover"
+                        />
+                      ) : member.frontmatter.name === "Kyoyoung Choi" ? (
+                        <img
+                          src="/images/최교영.jpg"
+                          alt={member.frontmatter.name}
+                          className="w-full h-full object-cover"
+                        />
+                      ) : member.frontmatter.name === "Ji Wook Lee" ? (
+                        <img
+                          src="/images/이지욱_2.jpg"
+                          alt={member.frontmatter.name}
+                          className="w-full h-full object-cover"
+                        />
+                      ) : member.frontmatter.name === "Min Gyu Han" ? (
+                        <img
+                          src="/images/한민규.jpeg"
+                          alt={member.frontmatter.name}
+                          className="w-full h-full object-cover"
+                        />
+                      ) : member.frontmatter.name === "Min Ji Kim" ? (
+                        <img
+                          src="/images/김민지_3.JPG"
+                          alt={member.frontmatter.name}
+                          className="w-full h-full object-cover"
+                        />
+                      ) : member.frontmatter.name === "Min Young Kim" ? (
+                        <img
+                          src="/images/김민영.jpg"
+                          alt={member.frontmatter.name}
+                          className="w-full h-full object-cover"
+                        />
+                      ) : (
+                        <img
+                          src="/images/profile-pic.png"
+                          alt={member.frontmatter.name}
+                          className="w-full h-full object-cover"
+                        />
+                      )}
+                    </div>
+                    
+                    {/* 멤버 이름 */}
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                      {member.frontmatter.name === "Ji Wook Lee" ? "Jiwook Lee" :
+                       member.frontmatter.name === "Min Gyu Han" ? "Mingyu Han" :
+                       member.frontmatter.name === "Min Ji Kim" ? "Minji Kim" :
+                       member.frontmatter.name === "Min Young Kim" ? "Minyoung Kim" :
+                       member.frontmatter.name}
+                    </h3>
+                    
+                    {/* 직급 */}
+                    <p className="text-sm text-blue-600 font-medium mb-3">
+                      {member.frontmatter.position === 'Alumni' && member.frontmatter.graduation 
+                        ? member.frontmatter.graduation 
+                        : member.frontmatter.position}
+                    </p>
+                    
+                    {/* 연구 분야 (HTML에서 추출) */}
+                    {member.html && (
+                      <div className="text-xs text-gray-600 mb-3 line-clamp-2">
+                        <div dangerouslySetInnerHTML={{ __html: member.html }} />
+                      </div>
+                    )}
+                    
+                    {/* 연락처 정보 */}
+                    <div className="flex items-center justify-center space-x-2">
+                      {/* 이메일 */}
+                      {member.frontmatter.email && (
+                        <a 
+                          href={`mailto:${member.frontmatter.email}`}
+                          className="w-6 h-6 bg-gray-600 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors"
+                          title={`Send email to ${member.frontmatter.email}`}
+                        >
+                          <MdEmail className="w-3 h-3 text-white" />
+                        </a>
+                      )}
+                      
+                      {/* 홈페이지 */}
+                      {member.frontmatter.homepage && (
+                        <a 
+                          href={member.frontmatter.homepage}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="w-6 h-6 bg-gray-600 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors"
+                          title="Visit homepage"
+                        >
+                          <FaHome className="w-3 h-3 text-white" />
+                        </a>
+                      )}
+                      
+                      {/* Google Scholar */}
+                      {member.frontmatter.googleScholar && (
+                        <a 
+                          href={member.frontmatter.googleScholar}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="w-6 h-6 bg-gray-600 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors"
+                          title="View Google Scholar profile"
+                        >
+                          <SiGooglescholar className="w-3 h-3 text-white" />
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         ))}
