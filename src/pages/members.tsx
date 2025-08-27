@@ -179,6 +179,30 @@ const MembersPage: React.FC<PageProps<DataProps>> = ({ data }) => {
                                           alt={member.frontmatter.name}
                                           className="w-full h-full object-cover"
                                         />
+                                      ) : member.frontmatter.name === "Younghwan Kim" ? (
+                                        <img
+                                          src="/images/김영환.png"
+                                          alt={member.frontmatter.name}
+                                          className="w-full h-full object-cover"
+                                        />
+                                      ) : member.frontmatter.name === "Yeongju Mun" ? (
+                                        <img
+                                          src="/images/문영주.jpg"
+                                          alt={member.frontmatter.name}
+                                          className="w-full h-full object-cover"
+                                        />
+                                      ) : member.frontmatter.name === "Seongeun Lee" ? (
+                                        <img
+                                          src="/images/이성은.png"
+                                          alt={member.frontmatter.name}
+                                          className="w-full h-full object-cover"
+                                        />
+                                      ) : member.frontmatter.name === "Kyoyoung Choi" ? (
+                                        <img
+                                          src="/images/최교영.jpg"
+                                          alt={member.frontmatter.name}
+                                          className="w-full h-full object-cover"
+                                        />
                                       ) : (
                                         <img
                                           src="/images/profile-pic.png"
