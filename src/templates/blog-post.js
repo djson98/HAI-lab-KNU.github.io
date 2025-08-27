@@ -277,8 +277,8 @@ const BlogPostTemplate = ({
         </article>
 
         {/* 오른쪽 떠다니는 인덱스 */}
-        <div className="hidden lg:block w-36 ml-32 flex-shrink-0">
-          <div className="sticky top-4 space-y-4 z-10">
+        <div className="hidden lg:block w-10 ml-20 flex-shrink-0" style={{ position: 'relative' }}>
+          <div className="sticky top-8 space-y-4 z-20" style={{ position: 'sticky', top: '2rem' }}>
             <nav className="space-y-2">
               {post.frontmatter.description && (
                 <a
