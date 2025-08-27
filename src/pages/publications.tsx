@@ -118,30 +118,29 @@ const PublicationsPage: React.FC<PageProps<DataProps>> = ({ data }) => {
                         )}
                         
                         <div className="text-xs text-gray-600">
-                          <p className="mb-1">{pub.frontmatter.authors}</p>
+                          <div className="mb-1 flex items-center gap-2">
+                            <span>{pub.frontmatter.authors}</span>
+                            {/* 수상 배지를 저자 이름 옆에 표시 */}
+                            {pub.frontmatter.award && (
+                              <span className="inline-flex items-center text-xs font-semibold text-orange-600">
+                                <FaTrophy className="w-3 h-3 mr-1" />
+                                {pub.frontmatter.award}
+                              </span>
+                            )}
+                          </div>
                           <p className="mb-2">
                             {pub.frontmatter.tags && pub.frontmatter.tags.includes('Top Conference') ? (
-                              <span>{pub.frontmatter.journal} (<span className="font-bold">Top Conference</span>)</span>
+                              <span>{pub.frontmatter.journal} (<span className="font-bold text-yellow-600">Top Conference</span>)</span>
                             ) : pub.frontmatter.journal && (
                               pub.frontmatter.journal.includes('International Journal of Human-Computer Studies') ||
                               pub.frontmatter.journal.includes('Computers & Education') ||
                               pub.frontmatter.journal.includes('Computers in Human Behavior')
                             ) ? (
-                              <span>{pub.frontmatter.journal} (<span className="font-bold">JCR 7%</span>)</span>
+                              <span>{pub.frontmatter.journal} (<span className="font-bold text-yellow-600">JCR 7%</span>)</span>
                             ) : (
                               <span>{pub.frontmatter.journal}</span>
                             )}, {pub.frontmatter.year}
                           </p>
-                          
-                          {/* 수상 배지만 표시 */}
-                          {pub.frontmatter.award && (
-                            <div className="mb-2">
-                              <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-gradient-to-r from-orange-100 to-amber-100 text-orange-800 shadow-sm border border-orange-300">
-                                <FaTrophy className="w-4 h-4 mr-1 text-orange-600" />
-                                {pub.frontmatter.award}
-                              </span>
-                            </div>
-                          )}
                         </div>
                         
                         <div className="flex space-x-4">

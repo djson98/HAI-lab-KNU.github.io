@@ -25,4 +25,5 @@ people:
     affiliation: "Kangwon National University"
     photo: "/images/members/aukkim.jpeg"
     homepage: "https://kimauk.github.io/"
+tags: ["HCI", "Ubiquitous Computing"]
 ---

@@ -12,38 +12,87 @@ type DataProps = {
       fields: {
         slug: string
       }
-      frontmatter: {
-        title: string
-        date: string
-        description: string
-        thumbnail: string
-        image1: string
-        image2: string
-        image3: string
-        image4: string
-        people: {
-          name: string
-          affiliation: string
-          photo: string
-          homepage: string
-        }[]
-      }
+              frontmatter: {
+          title: string
+          date: string
+          description: string
+          thumbnail: string
+          image1: string
+          image2: string
+          image3: string
+          image4: string
+          tags?: string[]
+          people: {
+            name: string
+            affiliation: string
+            photo: string
+            homepage: string
+          }[]
+        }
     }[]
   }
 }
 
 const BlogPage: React.FC<PageProps<DataProps>> = ({ data }) => {
   const posts = data.allMarkdownRemark.nodes
+  const [selectedTags, setSelectedTags] = React.useState<string[]>([])
+
+  // 사용 가능한 모든 태그 목록 생성
+  const availableTags = React.useMemo(() => {
+    const allTags = posts
+      .filter(post => post.frontmatter.tags)
+      .flatMap(post => post.frontmatter.tags || [])
+    return [...new Set(allTags)].sort()
+  }, [posts])
+
+  // 선택된 태그에 따라 프로젝트 필터링 (AND 로직)
+  const filteredPosts = React.useMemo(() => {
+    if (selectedTags.length === 0) return posts
+    return posts.filter(post => 
+      post.frontmatter.tags && 
+      selectedTags.every(tag => post.frontmatter.tags!.includes(tag))
+    )
+  }, [posts, selectedTags])
+
+  // 태그 선택/해제 핸들러
+  const handleTagToggle = (tag: string) => {
+    setSelectedTags(prev => 
+      prev.includes(tag) 
+        ? prev.filter(t => t !== tag)
+        : [...prev, tag]
+    )
+  }
 
   return (
     <Layout activeLink="Projects">
       <div className="space-y-8">
+        {/* 태그 필터 */}
+        {availableTags.length > 0 && (
+          <div className="mb-6">
+            <h3 className="text-sm font-medium text-gray-700 mb-3 text-center">Research Area</h3>
+            <div className="flex flex-wrap justify-center gap-2">
+              {availableTags.map((tag) => (
+                <button
+                  key={tag}
+                  onClick={() => handleTagToggle(tag)}
+                  className={`px-3 py-2 rounded-lg font-medium transition-all duration-200 text-sm whitespace-nowrap ${
+                    selectedTags.includes(tag)
+                      ? "bg-blue-600 text-white shadow-lg"
+                      : "bg-white text-blue-600 border border-gray-300 hover:bg-gray-50 hover:border-blue-400 hover:shadow-md"
+                  }`}
+                >
+                  {tag}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
         
-        {posts.length === 0 ? (
+        {filteredPosts.length === 0 ? (
           <p className="text-gray-600">No projects yet.</p>
         ) : (
           <div className="space-y-6">
-            {posts.map((post) => {
+            {filteredPosts.map((post) => {
               return (
                 <article key={post.id} className="group bg-white hover:bg-gray-50 transition-all duration-300 border-b border-gray-200 py-4">
                   <Link to={post.fields.slug} className="block">
@@ -139,9 +188,30 @@ const BlogPage: React.FC<PageProps<DataProps>> = ({ data }) => {
                     
                       {/* 오른쪽: 텍스트 내용 */}
                       <div className="w-full md:w-3/4 pl-4 md:pl-6">
-                        <h2 className="text-lg font-semibold text-gray-800 group-hover:text-blue-600 transition-all duration-300 leading-tight">
+                        <h2 className="text-lg font-semibold text-gray-800 group-hover:text-blue-600 transition-all duration-300 leading-tight mb-2">
                           {post.frontmatter.title}
                         </h2>
+                        {/* 프로젝트 참여자 표시 */}
+                        {post.frontmatter.people && post.frontmatter.people.length > 0 && (
+                          <p className="text-sm text-gray-600 mb-2">
+                            {post.frontmatter.people.map((person, index) => (
+                              <span key={index}>
+                                {person.name}
+                                {index < post.frontmatter.people.length - 1 ? ', ' : ''}
+                              </span>
+                            ))}
+                          </p>
+                        )}
+                        {/* 프로젝트 태그 표시 */}
+                        {post.frontmatter.tags && post.frontmatter.tags.length > 0 && (
+                          <div className="flex flex-wrap gap-1">
+                            {post.frontmatter.tags.map((tag, index) => (
+                              <span key={index} className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                                {tag}
+                              </span>
+                            ))}
+                          </div>
+                        )}
                       </div>
                     </div>
                   </Link>
@@ -176,6 +246,7 @@ export const query = graphql`
           image2
           image3
           image4
+          tags
           people {
             name
             affiliation
