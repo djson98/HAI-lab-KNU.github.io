@@ -153,13 +153,25 @@ const Layout = ({ activeLink = "Projects", children }: LayoutProps) => {
       {/* Footer */}
       <footer className="bg-gray-100 py-6 mt-auto">
         <div className="max-w-4xl mx-auto px-6">
-          <div className="text-sm text-gray-500">
-            <div className="max-w-2xl">
-              <div className="text-xs text-gray-400 whitespace-pre-line mb-2">
-                Kangwon National University College of Engineering 6, Room 512<br />
-                1, Gangwondaehakgil, Chuncheon-si, Gangwon-do (24341)
+          <div className="flex justify-between items-center">
+            {/* 왼쪽: 주소 및 저작권 정보 */}
+            <div className="text-sm text-gray-500">
+              <div className="max-w-2xl">
+                <div className="text-xs text-gray-400 whitespace-pre-line mb-2">
+                  Kangwon National University College of Engineering 6, Room 512<br />
+                  1, Gangwondaehakgil, Chuncheon-si, Gangwon-do (24341)
+                </div>
+                <span className="block text-xs text-gray-400">© 2025 Human-AI Interaction Lab</span>
               </div>
-              <span className="block text-xs text-gray-400">© 2025 Human-AI Interaction Lab</span>
+            </div>
+            
+            {/* 오른쪽: KNU 로고 */}
+            <div className="flex-shrink-0">
+              <img
+                src="/images/knu-logo.webp"
+                alt="Kangwon National University Logo"
+                className="h-12 w-auto opacity-80 hover:opacity-100 transition-opacity duration-200"
+              />
             </div>
           </div>
         </div>
