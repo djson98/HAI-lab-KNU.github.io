@@ -16,8 +16,8 @@ type LayoutProps = {
 const MENU = {
   Home: "/",
   People: "/members",
-  Projects: "/blog",
   Publications: "/publications",
+  Projects: "/blog",
   Lectures: "/lectures",
   // Contact: "/contact", // Hidden for now
   // News: "/news", // Hidden for now, will be developed later
@@ -53,9 +53,9 @@ const Layout = ({ activeLink = "Projects", children }: LayoutProps) => {
   return (
     <div className="min-h-screen bg-white">
               {/* Navbar */}
-        <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm border-b border-gray-200/50 transition-all duration-300" role="navigation" aria-label="Main navigation">
-          <div className="w-full max-w-7xl mx-auto flex justify-between items-center px-6 md:px-8 py-2 md:py-4">
-            <Link to="/" className="flex items-center mr-4 md:mr-8 focus:outline-none rounded">
+        <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200 transition-all duration-300" role="navigation" aria-label="Main navigation">
+          <div className="w-full max-w-7xl mx-auto flex justify-between items-center px-8 md:px-12 py-3 md:py-5">
+            <Link to="/" className="flex items-center mr-6 md:mr-12 focus:outline-none rounded">
               <img
                 src="/images/logo-hai.png"
                 alt="HaiLab Logo - Return to homepage"
@@ -66,15 +66,15 @@ const Layout = ({ activeLink = "Projects", children }: LayoutProps) => {
             </Link>
             
             {/* 데스크톱 메뉴 */}
-            <div className="hidden md:flex items-center space-x-1" role="menubar">
+            <div className="hidden md:flex items-center space-x-4" role="menubar">
               {Object.entries(MENU).map(([name, path]) => (
                 <Link
                   key={name}
                   to={path}
-                  className={`px-4 py-2 rounded-lg text-base font-medium font-display focus:outline-none ${
+                  className={`px-6 py-3 rounded-lg text-lg font-light font-display focus:outline-none ${
                     activeLink.toLowerCase() === name.toLowerCase()
                       ? "text-blue-600"
-                      : "text-gray-600 hover:bg-gray-50 hover:text-gray-900"
+                      : "text-gray-600 hover:text-blue-600"
                   }`}
                   role="menuitem"
                   aria-current={activeLink.toLowerCase() === name.toLowerCase() ? "page" : undefined}
@@ -86,15 +86,15 @@ const Layout = ({ activeLink = "Projects", children }: LayoutProps) => {
 
             {/* 햄버거 메뉴 버튼 (모바일) */}
             <button
-              className="md:hidden p-1.5 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-gray-900 transition-colors duration-200"
+              className="md:hidden p-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-gray-900 transition-colors duration-200"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Toggle menu"
               aria-expanded={isMenuOpen}
             >
               {isMenuOpen ? (
-                <HiX className="w-5 h-5" />
+                <HiX className="w-6 h-6" />
               ) : (
-                <HiMenu className="w-5 h-5" />
+                <HiMenu className="w-6 h-6" />
               )}
             </button>
           </div>
@@ -123,10 +123,10 @@ const Layout = ({ activeLink = "Projects", children }: LayoutProps) => {
                 <Link
                   key={name}
                   to={path}
-                  className={`block px-3 md:px-4 py-2 md:py-3 rounded-lg text-sm font-medium ${
+                  className={`block px-3 md:px-4 py-2 md:py-3 rounded-lg text-base font-light ${
                     activeLink.toLowerCase() === name.toLowerCase()
                       ? "text-blue-600 bg-blue-50"
-                      : "text-gray-600 hover:bg-gray-50 hover:text-gray-900"
+                      : "text-gray-600 hover:text-blue-600"
                   }`}
                   onClick={() => setIsMenuOpen(false)}
                   role="menuitem"
@@ -152,7 +152,7 @@ const Layout = ({ activeLink = "Projects", children }: LayoutProps) => {
 
       {/* Footer */}
       <footer className="bg-gray-100 py-6 mt-auto">
-        <div className="max-w-4xl mx-auto px-6">
+        <div className="w-full max-w-7xl mx-auto px-6 md:px-8">
           <div className="flex justify-between items-center">
             {/* 왼쪽: 주소 및 저작권 정보 */}
             <div className="text-sm text-gray-500">

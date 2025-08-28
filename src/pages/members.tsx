@@ -1,4 +1,5 @@
 import * as React from "react"
+import { useState, useEffect } from "react"
 import { graphql, PageProps } from "gatsby"
 import Layout from "../components/layout"
 import { MdEmail } from "react-icons/md"
@@ -26,6 +27,29 @@ type DataProps = {
 
 const MembersPage: React.FC<PageProps<DataProps>> = ({ data }) => {
   const members = data.allMarkdownRemark.nodes
+  const [activeSection, setActiveSection] = useState('professor')
+
+  // 현재 보이는 섹션을 추적하는 함수
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id)
+          }
+        })
+      },
+      {
+        rootMargin: '-20% 0px -70% 0px' // 네비게이션 바를 고려한 여백
+      }
+    )
+
+    // 모든 섹션을 관찰
+    const sections = document.querySelectorAll('h2[id]')
+    sections.forEach((section) => observer.observe(section))
+
+    return () => observer.disconnect()
+  }, [])
 
   // 직급별로 그룹화
   const groupedMembers = members.reduce((groups: { [key: string]: any[] }, member) => {
@@ -76,14 +100,16 @@ const MembersPage: React.FC<PageProps<DataProps>> = ({ data }) => {
 
   return (
     <Layout activeLink="People">
-      <div className="space-y-10">
+      <div className="flex max-w-7xl mx-auto px-6 md:px-8 py-8">
+        {/* 메인 콘텐츠 */}
+        <div className="flex-1 space-y-10">
         {sortedPositions.map((position, index) => (
           <div key={position} id={position.toLowerCase().replace(/\s+/g, '-')}>
             {index > 0 && (
               <div className="border-t border-gray-200 my-8"></div>
             )}
             <div className="space-y-6">
-              <h2 className="text-lg md:text-xl font-normal text-gray-600 font-sans tracking-wide text-left">
+              <h2 id={position.toLowerCase().replace(/\s+/g, '-')} className="text-lg md:text-xl font-normal text-gray-600 font-sans tracking-wide text-left">
                 {position === 'Professor' ? 'Director' : position}
               </h2>
               
@@ -248,6 +274,39 @@ const MembersPage: React.FC<PageProps<DataProps>> = ({ data }) => {
             </div>
           </div>
         ))}
+        </div>
+
+        {/* 오른쪽 스티키 인덱스 */}
+        <div className="hidden lg:block w-32 ml-2 flex-shrink-0" style={{ position: 'relative', minHeight: '200vh' }}>
+          <div 
+            className="sticky-index sticky space-y-3 z-30" 
+            style={{ 
+              position: 'sticky', 
+              top: '16rem'
+            }}
+          >
+            <div className="bg-white/80 backdrop-blur-sm rounded-lg p-4">
+              <h4 className="text-sm font-semibold text-gray-900 mb-3 pb-2 border-b border-gray-200">
+                Index
+              </h4>
+              <nav className="space-y-2">
+                {sortedPositions.map((position) => (
+                  <a
+                    key={position}
+                    href={`#${position.toLowerCase().replace(/\s+/g, '-')}`}
+                    className={`block text-sm py-1 px-2 rounded transition-colors duration-200 whitespace-nowrap ${
+                      activeSection === position.toLowerCase().replace(/\s+/g, '-') 
+                        ? 'text-blue-700 font-medium' 
+                        : 'text-gray-600 hover:text-blue-600'
+                    }`}
+                  >
+                    {position === 'Professor' ? 'Director' : position}
+                  </a>
+                ))}
+              </nav>
+            </div>
+          </div>
+        </div>
       </div>
     </Layout>
   )

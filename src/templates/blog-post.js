@@ -1,4 +1,5 @@
 import * as React from "react"
+import { useState, useEffect } from "react"
 import { Link, graphql } from "gatsby"
 import { FaFilePdf, FaHome, FaPlay, FaGithub, FaPython, FaJava, FaAndroid } from "react-icons/fa"
 import { SiJupyter } from "react-icons/si"
@@ -11,6 +12,29 @@ const BlogPostTemplate = ({
   location,
 }) => {
   const siteTitle = site.siteMetadata?.title || `Title`
+  const [activeSection, setActiveSection] = useState('abstract')
+
+  // 현재 보이는 섹션을 추적하는 함수
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id)
+          }
+        })
+      },
+      {
+        rootMargin: '-20% 0px -70% 0px' // 네비게이션 바를 고려한 여백
+      }
+    )
+
+    // 모든 섹션을 관찰
+    const sections = document.querySelectorAll('section[id]')
+    sections.forEach((section) => observer.observe(section))
+
+    return () => observer.disconnect()
+  }, [])
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -20,7 +44,7 @@ const BlogPostTemplate = ({
         <article className="flex-1 w-full">
         {/* 제목 섹션 */}
         <header className="text-center mb-12">
-          <h1 className="text-2xl font-bold text-gray-900 mb-4">
+          <h1 className="text-3xl font-bold text-gray-900 mb-6">
             {post.frontmatter.title}
           </h1>
         </header>
@@ -278,7 +302,7 @@ const BlogPostTemplate = ({
         </article>
 
         {/* 오른쪽 스티키 인덱스 */}
-        <div className="hidden lg:block w-32 ml-6 flex-shrink-0" style={{ position: 'relative', minHeight: '200vh' }}>
+        <div className="hidden lg:block w-32 ml-2 flex-shrink-0" style={{ position: 'relative', minHeight: '200vh' }}>
           <div 
             className="sticky-index sticky space-y-3 z-30" 
             style={{ 
@@ -296,7 +320,11 @@ const BlogPostTemplate = ({
                 {post.frontmatter.description && (
                   <a
                     href="#abstract"
-                    className="block text-sm text-gray-600 hover:text-blue-600 transition-colors duration-200 py-1 px-2 rounded hover:bg-blue-50"
+                    className={`block text-sm py-1 px-2 rounded transition-colors duration-200 ${
+                      activeSection === 'abstract' 
+                        ? 'text-blue-700 font-medium' 
+                        : 'text-gray-600 hover:text-blue-600'
+                    }`}
                   >
                     Abstract
                   </a>
@@ -304,7 +332,11 @@ const BlogPostTemplate = ({
                 {post.frontmatter.publications && post.frontmatter.publications.length > 0 && (
                   <a
                     href="#publications"
-                    className="block text-sm text-gray-600 hover:text-blue-600 transition-colors duration-200 py-1 px-2 rounded hover:bg-blue-50"
+                    className={`block text-sm py-1 px-2 rounded transition-colors duration-200 ${
+                      activeSection === 'publications' 
+                        ? 'text-blue-700 font-medium' 
+                        : 'text-gray-600 hover:text-blue-600'
+                    }`}
                   >
                     Publications
                   </a>
@@ -312,7 +344,11 @@ const BlogPostTemplate = ({
                 {post.frontmatter.datasets && post.frontmatter.datasets.length > 0 && (
                   <a
                     href="#datasets"
-                    className="block text-sm text-gray-600 hover:text-blue-600 transition-colors duration-200 py-1 px-2 rounded hover:bg-blue-50"
+                    className={`block text-sm py-1 px-2 rounded transition-colors duration-200 ${
+                      activeSection === 'datasets' 
+                        ? 'text-blue-700 font-medium' 
+                        : 'text-gray-600 hover:text-blue-600'
+                    }`}
                   >
                     Datasets
                   </a>
@@ -320,7 +356,11 @@ const BlogPostTemplate = ({
                 {post.frontmatter.sourcecode && post.frontmatter.sourcecode.length > 0 && (
                   <a
                     href="#sourcecode"
-                    className="block text-sm text-gray-600 hover:text-blue-600 transition-colors duration-200 py-1 px-2 rounded hover:bg-blue-50"
+                    className={`block text-sm py-1 px-2 rounded transition-colors duration-200 whitespace-nowrap ${
+                      activeSection === 'sourcecode' 
+                        ? 'text-blue-700 font-medium' 
+                        : 'text-gray-600 hover:text-blue-600'
+                    }`}
                   >
                     Source Code
                   </a>
@@ -328,7 +368,11 @@ const BlogPostTemplate = ({
                 {post.frontmatter.people && post.frontmatter.people.length > 0 && (
                   <a
                     href="#people"
-                    className="block text-sm text-gray-600 hover:text-blue-600 transition-colors duration-200 py-1 px-2 rounded hover:bg-blue-50"
+                    className={`block text-sm py-1 px-2 rounded transition-colors duration-200 ${
+                      activeSection === 'people' 
+                        ? 'text-blue-700 font-medium' 
+                        : 'text-gray-600 hover:text-blue-600'
+                    }`}
                   >
                     People
                   </a>

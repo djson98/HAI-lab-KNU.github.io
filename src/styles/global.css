@@ -5,6 +5,8 @@
 @layer base {
   html {
     font-family: 'Inter', 'Noto Sans KR', system-ui, sans-serif;
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem; /* 네비게이션 높이만큼 여백 */
   }
   
   body {
@@ -92,6 +94,8 @@
     align-self: flex-start !important;
   }
 }
+
+/* 스크롤 마진 설정 - 인라인 스타일로 대체됨 */
 
 /* 스티키 포지셔닝 강화 */
 @layer utilities {

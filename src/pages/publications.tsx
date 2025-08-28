@@ -35,6 +35,29 @@ const PublicationsPage: React.FC<PageProps<DataProps>> = ({ data }) => {
   const [startYear, setStartYear] = React.useState<string>("")
   const [endYear, setEndYear] = React.useState<string>("")
   const [selectedType, setSelectedType] = React.useState<string>("All")
+  const [activeSection, setActiveSection] = React.useState<string>("")
+
+  // 현재 보이는 섹션을 추적하는 함수
+  React.useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id)
+          }
+        })
+      },
+      {
+        rootMargin: '-20% 0px -70% 0px' // 네비게이션 바를 고려한 여백
+      }
+    )
+
+    // 모든 섹션을 관찰
+    const sections = document.querySelectorAll('div[id]')
+    sections.forEach((section) => observer.observe(section))
+
+    return () => observer.disconnect()
+  }, [])
 
   // 사용 가능한 연도 목록 생성 (최신순)
   const availableYears = React.useMemo(() => {
@@ -76,7 +99,9 @@ const PublicationsPage: React.FC<PageProps<DataProps>> = ({ data }) => {
 
   return (
     <Layout activeLink="Publications">
-      <div className="space-y-8">
+      <div className="flex max-w-7xl mx-auto px-6 md:px-8 py-8">
+        {/* 메인 콘텐츠 */}
+        <div className="flex-1 space-y-8">
         {/* 연도 필터 */}
         <YearFilter
           startYear={startYear}
@@ -94,7 +119,7 @@ const PublicationsPage: React.FC<PageProps<DataProps>> = ({ data }) => {
         ) : (
           <div className="space-y-8">
             {sortedYears.map((year) => (
-              <div key={year} className="space-y-1">
+              <div key={year} id={year} className="space-y-1">
                 <h2 className="text-lg font-bold text-gray-800 border-b border-gray-200 pb-1">{year}</h2>
                 <div className="space-y-6">
                   {groupedPublications[year].map((pub) => (
@@ -186,6 +211,39 @@ const PublicationsPage: React.FC<PageProps<DataProps>> = ({ data }) => {
             ))}
           </div>
         )}
+        </div>
+
+        {/* 오른쪽 스티키 인덱스 */}
+        <div className="hidden lg:block w-32 ml-2 flex-shrink-0" style={{ position: 'relative', minHeight: '200vh' }}>
+          <div 
+            className="sticky-index sticky space-y-3 z-30" 
+            style={{ 
+              position: 'sticky', 
+              top: '16rem'
+            }}
+          >
+            <div className="bg-white/80 backdrop-blur-sm rounded-lg p-4">
+              <h4 className="text-sm font-semibold text-gray-900 mb-3 pb-2 border-b border-gray-200">
+                Index
+              </h4>
+              <nav className="space-y-2">
+                {sortedYears.map((year) => (
+                  <a
+                    key={year}
+                    href={`#${year}`}
+                    className={`block text-sm py-1 px-2 rounded transition-colors duration-200 whitespace-nowrap ${
+                      activeSection === year 
+                        ? 'text-blue-700 font-medium' 
+                        : 'text-gray-600 hover:text-blue-600'
+                    }`}
+                  >
+                    {year}
+                  </a>
+                ))}
+              </nav>
+            </div>
+          </div>
+        </div>
       </div>
     </Layout>
   )
