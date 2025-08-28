@@ -5,11 +5,9 @@
 @layer base {
   html {
     font-family: 'Inter', 'Noto Sans KR', system-ui, sans-serif;
-    overflow-x: hidden;
   }
   
   body {
-    overflow-x: hidden;
   }
   
   h1, h2, h3, h4, h5, h6 {
@@ -50,6 +48,66 @@
   }
 }
 
+/* 스티키 포지셔닝 강화 */
+@layer utilities {
+  .sticky {
+    position: sticky !important;
+  }
+  
+  .sticky[style*="position: sticky"] {
+    position: sticky !important;
+  }
+}
+
+/* 스티키 인덱스 전용 스타일 */
+.sticky-index {
+  position: sticky;
+  will-change: transform;
+  transform: translateZ(0);
+  /* top 값은 JavaScript에서 인라인 스타일로 제어 */
+}
+
+.sticky-index[style*="position: sticky"] {
+  position: sticky !important;
+}
+
+/* 스티키 컨테이너 강화 */
+.sticky-container {
+  position: relative !important;
+  min-height: 100vh !important;
+  align-self: flex-start !important;
+}
+
+/* 스티키 포지셔닝 최종 강화 */
+@layer utilities {
+  .sticky {
+    position: sticky !important;
+  }
+  
+  .sticky[style*="position: sticky"] {
+    position: sticky !important;
+  }
+  
+  .self-start {
+    align-self: flex-start !important;
+  }
+}
+
+/* 스티키 포지셔닝 강화 */
+@layer utilities {
+  .sticky {
+    position: sticky !important;
+  }
+  
+  .sticky[style*="position: sticky"] {
+    position: sticky !important;
+  }
+  
+  .self-start {
+    align-self: flex-start !important;
+  }
+}
+
 /* 깔끔한 네비게이션 스타일 */
 @layer utilities {
   .sticky {
@@ -58,6 +116,14 @@
   
   .top-0 {
     top: 0 !important;
+  }
+  
+  .top-24 {
+    top: 6rem !important;
+  }
+  
+  .z-30 {
+    z-index: 30 !important;
   }
   
   .z-50 {

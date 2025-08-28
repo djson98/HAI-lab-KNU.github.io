@@ -14,9 +14,10 @@ const BlogPostTemplate = ({
 
   return (
     <Layout location={location} title={siteTitle}>
-      <div className="flex max-w-7xl mx-auto px-4 md:px-6 py-8">
-        {/* 메인 콘텐츠 */}
-        <article className="flex-1 max-w-4xl">
+      <div className="relative max-w-7xl mx-auto px-1 md:px-2 py-8">
+        <div className="flex">
+                  {/* 메인 콘텐츠 */}
+        <article className="flex-1 max-w-7xl">
         {/* 제목 섹션 */}
         <header className="text-center mb-12">
           <h1 className="text-2xl font-bold text-gray-900 mb-4">
@@ -276,52 +277,66 @@ const BlogPostTemplate = ({
 
         </article>
 
-        {/* 오른쪽 떠다니는 인덱스 */}
-        <div className="hidden lg:block w-10 ml-20 flex-shrink-0" style={{ position: 'relative' }}>
-          <div className="sticky top-8 space-y-4 z-20" style={{ position: 'sticky', top: '2rem' }}>
-            <nav className="space-y-2">
-              {post.frontmatter.description && (
-                <a
-                  href="#abstract"
-                  className="block text-sm text-gray-600 hover:text-blue-600 transition-colors duration-200 py-1"
-                >
-                  Abstract
-                </a>
-              )}
-              {post.frontmatter.publications && post.frontmatter.publications.length > 0 && (
-                <a
-                  href="#publications"
-                  className="block text-sm text-gray-600 hover:text-blue-600 transition-colors duration-200 py-1"
-                >
-                  Publications
-                </a>
-              )}
-              {post.frontmatter.datasets && post.frontmatter.datasets.length > 0 && (
-                <a
-                  href="#datasets"
-                  className="block text-sm text-gray-600 hover:text-blue-600 transition-colors duration-200 py-1"
-                >
-                  Datasets
-                </a>
-              )}
-              {post.frontmatter.sourcecode && post.frontmatter.sourcecode.length > 0 && (
-                <a
-                  href="#sourcecode"
-                  className="block text-sm text-gray-600 hover:text-blue-600 transition-colors duration-200 py-1"
-                >
-                  Source Code
-                </a>
-              )}
-              {post.frontmatter.people && post.frontmatter.people.length > 0 && (
-                <a
-                  href="#people"
-                  className="block text-sm text-gray-600 hover:text-blue-600 transition-colors duration-200 py-1"
-                >
-                  People
-                </a>
-              )}
-            </nav>
+        {/* 오른쪽 스티키 인덱스 */}
+        <div className="hidden lg:block w-32 ml-6 flex-shrink-0" style={{ position: 'relative', minHeight: '200vh' }}>
+          <div 
+            className="sticky-index sticky space-y-3 z-30" 
+            style={{ 
+              position: 'sticky', 
+              top: '16rem',
+              maxHeight: 'calc(100vh - 8rem)',
+              overflowY: 'auto'
+            }}
+          >
+            <div className="bg-white/80 backdrop-blur-sm rounded-lg p-4 shadow-sm">
+              <h4 className="text-sm font-semibold text-gray-900 mb-3 pb-2 border-b border-gray-200">
+                Index
+              </h4>
+              <nav className="space-y-2">
+                {post.frontmatter.description && (
+                  <a
+                    href="#abstract"
+                    className="block text-sm text-gray-600 hover:text-blue-600 transition-colors duration-200 py-1 px-2 rounded hover:bg-blue-50"
+                  >
+                    Abstract
+                  </a>
+                )}
+                {post.frontmatter.publications && post.frontmatter.publications.length > 0 && (
+                  <a
+                    href="#publications"
+                    className="block text-sm text-gray-600 hover:text-blue-600 transition-colors duration-200 py-1 px-2 rounded hover:bg-blue-50"
+                  >
+                    Publications
+                  </a>
+                )}
+                {post.frontmatter.datasets && post.frontmatter.datasets.length > 0 && (
+                  <a
+                    href="#datasets"
+                    className="block text-sm text-gray-600 hover:text-blue-600 transition-colors duration-200 py-1 px-2 rounded hover:bg-blue-50"
+                  >
+                    Datasets
+                  </a>
+                )}
+                {post.frontmatter.sourcecode && post.frontmatter.sourcecode.length > 0 && (
+                  <a
+                    href="#sourcecode"
+                    className="block text-sm text-gray-600 hover:text-blue-600 transition-colors duration-200 py-1 px-2 rounded hover:bg-blue-50"
+                  >
+                    Source Code
+                  </a>
+                )}
+                {post.frontmatter.people && post.frontmatter.people.length > 0 && (
+                  <a
+                    href="#people"
+                    className="block text-sm text-gray-600 hover:text-blue-600 transition-colors duration-200 py-1 px-2 rounded hover:bg-blue-50"
+                  >
+                    People
+                  </a>
+                )}
+              </nav>
+            </div>
           </div>
+        </div>
         </div>
       </div>
     </Layout>

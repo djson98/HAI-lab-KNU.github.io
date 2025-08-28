@@ -51,7 +51,7 @@ const Layout = ({ activeLink = "Projects", children }: LayoutProps) => {
   `);
 
   return (
-    <div className="min-h-screen bg-white overflow-x-hidden">
+    <div className="min-h-screen bg-white">
               {/* Navbar */}
         <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm border-b border-gray-200/50 transition-all duration-300" role="navigation" aria-label="Main navigation">
           <div className="max-w-4xl mx-auto flex justify-between items-center px-4 md:px-6 py-2 md:py-4">
