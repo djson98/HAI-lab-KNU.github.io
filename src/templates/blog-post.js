@@ -14,10 +14,10 @@ const BlogPostTemplate = ({
 
   return (
     <Layout location={location} title={siteTitle}>
-      <div className="relative max-w-7xl mx-auto px-1 md:px-2 py-8">
+      <div className="relative w-full max-w-7xl mx-auto px-6 md:px-8 py-8">
         <div className="flex">
                   {/* 메인 콘텐츠 */}
-        <article className="flex-1 max-w-7xl">
+        <article className="flex-1 w-full">
         {/* 제목 섹션 */}
         <header className="text-center mb-12">
           <h1 className="text-2xl font-bold text-gray-900 mb-4">
@@ -33,7 +33,7 @@ const BlogPostTemplate = ({
         {/* 썸네일 이미지 섹션 */}
         {(post.frontmatter.image1 || post.frontmatter.thumbnail) && (
           <section className="mb-8 md:mb-12">
-            <div className="w-full max-w-4xl mx-auto">
+            <div className="w-full">
               <div className="w-full h-64 md:h-80 overflow-hidden">
                 <img
                   src={post.frontmatter.image1 || post.frontmatter.thumbnail}

@@ -14,7 +14,7 @@ const IndexPage = ({ data }) => {
       <div className="min-h-screen">
         {/* Hero Section */}
         <section className="py-20 bg-gradient-to-br from-blue-50 to-white rounded-3xl mx-2 md:mx-6">
-          <div className="max-w-4xl mx-auto px-4 md:px-6 text-center">
+          <div className="w-full max-w-7xl mx-auto px-6 md:px-8 text-center">
             <h1 className="text-3xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 bg-clip-text text-transparent mb-6" id="main-heading">
              Human-AI Interaction Lab 
             </h1>
@@ -63,7 +63,7 @@ const IndexPage = ({ data }) => {
 
         {/* Recent Projects Section */}
         <section className="py-16 bg-white" aria-labelledby="recent-projects-heading">
-          <div className="max-w-4xl mx-auto px-4 md:px-6">
+          <div className="w-full max-w-7xl mx-auto px-6 md:px-8">
             <div className="text-center mb-12">
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6" id="recent-projects-heading">
                 Recent Projects
