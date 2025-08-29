@@ -20,6 +20,7 @@ type DataProps = {
         googleScholar: string
         graduation: string
         current: string
+        photo: string
       }
     }[]
   }
@@ -60,6 +61,11 @@ const MembersPage: React.FC<PageProps<DataProps>> = ({ data }) => {
       groupKey = 'Graduate Student'
     }
     
+    // Undergraduate Student는 별도 그룹으로 유지
+    if (member.frontmatter.position === 'Undergraduate Student') {
+      groupKey = 'Undergraduate Student'
+    }
+    
     // Alumni는 별도 그룹으로 유지
     if (member.frontmatter.position === 'Alumni') {
       groupKey = 'Alumni'
@@ -76,7 +82,7 @@ const MembersPage: React.FC<PageProps<DataProps>> = ({ data }) => {
   const positionOrder = {
     'Professor': 1,
     'Graduate Student': 2,
-    'Undergraudate Student': 3,
+    'Undergraduate Student': 3,
     'Alumni': 4
   }
 
@@ -119,83 +125,16 @@ const MembersPage: React.FC<PageProps<DataProps>> = ({ data }) => {
                   <div key={member.id} className="bg-white rounded-lg p-4 text-center hover:bg-gray-50 transition-colors duration-200">
                     {/* 멤버 사진 */}
                     <div className="w-48 h-48 mx-auto mb-4 rounded-full overflow-hidden bg-gray-100">
-                      {member.frontmatter.name === "Auk Kim" ? (
+                      {member.frontmatter.photo ? (
                         <img
-                          src="/images/members/aukkim.jpeg"
+                          src={`/images/members/${member.frontmatter.photo}`}
                           alt={member.frontmatter.name}
                           className="w-full h-full object-cover object-center"
-                        />
-                      ) : member.frontmatter.name === "Jiwoo Hwang" ? (
-                        <img
-                          src="/images/members/jiwoohwang.jpeg"
-                          alt={member.frontmatter.name}
-                          className="w-full h-full object-cover"
-                        />
-                      ) : member.frontmatter.name === "Jungmin Lee" ? (
-                        <img
-                          src="/images/members/jungminlee.png"
-                          alt={member.frontmatter.name}
-                          className="w-full h-full object-cover"
-                        />
-                      ) : member.frontmatter.name === "Sunatullaev Golibjon" ? (
-                        <img
-                          src="/images/members/golibjon.png"
-                          alt={member.frontmatter.name}
-                          className="w-full h-full object-cover"
-                        />
-                      ) : member.frontmatter.name === "Dongju Son" ? (
-                        <img
-                          src="/images/members/dongjuson.png"
-                          alt={member.frontmatter.name}
-                          className="w-full h-full object-cover"
-                        />
-                      ) : member.frontmatter.name === "Younghwan Kim" ? (
-                        <img
-                          src="/images/김영환.png"
-                          alt={member.frontmatter.name}
-                          className="w-full h-full object-cover"
-                        />
-                      ) : member.frontmatter.name === "Yeongju Mun" ? (
-                        <img
-                          src="/images/문영주.jpg"
-                          alt={member.frontmatter.name}
-                          className="w-full h-full object-cover"
-                        />
-                      ) : member.frontmatter.name === "Seongeun Lee" ? (
-                        <img
-                          src="/images/이성은.png"
-                          alt={member.frontmatter.name}
-                          className="w-full h-full object-cover"
-                        />
-                      ) : member.frontmatter.name === "Kyoyoung Choi" ? (
-                        <img
-                          src="/images/최교영.jpg"
-                          alt={member.frontmatter.name}
-                          className="w-full h-full object-cover"
-                        />
-                      ) : member.frontmatter.name === "Ji Wook Lee" ? (
-                        <img
-                          src="/images/이지욱_2.jpg"
-                          alt={member.frontmatter.name}
-                          className="w-full h-full object-cover"
-                        />
-                      ) : member.frontmatter.name === "Min Gyu Han" ? (
-                        <img
-                          src="/images/한민규.jpeg"
-                          alt={member.frontmatter.name}
-                          className="w-full h-full object-cover"
-                        />
-                      ) : member.frontmatter.name === "Min Ji Kim" ? (
-                        <img
-                          src="/images/김민지_3.JPG"
-                          alt={member.frontmatter.name}
-                          className="w-full h-full object-cover"
-                        />
-                      ) : member.frontmatter.name === "Min Young Kim" ? (
-                        <img
-                          src="/images/김민영.jpg"
-                          alt={member.frontmatter.name}
-                          className="w-full h-full object-cover"
+                          onError={(e) => {
+                            // 이미지 로드 실패 시 기본 이미지로 대체
+                            const target = e.target as HTMLImageElement
+                            target.src = "/images/profile-pic.png"
+                          }}
                         />
                       ) : (
                         <img
@@ -328,6 +267,7 @@ export const query = graphql`
           homepage
           googleScholar
           graduation
+          photo
         }
       }
     }
