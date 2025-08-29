@@ -21,6 +21,7 @@ type DataProps = {
         graduation: string
         current: string
         photo: string
+        research_interests: string[]
       }
     }[]
   }
@@ -161,10 +162,14 @@ const MembersPage: React.FC<PageProps<DataProps>> = ({ data }) => {
                         : member.frontmatter.position}
                     </p>
                     
-                    {/* 연구 분야 (HTML에서 추출) */}
-                    {member.html && (
-                      <div className="text-xs text-gray-600 mb-3 line-clamp-2">
-                        <div dangerouslySetInnerHTML={{ __html: member.html }} />
+                    {/* 연구 분야 */}
+                    {member.frontmatter.research_interests && member.frontmatter.research_interests.length > 0 && (
+                      <div className="text-xs text-gray-600 mb-3">
+                        {member.frontmatter.research_interests.map((interest, index) => (
+                          <div key={index} className="text-center mb-1">
+                            {interest}
+                          </div>
+                        ))}
                       </div>
                     )}
                     
@@ -268,6 +273,7 @@ export const query = graphql`
           googleScholar
           graduation
           photo
+          research_interests
         }
       }
     }
