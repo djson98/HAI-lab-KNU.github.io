@@ -8,6 +8,7 @@ import Seo from "../components/seo"
 const IndexPage = ({ data }) => {
   const posts = data.allMarkdownRemark.nodes.slice(0, 3) // 최신 프로젝트 3개로 되돌림
   const news = data.allNews.nodes.slice(0, 3) // 최신 뉴스 3개
+  const members = data.allMembers.nodes // 멤버 정보
   
   return (
     <Layout activeLink="Home">
@@ -173,21 +174,36 @@ const IndexPage = ({ data }) => {
                           <div className="mt-3 pt-3 border-t border-gray-100">
                             <div className="flex items-center justify-center">
                               <div className="flex -space-x-1">
-                                {post.frontmatter.people.slice(0, 4).map((person, index) => (
-                                  <div key={index} className="relative group">
-                                    <img
-                                      src={person.photo}
-                                      alt={person.name}
-                                      className="w-6 h-6 rounded-full border border-white object-cover shadow-sm transition-transform duration-200"
-                                      title={person.name}
-                                    />
-                                    {/* 툴팁 */}
-                                    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-1 px-2 py-1 bg-gray-800 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-10">
-                                      {person.name}
-                                      <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-2 border-r-2 border-t-2 border-transparent border-t-gray-800"></div>
+                                {post.frontmatter.people.slice(0, 4).map((person, index) => {
+                                  // 멤버 정보에서 해당 참여자 찾기
+                                  const member = members.find(m => 
+                                    m.frontmatter.name.toLowerCase() === person.name.toLowerCase()
+                                  )
+                                  
+                                  // 멤버 정보가 있으면 멤버의 photo 사용, 없으면 기존 photo 사용
+                                  const imagePath = member?.frontmatter.photo 
+                                    ? `/images/members/${member.frontmatter.photo}`
+                                    : person.photo || "/images/profile-pic.png"
+                                  
+                                  return (
+                                    <div key={index} className="relative group">
+                                      <img
+                                        src={imagePath}
+                                        alt={person.name}
+                                        className="w-6 h-6 rounded-full border border-white object-cover shadow-sm transition-transform duration-200"
+                                        title={person.name}
+                                        onError={(e) => {
+                                          e.target.src = "/images/profile-pic.png"
+                                        }}
+                                      />
+                                      {/* 툴팁 */}
+                                      <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-1 px-2 py-1 bg-gray-800 text-white text-xs rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap z-10">
+                                        {person.name}
+                                        <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-2 border-r-2 border-t-2 border-transparent border-t-gray-800"></div>
+                                      </div>
                                     </div>
-                                  </div>
-                                ))}
+                                  )
+                                })}
                                 {post.frontmatter.people.length > 4 && (
                                   <div className="w-6 h-6 rounded-full bg-gray-300 border border-white flex items-center justify-center shadow-sm">
                                     <span className="text-xs text-gray-600 font-medium">
@@ -268,6 +284,17 @@ export const query = graphql`
             photo
             homepage
           }
+        }
+      }
+    }
+    allMembers: allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: "/content/members/" } }
+      sort: { frontmatter: { name: ASC } }
+    ) {
+      nodes {
+        frontmatter {
+          name
+          photo
         }
       }
     }
