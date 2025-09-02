@@ -116,7 +116,7 @@ const MembersPage: React.FC<PageProps<DataProps>> = ({ data }) => {
               <div className="border-t border-gray-200 my-8"></div>
             )}
             <div className="space-y-6">
-              <h2 id={position.toLowerCase().replace(/\s+/g, '-')} className="text-lg md:text-xl font-normal text-gray-600 font-sans tracking-wide text-left">
+              <h2 id={position.toLowerCase().replace(/\s+/g, '-')} className="text-lg md:text-xl font-normal text-black font-sans tracking-wide text-left">
                 {position === 'Professor' ? 'Director' : position}
               </h2>
               
@@ -130,7 +130,11 @@ const MembersPage: React.FC<PageProps<DataProps>> = ({ data }) => {
                         <img
                           src={`/images/members/${member.frontmatter.photo}`}
                           alt={member.frontmatter.name}
-                          className="w-full h-full object-cover object-center"
+                          className={`w-full h-full object-cover ${
+                            member.frontmatter.name === "Auk Kim" 
+                              ? "object-top" 
+                              : "object-center"
+                          }`}
                           onError={(e) => {
                             // 이미지 로드 실패 시 기본 이미지로 대체
                             const target = e.target as HTMLImageElement

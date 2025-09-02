@@ -11,62 +11,61 @@ const IndexPage = ({ data }) => {
   const members = data.allMembers.nodes // 멤버 정보
   
   return (
-    <Layout activeLink="Home">
-      <div className="min-h-screen">
-        {/* Hero Section */}
-        <section className="py-20 bg-gradient-to-br from-blue-50 to-white rounded-3xl mx-2 md:mx-6">
-          <div className="w-full max-w-7xl mx-auto px-6 md:px-8 text-center">
-            <h1 className="text-3xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 bg-clip-text text-transparent mb-6" id="main-heading">
-             Human-AI Interaction Lab 
-            </h1>
-            <p className="text-xl font-semibold text-gray-800 mb-6 leading-tight tracking-wide">
-            Understanding and Designing Human Interactions with AI Systems
-            </p>
-            <p className="text-base text-gray-600 leading-relaxed max-w-2xl mx-auto font-medium">
-              We focus on how to design and support meaningful human interactions with AI systems in everyday life.
-              Our research investigates when and how AI should engage with people.
-            </p>
-            
-            {/* Research Areas Section */}
-            <div className="mt-16">
-              <div className="grid md:grid-cols-3 gap-4 md:gap-8">
-                <div className="text-center p-3 md:p-4 rounded-lg bg-white border border-gray-200 shadow-sm focus-within:ring-2 focus-within:ring-blue-500 focus-within:ring-offset-2" tabIndex="0" role="region" aria-labelledby="hci-title">
-                  <FaRobot className="w-12 h-12 md:w-16 md:h-16 text-blue-600 mx-auto mb-2" aria-hidden="true" />
-                  <h3 className="text-xs md:text-sm font-semibold text-gray-900 mb-1" id="hci-title">
-                  Human-Computer Interaction
-                  </h3>
-                  <p className="text-gray-600 text-xs">
-                    Designing intuitive and effective interfaces for human-AI interaction
-                  </p>
-                </div>
-                <div className="text-center p-3 md:p-4 rounded-lg bg-white border border-gray-200 shadow-sm focus-within:ring-2 focus-within:ring-blue-500 focus-within:ring-offset-2" tabIndex="0" role="region" aria-labelledby="ubiquitous-title">
-                  <HiOutlineGlobeAlt className="w-12 h-12 md:w-16 md:h-16 text-blue-600 mx-auto mb-2" aria-hidden="true" />
-                  <h3 className="text-xs md:text-sm font-semibold text-gray-900 mb-1" id="ubiquitous-title">
-                  Ubiquitous Computing
-                  </h3>
-                  <p className="text-xs text-gray-600">
-                    Exploring AI systems that seamlessly integrate into everyday environments
-                  </p>
-                </div>
-                <div className="text-center p-3 md:p-4 rounded-lg bg-white border border-gray-200 shadow-sm focus-within:ring-2 focus-within:ring-blue-500 focus-within:ring-offset-2" tabIndex="0" role="region" aria-labelledby="ml-title">
-                  <HiOutlineChip className="w-12 h-12 md:w-16 md:h-16 text-blue-600 mx-auto mb-2" aria-hidden="true" />
-                  <h3 className="text-xs md:text-sm font-semibold text-gray-900 mb-1" id="ml-title">
-                  Machine Learning & Mobile Sensing
-                  </h3>
-                  <p className="text-xs text-gray-600">
-                    Developing intelligent systems using mobile sensors and ML algorithms
-                  </p>
-                </div>
+    <>
+      {/* Hero Section - 레이아웃 밖에서 전체 너비로 */}
+      <section className="pt-40 pb-8 bg-gradient-to-br from-blue-50 to-white w-full">
+        <div className="w-full text-center px-6 md:px-8">
+          <h1 className="text-3xl md:text-5xl font-light text-black mb-6" id="main-heading">
+           Human-AI Interaction Lab 
+          </h1>
+          <p className="text-xl font-semibold text-gray-800 mb-6 leading-tight tracking-wide">
+          Understanding and Designing Human Interactions with AI Systems
+          </p>
+          <p className="text-base text-gray-600 leading-relaxed max-w-2xl mx-auto font-medium">
+            We focus on how to design and support meaningful human interactions with AI systems in everyday life.
+            Our research investigates when and how AI should engage with people.
+          </p>
+          
+          {/* Research Areas Section */}
+          <div className="mt-16">
+            <div className="grid md:grid-cols-3 gap-4 md:gap-8 max-w-6xl mx-auto">
+              <div className="text-center p-3 md:p-4 rounded-lg bg-white border border-gray-200 shadow-sm focus-within:ring-2 focus-within:ring-blue-500 focus-within:ring-offset-2" tabIndex="0" role="region" aria-labelledby="hci-title">
+                <h3 className="text-xs md:text-sm font-semibold text-gray-900 mb-1" id="hci-title">
+                Human-Computer Interaction
+                </h3>
+                <p className="text-gray-600 text-xs">
+                  Designing intuitive and effective interfaces for human-AI interaction
+                </p>
+              </div>
+              <div className="text-center p-3 md:p-4 rounded-lg bg-white border border-gray-200 shadow-sm focus-within:ring-2 focus-within:ring-blue-500 focus-within:ring-offset-2" tabIndex="0" role="region" aria-labelledby="ubiquitous-title">
+                <h3 className="text-xs md:text-sm font-semibold text-gray-900 mb-1" id="ubiquitous-title">
+                Ubiquitous Computing
+                </h3>
+                <p className="text-xs text-gray-600">
+                  Exploring AI systems that seamlessly integrate into everyday environments
+                </p>
+              </div>
+              <div className="text-center p-3 md:p-4 rounded-lg bg-white border border-gray-200 shadow-sm focus-within:ring-2 focus-within:ring-blue-500 focus-within:ring-offset-2" tabIndex="0" role="region" aria-labelledby="ml-title">
+                <h3 className="text-xs md:text-sm font-semibold text-gray-900 mb-1" id="ml-title">
+                Machine Learning & Mobile Sensing
+                </h3>
+                <p className="text-xs text-gray-600">
+                  Developing intelligent systems using mobile sensors and ML algorithms
+                </p>
               </div>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
+
+      <Layout activeLink="Home">
+        <div className="min-h-screen">
 
         {/* Recent Projects Section */}
-        <section className="py-16 bg-white" aria-labelledby="recent-projects-heading">
+        <section className="pt-16 pb-8 bg-white" aria-labelledby="recent-projects-heading">
           <div className="w-full max-w-7xl mx-auto px-6 md:px-8">
             <div className="text-center mb-12">
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6" id="recent-projects-heading">
+              <h2 className="text-4xl md:text-5xl font-light text-gray-900 mb-6" id="recent-projects-heading">
                 Recent Projects
               </h2>
             </div>
@@ -162,11 +161,21 @@ const IndexPage = ({ data }) => {
                           </div>
                         </div>
                         
-                        {/* 프로젝트 제목만 */}
+                        {/* 프로젝트 제목과 태그 */}
                         <div className="text-center">
-                          <h3 className="text-base md:text-lg font-bold text-gray-900">
+                          <h3 className="text-base md:text-lg font-bold text-gray-900 mb-2">
                             {post.frontmatter.title}
                           </h3>
+                          {/* 프로젝트 태그 표시 */}
+                          {post.frontmatter.tags && post.frontmatter.tags.length > 0 && (
+                            <div className="flex flex-wrap justify-center gap-1">
+                              {post.frontmatter.tags.map((tag, index) => (
+                                <span key={index} className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-700">
+                                  {tag}
+                                </span>
+                              ))}
+                            </div>
+                          )}
                         </div>
                         
                         {/* 참여자 정보 */}
@@ -249,8 +258,9 @@ const IndexPage = ({ data }) => {
         <div className="max-w-4xl mx-auto px-4 md:px-6">
           <hr className="border-gray-200 opacity-50 my-8" />
         </div>
-      </div>
-    </Layout>
+        </div>
+      </Layout>
+    </>
   )
 }
 
@@ -278,6 +288,7 @@ export const query = graphql`
           image2
           image3
           image4
+          tags
           people {
             name
             affiliation

@@ -209,7 +209,7 @@ const BlogPage: React.FC<PageProps<DataProps>> = ({ data }) => {
                         {post.frontmatter.tags && post.frontmatter.tags.length > 0 && (
                           <div className="flex flex-wrap gap-1">
                             {post.frontmatter.tags.map((tag, index) => (
-                              <span key={index} className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                              <span key={index} className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-700">
                                 {tag}
                               </span>
                             ))}
