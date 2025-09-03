@@ -8,6 +8,7 @@
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
   "dependencies": {
+    "@auth0/nextjs-auth0": "^4.9.0",
     "@fontsource-variable/montserrat": "^5.0.17",
     "@fontsource/merriweather": "^5.0.8",
     "@heroicons/react": "^2.2.0",
@@ -17,6 +18,7 @@
     "flowbite": "^3.1.2",
     "flowbite-react": "^0.12.4",
     "gatsby": "^5.14.1",
+    "gatsby-plugin-decap-cms": "^4.0.4",
     "gatsby-plugin-feed": "^5.14.0",
     "gatsby-plugin-google-fonts": "^1.0.1",
     "gatsby-plugin-image": "^3.14.0",
