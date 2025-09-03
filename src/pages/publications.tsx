@@ -2,7 +2,7 @@ import * as React from "react"
 import { graphql, PageProps, Link } from "gatsby"
 import Layout from "../components/layout"
 import YearFilter from "../components/YearFilter"
-import { FaTrophy, FaFilePdf, FaPlay } from "react-icons/fa"
+import { FaMedal, FaFilePdf, FaPlay } from "react-icons/fa"
 import Seo from "../components/seo"
 
 type DataProps = {
@@ -120,7 +120,7 @@ const PublicationsPage: React.FC<PageProps<DataProps>> = ({ data }) => {
           <div className="space-y-8">
             {sortedYears.map((year) => (
               <div key={year} id={year} className="space-y-1">
-                <h2 className="text-lg font-bold text-gray-800 border-b border-gray-200 pb-1">{year}</h2>
+                <h2 className="text-lg font-normal text-gray-800 border-b border-gray-200 pb-1">{year}</h2>
                 <div className="space-y-6">
                   {groupedPublications[year].map((pub) => (
                     <article key={pub.id} className="bg-white rounded-lg p-6 shadow-sm hover:bg-gray-50 transition-colors duration-200">
@@ -132,12 +132,12 @@ const PublicationsPage: React.FC<PageProps<DataProps>> = ({ data }) => {
                             rel="noopener noreferrer"
                             className="block"
                           >
-                            <h2 className="text-lg font-semibold text-gray-900 hover:text-blue-600 transition-colors duration-200 cursor-pointer">
+                            <h2 className="text-lg font-normal text-gray-900 hover:text-blue-600 transition-colors duration-200 cursor-pointer">
                               {pub.frontmatter.title}
                             </h2>
                           </a>
                         ) : (
-                          <h2 className="text-lg font-semibold text-gray-900">
+                          <h2 className="text-lg font-normal text-gray-900">
                             {pub.frontmatter.title}
                           </h2>
                         )}
@@ -147,36 +147,35 @@ const PublicationsPage: React.FC<PageProps<DataProps>> = ({ data }) => {
                             <span>{pub.frontmatter.authors}</span>
                             {/* 수상 배지를 저자 이름 옆에 표시 */}
                             {pub.frontmatter.award && (
-                              <span className="inline-flex items-center text-xs font-semibold text-orange-600">
-                                <FaTrophy className="w-3 h-3 mr-1" />
+                              <span className="inline-flex items-center text-xs font-semibold text-yellow-600">
+                                <FaMedal className="w-3 h-3 mr-1" />
                                 {pub.frontmatter.award}
                               </span>
                             )}
                           </div>
                           <p className="mb-2">
+                            <span className="italic">{pub.frontmatter.journal}, {pub.frontmatter.year}</span>
                             {pub.frontmatter.tags && pub.frontmatter.tags.includes('Top Conference') ? (
-                              <span>{pub.frontmatter.journal} (<span className="font-bold text-yellow-600">Top Conference</span>)</span>
+                              <span className="ml-2 font-bold text-yellow-600">Top Conference</span>
                             ) : pub.frontmatter.journal && (
                               pub.frontmatter.journal.includes('International Journal of Human-Computer Studies') ||
                               pub.frontmatter.journal.includes('Computers & Education') ||
                               pub.frontmatter.journal.includes('Computers in Human Behavior')
                             ) ? (
-                              <span>{pub.frontmatter.journal} (<span className="font-bold text-yellow-600">JCR 7%</span>)</span>
-                            ) : (
-                              <span>{pub.frontmatter.journal}</span>
-                            )}, {pub.frontmatter.year}
+                              <span className="ml-2 font-bold text-yellow-600">JCR 7%</span>
+                            ) : null}
                           </p>
                         </div>
                         
-                        <div className="flex space-x-4">
+                        <div className="flex space-x-3">
                           {pub.frontmatter.paper && (
                             <a 
                               href={pub.frontmatter.paper}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="inline-flex items-center px-2 py-1 bg-rose-50 text-rose-600 border border-rose-200 text-xs font-medium rounded-md hover:bg-rose-100 hover:border-rose-300 transition-all duration-200"
+                              className="inline-flex items-center px-2 py-1 bg-blue-50 text-blue-700 text-xs rounded hover:bg-blue-100 transition-colors duration-200"
                             >
-                              <FaFilePdf className="mr-1 w-2.5 h-2.5" />
+                              <FaFilePdf className="mr-1 w-3 h-3" />
                               PDF
                             </a>
                           )}
@@ -185,7 +184,7 @@ const PublicationsPage: React.FC<PageProps<DataProps>> = ({ data }) => {
                               href={pub.frontmatter.slide}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="inline-flex items-center px-2 py-1 bg-amber-50 text-amber-600 border border-amber-200 text-xs font-medium rounded-md hover:bg-amber-100 hover:border-amber-300 transition-all duration-200"
+                              className="inline-flex items-center px-2 py-1 bg-blue-50 text-blue-700 text-xs rounded hover:bg-blue-100 transition-colors duration-200"
                             >
                               slide
                             </a>
@@ -195,9 +194,9 @@ const PublicationsPage: React.FC<PageProps<DataProps>> = ({ data }) => {
                               href={pub.frontmatter.video}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="inline-flex items-center px-2 py-1 bg-sky-50 text-sky-600 border border-sky-200 text-xs font-medium rounded-md hover:bg-sky-100 hover:border-sky-300 transition-all duration-200"
+                              className="inline-flex items-center px-2 py-1 bg-blue-50 text-blue-700 text-xs rounded hover:bg-blue-100 transition-colors duration-200"
                             >
-                              <FaPlay className="mr-1 w-2.5 h-2.5" />
+                              <FaPlay className="mr-1 w-3 h-3" />
                               Video
                             </a>
                           )}

@@ -2,7 +2,7 @@
 title: "2단계 자율주행 중 시각 및 청각 이차 과제 수행이 제어권 전환 능력에 미치는 영향"
 subtitle: "Effects of Visual and Auditory Secondary Tasks on Takeover Performance in SAE Level 2 Automated Driving"
 authors: "Jiwoo Hwang, Auk Kim"
-journal: "한국HCI학회 논문지 2023 Volume 18 (Sep 2023). 한국HCI학회"
+journal: "Proceedings of HCI Korea"
 type: "Conference"
 year: "2023"
 date: "2023-09-01"

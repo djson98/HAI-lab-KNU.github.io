@@ -1,7 +1,7 @@
 ---
 title: "Exploring Context-Aware Mental Health Self-Tracking Using Multimodal Smart Speakers in Home Environments"
 authors: "Jieun Lim, Youngji Koh, Auk Kim, Uichin Lee"
-journal: "Proceedings of the 2024 CHI Conference on Human Factors in Computing Systems (CHI '24)"
+journal: "Proceedings of the CHI Conference on Human Factors in Computing Systems"
 type: "Conference"
 pages: "1–18"
 date: "2024-05-11"

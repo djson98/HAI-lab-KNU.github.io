@@ -71,7 +71,7 @@ const Layout = ({ activeLink = "Projects", children }: LayoutProps) => {
                 <Link
                   key={name}
                   to={path}
-                  className={`px-6 py-3 rounded-lg text-lg font-light font-display focus:outline-none ${
+                  className={`px-6 py-3 rounded-lg text-lg font-light font-display focus:outline-none transition-colors duration-300 ${
                     activeLink.toLowerCase() === name.toLowerCase()
                       ? "text-blue-600"
                       : "text-gray-600 hover:text-blue-600"
@@ -123,7 +123,7 @@ const Layout = ({ activeLink = "Projects", children }: LayoutProps) => {
                 <Link
                   key={name}
                   to={path}
-                  className={`block px-3 md:px-4 py-2 md:py-3 rounded-lg text-base font-light ${
+                  className={`block px-3 md:px-4 py-2 md:py-3 rounded-lg text-base font-light transition-colors duration-300 ${
                     activeLink.toLowerCase() === name.toLowerCase()
                       ? "text-blue-600 bg-blue-50"
                       : "text-gray-600 hover:text-blue-600"

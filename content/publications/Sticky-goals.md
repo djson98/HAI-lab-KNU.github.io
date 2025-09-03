@@ -1,7 +1,7 @@
 ---
 title: "Sticky Goals: Understanding Goal Commitments for Behavioral Changes in the Wild"
 authors: "Hyunsoo Lee, Auk Kim, Hwajung Hong, Uichin Lee"
-journal: "Proceedings of the 2021 CHI Conference on Human Factors in Computing Systems"
+journal: "Proceedings of the CHI Conference on Human Factors in Computing Systems"
 type: "Conference"
 year: "2021"
 date: "2021-05-06"

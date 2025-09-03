@@ -1,7 +1,7 @@
 ---
 title: "S-ADL: Exploring Smartphone-Based Activities of Daily Living to Detect Blood Alcohol Concentration in a Controlled Environment"
 authors: "Hansoo Lee, Auk Kim, SangWon Bae, Uichin Lee"
-journal: "Proceedings of the 2024 CHI Conference on Human Factors in Computing Systems (CHI '24)"
+journal: "Proceedings of the CHI Conference on Human Factors in Computing Systems"
 type: "Conference"
 pages: "1–25"
 date: "2024-05-11"

@@ -2,7 +2,7 @@
 title: "저비용 조건부 자율주행 시뮬레이터 개발 및 평가"
 subtitle: "Developing and Evaluating Low-Cost Level 3 Vehicle Simulator"
 authors: "Jiwoo Hwang, Mingyu Han, Minji Kim, Auk Kim"
-journal: "PROCEEDINGS OF HCI KOREA 2022 학술대회 발표 논문집, 283-288 (HCIK 2022)"
+journal: "Proceedings of HCI Korea"
 type: "Conference"
 year: "2022"
 date: "2022-01-01"

@@ -1,7 +1,7 @@
 ---
 title: "Understanding Emotion Changes in Mobile Experience Sampling"
 authors: "Soowon Kang, Cheul Young Park, Auk Kim, Narae Cha, Uichin Lee"
-journal: "Proceedings of the 2022 CHI conference on human factors in computing systems"
+journal: "Proceedings of the CHI Conference on Human Factors in Computing Systems"
 type: "Conference"
 year: "2022"
 date: "2022-04-29"

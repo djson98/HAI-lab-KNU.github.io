@@ -1,7 +1,7 @@
 ---
 title: "Interrupting for Microlearning: Understanding Perceptions and Interruptibility of Proactive Conversational Microlearning Services"
 authors: "Minyeong Kim, Jiwook Lee, Youngji Koh, Chanhee Lee, Uichin Lee, Auk Kim"
-journal: "Proceedings of the CHI Conference on Human Factors in Computing Systems (CHI '24)"
+journal: "Proceedings of the CHI Conference on Human Factors in Computing Systems"
 type: "Conference"
 date: "2024-05-11"
 year: "2024"

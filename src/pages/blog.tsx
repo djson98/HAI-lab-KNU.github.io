@@ -75,10 +75,10 @@ const BlogPage: React.FC<PageProps<DataProps>> = ({ data }) => {
                 <button
                   key={tag}
                   onClick={() => handleTagToggle(tag)}
-                  className={`px-2 py-1 rounded-md font-medium transition-all duration-200 text-xs whitespace-nowrap ${
+                  className={`px-2 py-1 rounded-md font-medium transition-all duration-300 text-xs whitespace-nowrap ${
                     selectedTags.includes(tag)
                       ? "bg-blue-600 text-white shadow-sm"
-                      : "bg-white text-blue-600 border border-gray-300 hover:bg-gray-50 hover:border-blue-400 hover:shadow-sm"
+                      : "bg-white text-blue-600 border border-gray-300 hover:bg-blue-50 hover:text-blue-700 hover:border-blue-300 hover:shadow-sm"
                   }`}
                 >
                   {tag}
@@ -191,7 +191,7 @@ const BlogPage: React.FC<PageProps<DataProps>> = ({ data }) => {
                     
                       {/* 오른쪽: 텍스트 내용 */}
                       <div className="w-full md:w-3/4 pl-4 md:pl-6">
-                        <h2 className="text-lg font-semibold text-gray-800 group-hover:text-blue-600 transition-all duration-300 leading-tight mb-2">
+                        <h2 className="text-lg font-normal text-gray-800 group-hover:text-blue-600 transition-all duration-300 leading-tight mb-2">
                           {post.frontmatter.title}
                         </h2>
                         {/* 프로젝트 참여자 표시 */}
