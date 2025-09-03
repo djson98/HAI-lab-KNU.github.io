@@ -1,5 +1,6 @@
 import * as React from "react"
 import { graphql, PageProps, Link } from "gatsby"
+import { FaCheck } from "react-icons/fa"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
@@ -75,12 +76,15 @@ const BlogPage: React.FC<PageProps<DataProps>> = ({ data }) => {
                 <button
                   key={tag}
                   onClick={() => handleTagToggle(tag)}
-                  className={`px-2 py-1 rounded-md font-medium transition-all duration-300 text-xs whitespace-nowrap ${
+                  className={`px-3 py-1 rounded-md font-medium transition-all duration-300 text-xs whitespace-nowrap flex items-center gap-1 ${
                     selectedTags.includes(tag)
-                      ? "bg-blue-600 text-white shadow-sm"
-                      : "bg-white text-blue-600 border border-gray-300 hover:bg-blue-50 hover:text-blue-700 hover:border-blue-300 hover:shadow-sm"
+                      ? "bg-white text-blue-600 border border-blue-400"
+                      : "bg-white text-gray-600 border border-gray-300 hover:bg-white hover:text-blue-600 hover:border-blue-300"
                   }`}
                 >
+                  {selectedTags.includes(tag) && (
+                    <FaCheck className="w-3 h-3" />
+                  )}
                   {tag}
                 </button>
               ))}

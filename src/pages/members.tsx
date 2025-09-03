@@ -152,6 +152,7 @@ const MembersPage: React.FC<PageProps<DataProps>> = ({ data }) => {
                     
                     {/* 멤버 이름 */}
                     <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                      
                       {member.frontmatter.name === "Ji Wook Lee" ? "Jiwook Lee" :
                        member.frontmatter.name === "Min Gyu Han" ? "Mingyu Han" :
                        member.frontmatter.name === "Min Ji Kim" ? "Minji Kim" :

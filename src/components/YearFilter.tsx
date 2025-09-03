@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaCheck } from "react-icons/fa";
 
 interface YearFilterProps {
   startYear: string;
@@ -30,12 +31,15 @@ const YearFilter: React.FC<YearFilterProps> = ({
             <button
               key={type}
               onClick={() => onTypeChange(type)}
-              className={`px-3 py-2 rounded-lg font-medium transition-all duration-200 text-sm whitespace-nowrap flex-shrink-0 ${
+              className={`px-3 py-1 rounded-md font-medium transition-all duration-300 text-xs whitespace-nowrap flex items-center gap-1 flex-shrink-0 ${
                 selectedType === type
-                  ? "bg-blue-600 text-white shadow-lg"
-                  : "bg-white text-blue-600 border border-gray-300 hover:bg-gray-50 hover:border-blue-400 hover:shadow-md"
+                  ? "bg-white text-blue-600 border border-blue-400"
+                  : "bg-white text-gray-600 border border-gray-300 hover:bg-white hover:text-blue-600 hover:border-blue-300"
               }`}
             >
+              {selectedType === type && (
+                <FaCheck className="w-3 h-3" />
+              )}
               {type}
             </button>
           ))}
@@ -47,7 +51,7 @@ const YearFilter: React.FC<YearFilterProps> = ({
             id="startYear"
             value={startYear}
             onChange={(e) => onStartYearChange(e.target.value)}
-            className="px-3 py-2 bg-white border border-blue-200 rounded-lg text-sm font-medium text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 shadow-sm hover:border-blue-300 transition-all duration-200 min-w-[100px]"
+            className="px-3 py-1 bg-white border border-gray-300 rounded-md text-xs font-medium text-gray-600 focus:outline-none focus:border-blue-400 hover:border-blue-300 transition-all duration-300 min-w-[100px]"
           >
             <option value="">All</option>
             {availableYears.map((year) => (
@@ -57,13 +61,13 @@ const YearFilter: React.FC<YearFilterProps> = ({
             ))}
           </select>
           
-          <span className="text-2xl text-blue-400 font-light">~</span>
+          <span className="text-xl text-gray-400 font-light">~</span>
           
           <select
             id="endYear"
             value={endYear}
             onChange={(e) => onEndYearChange(e.target.value)}
-            className="px-3 py-2 bg-white border border-blue-200 rounded-lg text-sm font-medium text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 shadow-sm hover:border-blue-300 transition-all duration-200 min-w-[100px]"
+            className="px-3 py-1 bg-white border border-gray-300 rounded-md text-xs font-medium text-gray-600 focus:outline-none focus:border-blue-400 hover:border-blue-300 transition-all duration-300 min-w-[100px]"
           >
             <option value="">All</option>
             {availableYears.map((year) => (
