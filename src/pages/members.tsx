@@ -167,16 +167,22 @@ const MembersPage: React.FC<PageProps<DataProps>> = ({ data }) => {
                         : member.frontmatter.position}
                     </p>
                     
-                    {/* 연구 분야 */}
-                    {member.frontmatter.research_interests && member.frontmatter.research_interests.length > 0 && (
-                      <div className="text-xs text-gray-600 mb-3">
-                        {member.frontmatter.research_interests.map((interest, index) => (
+                    {/* 연구 분야 - 항상 2칸 고정 높이 */}
+                    <div className="text-xs text-gray-600 mb-3 h-8 flex flex-col justify-center">
+                      {member.frontmatter.research_interests && member.frontmatter.research_interests.length > 0 ? (
+                        member.frontmatter.research_interests.slice(0, 2).map((interest, index) => (
                           <div key={index} className="text-center mb-1">
                             {interest}
                           </div>
-                        ))}
-                      </div>
-                    )}
+                        ))
+                      ) : (
+                        // 빈 공간을 위한 투명한 div들
+                        <>
+                          <div className="text-center mb-1 opacity-0">-</div>
+                          <div className="text-center mb-1 opacity-0">-</div>
+                        </>
+                      )}
+                    </div>
                     
                     {/* 연락처 정보 */}
                     <div className="flex items-center justify-center space-x-2">
@@ -184,7 +190,7 @@ const MembersPage: React.FC<PageProps<DataProps>> = ({ data }) => {
                       {member.frontmatter.email && (
                         <a 
                           href={`mailto:${member.frontmatter.email}`}
-                          className="w-6 h-6 bg-gray-600 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors"
+                          className="w-6 h-6 bg-gray-500 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors"
                           title={`Send email to ${member.frontmatter.email}`}
                         >
                           <MdEmail className="w-3 h-3 text-white" />
@@ -197,7 +203,7 @@ const MembersPage: React.FC<PageProps<DataProps>> = ({ data }) => {
                           href={member.frontmatter.homepage}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="w-6 h-6 bg-gray-600 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors"
+                          className="w-6 h-6 bg-gray-500 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors"
                           title="Visit homepage"
                         >
                           <FaHome className="w-3 h-3 text-white" />
@@ -210,7 +216,7 @@ const MembersPage: React.FC<PageProps<DataProps>> = ({ data }) => {
                           href={member.frontmatter.googleScholar}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="w-6 h-6 bg-gray-600 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors"
+                          className="w-6 h-6 bg-gray-500 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors"
                           title="View Google Scholar profile"
                         >
                           <SiGooglescholar className="w-3 h-3 text-white" />
