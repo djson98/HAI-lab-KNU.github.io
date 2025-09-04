@@ -99,9 +99,8 @@ const PublicationsPage: React.FC<PageProps<DataProps>> = ({ data }) => {
 
   return (
     <Layout activeLink="Publications">
-      <div className="flex max-w-7xl mx-auto px-6 md:px-8 py-8">
-        {/* 메인 콘텐츠 */}
-        <div className="flex-1 space-y-8">
+      <div className="max-w-7xl mx-auto px-6 md:px-8 py-8">
+        <div className="space-y-8">
         {/* 연도 필터 */}
         <YearFilter
           startYear={startYear}

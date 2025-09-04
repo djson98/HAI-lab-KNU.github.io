@@ -66,12 +66,14 @@ const BlogPage: React.FC<PageProps<DataProps>> = ({ data }) => {
 
   return (
     <Layout activeLink="Projects">
-      <div className="space-y-8">
+      <div className="max-w-7xl mx-auto px-6 md:px-8 py-8">
+        <div className="space-y-8">
         {/* 태그 필터 */}
         {availableTags.length > 0 && (
-          <div className="mb-4">
-            <h3 className="text-xs font-medium text-gray-600 mb-2 text-center">Research Area</h3>
-            <div className="flex flex-wrap justify-center gap-1">
+          <div className="mb-6">
+            <div className="bg-gray-50 rounded-lg p-4">
+              <h3 className="text-base font-medium text-gray-700 mb-2 text-center">Research Area</h3>
+              <div className="flex flex-wrap justify-center gap-1">
               {availableTags.map((tag) => (
                 <button
                   key={tag}
@@ -88,12 +90,10 @@ const BlogPage: React.FC<PageProps<DataProps>> = ({ data }) => {
                   {tag}
                 </button>
               ))}
+              </div>
             </div>
           </div>
         )}
-        
-        {/* 구분선 */}
-        <hr className="border-gray-200 opacity-50" />
         
         {filteredPosts.length === 0 ? (
           <div className="text-center py-12">
@@ -235,6 +235,7 @@ const BlogPage: React.FC<PageProps<DataProps>> = ({ data }) => {
             })}
           </div>
         )}
+        </div>
       </div>
     </Layout>
   )

@@ -16,8 +16,8 @@ type LayoutProps = {
 const MENU = {
   Home: "/",
   People: "/members",
-  Publications: "/publications",
   Projects: "/blog",
+  Publications: "/publications",
   Lectures: "/lectures",
   // Contact: "/contact", // Hidden for now
   // News: "/news", // Hidden for now, will be developed later
@@ -56,13 +56,9 @@ const Layout = ({ activeLink = "Projects", children }: LayoutProps) => {
         <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200 transition-all duration-300" role="navigation" aria-label="Main navigation">
           <div className="w-full max-w-7xl mx-auto flex justify-between items-center px-8 md:px-12 py-3 md:py-5">
             <Link to="/" className="flex items-center mr-6 md:mr-12 focus:outline-none rounded">
-              <img
-                src="/images/logo-hai.png"
-                alt="HaiLab Logo - Return to homepage"
-                width={228}
-                height={50}
-                className="h-8 md:h-12 w-auto"
-              />
+              <span className="text-2xl md:text-3xl font-light text-gray-900 hover:text-blue-600 transition-colors duration-300">
+                HAI Lab
+              </span>
             </Link>
             
             {/* 데스크톱 메뉴 */}
@@ -71,7 +67,7 @@ const Layout = ({ activeLink = "Projects", children }: LayoutProps) => {
                 <Link
                   key={name}
                   to={path}
-                  className={`px-6 py-3 rounded-lg text-lg font-light font-display focus:outline-none transition-colors duration-300 ${
+                  className={`px-6 py-3 rounded-lg text-lg font-light focus:outline-none transition-colors duration-300 ${
                     activeLink.toLowerCase() === name.toLowerCase()
                       ? "text-blue-600"
                       : "text-gray-600 hover:text-blue-600"

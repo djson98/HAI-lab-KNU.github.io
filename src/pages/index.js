@@ -22,21 +22,21 @@ const IndexPage = ({ data }) => {
                Human-AI Interaction Lab 
               </h1>
               <p className="text-base text-gray-600 leading-relaxed font-light mb-8">
-                We focus on how to design and support meaningful human interactions with AI systems in everyday life.
-                We create proactive AI agents that sense user context and behavior to make intelligent suggestions.
+                We focus on how to design meaningful human interactions with AI systems in everyday life.
+                Our goal is making proactive AI agents that understand user context and behavior to give helpful suggestions, like <em>JARVIS</em> from Iron Man.
               </p>
               
               {/* Research Areas */}
               <div className="space-y-4">
                 <h2 className="text-lg font-light text-gray-800 mb-4">Research Areas</h2>
                 <div className="flex flex-wrap gap-2">
-                  <span className="inline-block px-3 py-1 text-xs font-light bg-gray-100 text-gray-500 rounded-full">
+                  <span className="inline-block px-3 py-1 text-xs font-light bg-white text-gray-700 rounded-full">
                     Human-Computer Interaction
                   </span>
-                  <span className="inline-block px-3 py-1 text-xs font-light bg-gray-100 text-gray-500 rounded-full">
+                  <span className="inline-block px-3 py-1 text-xs font-light bg-white text-gray-700 rounded-full">
                     Ubiquitous Computing
                   </span>
-                  <span className="inline-block px-3 py-1 text-xs font-light bg-gray-100 text-gray-500 rounded-full">
+                  <span className="inline-block px-3 py-1 text-xs font-light bg-white text-gray-700 rounded-full">
                     Proactive Systems
                   </span>
                 </div>

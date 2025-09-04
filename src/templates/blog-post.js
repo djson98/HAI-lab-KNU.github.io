@@ -302,7 +302,7 @@ const BlogPostTemplate = ({
         </article>
 
         {/* 오른쪽 스티키 인덱스 */}
-        <div className="hidden lg:block w-32 ml-2 flex-shrink-0" style={{ position: 'relative', minHeight: '200vh' }}>
+        <div className="hidden lg:block w-32 ml-2 flex-shrink-0" style={{ position: 'relative', minHeight: '100vh' }}>
           <div 
             className="sticky-index sticky space-y-3 z-30" 
             style={{ 
@@ -313,7 +313,7 @@ const BlogPostTemplate = ({
             }}
           >
             <div className="bg-white/80 backdrop-blur-sm rounded-lg p-4 shadow-sm">
-              <h4 className="text-sm font-semibold text-gray-900 mb-3 pb-2 border-b border-gray-200">
+              <h4 className="text-sm font-medium text-gray-900 mb-3 pb-2 border-b border-gray-200">
                 Index
               </h4>
               <nav className="space-y-2">
@@ -322,8 +322,8 @@ const BlogPostTemplate = ({
                     href="#abstract"
                     className={`block text-sm py-1 px-2 rounded transition-colors duration-200 ${
                       activeSection === 'abstract' 
-                        ? 'text-blue-700 font-medium' 
-                        : 'text-gray-600 hover:text-blue-600'
+                        ? 'text-blue-700 font-light' 
+                        : 'text-gray-600 hover:text-blue-600 font-light'
                     }`}
                   >
                     Abstract
@@ -334,8 +334,8 @@ const BlogPostTemplate = ({
                     href="#publications"
                     className={`block text-sm py-1 px-2 rounded transition-colors duration-200 ${
                       activeSection === 'publications' 
-                        ? 'text-blue-700 font-medium' 
-                        : 'text-gray-600 hover:text-blue-600'
+                        ? 'text-blue-700 font-light' 
+                        : 'text-gray-600 hover:text-blue-600 font-light'
                     }`}
                   >
                     Publications
@@ -346,8 +346,8 @@ const BlogPostTemplate = ({
                     href="#datasets"
                     className={`block text-sm py-1 px-2 rounded transition-colors duration-200 ${
                       activeSection === 'datasets' 
-                        ? 'text-blue-700 font-medium' 
-                        : 'text-gray-600 hover:text-blue-600'
+                        ? 'text-blue-700 font-light' 
+                        : 'text-gray-600 hover:text-blue-600 font-light'
                     }`}
                   >
                     Datasets
@@ -358,8 +358,8 @@ const BlogPostTemplate = ({
                     href="#sourcecode"
                     className={`block text-sm py-1 px-2 rounded transition-colors duration-200 whitespace-nowrap ${
                       activeSection === 'sourcecode' 
-                        ? 'text-blue-700 font-medium' 
-                        : 'text-gray-600 hover:text-blue-600'
+                        ? 'text-blue-700 font-light' 
+                        : 'text-gray-600 hover:text-blue-600 font-light'
                     }`}
                   >
                     Source Code
@@ -370,8 +370,8 @@ const BlogPostTemplate = ({
                     href="#people"
                     className={`block text-sm py-1 px-2 rounded transition-colors duration-200 ${
                       activeSection === 'people' 
-                        ? 'text-blue-700 font-medium' 
-                        : 'text-gray-600 hover:text-blue-600'
+                        ? 'text-blue-700 font-light' 
+                        : 'text-gray-600 hover:text-blue-600 font-light'
                     }`}
                   >
                     People

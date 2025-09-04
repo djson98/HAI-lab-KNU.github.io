@@ -116,7 +116,7 @@ const MembersPage: React.FC<PageProps<DataProps>> = ({ data }) => {
               <div className="border-t border-gray-200 my-8"></div>
             )}
             <div className="space-y-6">
-              <h2 id={position.toLowerCase().replace(/\s+/g, '-')} className="text-lg md:text-xl font-normal text-black font-sans tracking-wide text-left">
+              <h2 id={position.toLowerCase().replace(/\s+/g, '-')} className="text-lg md:text-xl font-light text-black font-sans tracking-wide text-left">
                 {position === 'Professor' ? 'Director' : position}
               </h2>
               
@@ -241,7 +241,7 @@ const MembersPage: React.FC<PageProps<DataProps>> = ({ data }) => {
             }}
           >
             <div className="bg-white/80 backdrop-blur-sm rounded-lg p-4">
-              <h4 className="text-sm font-semibold text-gray-900 mb-3 pb-2 border-b border-gray-200">
+              <h4 className="text-sm font-medium text-gray-900 mb-3 pb-2 border-b border-gray-200">
                 Index
               </h4>
               <nav className="space-y-2">
@@ -251,8 +251,8 @@ const MembersPage: React.FC<PageProps<DataProps>> = ({ data }) => {
                     href={`#${position.toLowerCase().replace(/\s+/g, '-')}`}
                     className={`block text-sm py-1 px-2 rounded transition-colors duration-200 whitespace-nowrap ${
                       activeSection === position.toLowerCase().replace(/\s+/g, '-') 
-                        ? 'text-blue-700 font-medium' 
-                        : 'text-gray-600 hover:text-blue-600'
+                        ? 'text-blue-700 font-light' 
+                        : 'text-gray-600 hover:text-blue-600 font-light'
                     }`}
                   >
                     {position === 'Professor' ? 'Director' : position}
