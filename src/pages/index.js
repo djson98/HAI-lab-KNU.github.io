@@ -12,46 +12,45 @@ const IndexPage = ({ data }) => {
   
   return (
     <>
-      {/* Hero Section - 레이아웃 밖에서 전체 너비로 */}
-      <section className="pt-40 pb-8 bg-gradient-to-br from-blue-50 to-white w-full">
-        <div className="w-full text-center px-6 md:px-8">
-          <h1 className="text-3xl md:text-5xl font-light text-black mb-6" id="main-heading">
-           Human-AI Interaction Lab 
-          </h1>
-          <p className="text-xl font-semibold text-gray-800 mb-6 leading-tight tracking-wide">
-          Understanding and Designing Human Interactions with AI Systems
-          </p>
-          <p className="text-base text-gray-600 leading-relaxed max-w-2xl mx-auto font-medium">
-            We focus on how to design and support meaningful human interactions with AI systems in everyday life.
-            Our research investigates when and how AI should engage with people.
-          </p>
-          
-          {/* Research Areas Section */}
-          <div className="mt-16">
-            <div className="grid md:grid-cols-3 gap-4 md:gap-8 max-w-6xl mx-auto">
-              <div className="text-center p-3 md:p-4 rounded-lg bg-white border border-gray-200 shadow-sm focus-within:ring-2 focus-within:ring-blue-500 focus-within:ring-offset-2" tabIndex="0" role="region" aria-labelledby="hci-title">
-                <h3 className="text-xs md:text-sm font-semibold text-gray-900 mb-1" id="hci-title">
-                Human-Computer Interaction
-                </h3>
-                <p className="text-gray-600 text-xs">
-                  Designing intuitive and effective interfaces for human-AI interaction
-                </p>
+      {/* Hero Section - 2열 레이아웃으로 텍스트와 워드클라우드 배치 */}
+      <section className="pt-40 pb-8 bg-gradient-to-r from-blue-50 via-blue-10 to-white w-full">
+        <div className="w-full max-w-7xl mx-auto px-6 md:px-8">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
+            {/* 왼쪽 텍스트 영역 */}
+            <div className="text-center md:text-left">
+              <h1 className="text-3xl md:text-5xl font-light text-black mb-6" id="main-heading">
+               Human-AI Interaction Lab 
+              </h1>
+              <p className="text-base text-gray-600 leading-relaxed font-light mb-8">
+                We focus on how to design and support meaningful human interactions with AI systems in everyday life.
+                We create proactive AI agents that sense user context and behavior to make intelligent suggestions.
+              </p>
+              
+              {/* Research Areas */}
+              <div className="space-y-4">
+                <h2 className="text-lg font-light text-gray-800 mb-4">Research Areas</h2>
+                <div className="flex flex-wrap gap-2">
+                  <span className="inline-block px-3 py-1 text-xs font-light bg-gray-100 text-gray-500 rounded-full">
+                    Human-Computer Interaction
+                  </span>
+                  <span className="inline-block px-3 py-1 text-xs font-light bg-gray-100 text-gray-500 rounded-full">
+                    Ubiquitous Computing
+                  </span>
+                  <span className="inline-block px-3 py-1 text-xs font-light bg-gray-100 text-gray-500 rounded-full">
+                    Proactive Systems
+                  </span>
+                </div>
               </div>
-              <div className="text-center p-3 md:p-4 rounded-lg bg-white border border-gray-200 shadow-sm focus-within:ring-2 focus-within:ring-blue-500 focus-within:ring-offset-2" tabIndex="0" role="region" aria-labelledby="ubiquitous-title">
-                <h3 className="text-xs md:text-sm font-semibold text-gray-900 mb-1" id="ubiquitous-title">
-                Ubiquitous Computing
-                </h3>
-                <p className="text-xs text-gray-600">
-                  Exploring AI systems that seamlessly integrate into everyday environments
-                </p>
-              </div>
-              <div className="text-center p-3 md:p-4 rounded-lg bg-white border border-gray-200 shadow-sm focus-within:ring-2 focus-within:ring-blue-500 focus-within:ring-offset-2" tabIndex="0" role="region" aria-labelledby="ml-title">
-                <h3 className="text-xs md:text-sm font-semibold text-gray-900 mb-1" id="ml-title">
-                Machine Learning & Mobile Sensing
-                </h3>
-                <p className="text-xs text-gray-600">
-                  Developing intelligent systems using mobile sensors and ML algorithms
-                </p>
+            </div>
+            
+            {/* 오른쪽 워드클라우드 영역 */}
+            <div className="text-center md:text-left">
+              <div className="max-w-sm mx-auto">
+                <img
+                  src="/images/wctransparent.png"
+                  alt="HAI Lab Research Keywords Word Cloud"
+                  className="w-full h-auto"
+                />
               </div>
             </div>
           </div>
