@@ -31,5 +31,5 @@ people:
     affiliation: "Kangwon National University"
     photo: "/images/members/auk-kim.jpeg"
     homepage: "https://kimauk.github.io/"
-tags: ["Accessibility"]
+tags: ["Accessibility", "Ubiquitous Computing"]
 --- 

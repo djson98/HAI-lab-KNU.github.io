@@ -38,12 +38,15 @@ const BlogPage: React.FC<PageProps<DataProps>> = ({ data }) => {
   const posts = data.allMarkdownRemark.nodes
   const [selectedTags, setSelectedTags] = React.useState<string[]>([])
 
-  // 사용 가능한 모든 태그 목록 생성
+  // 사용 가능한 모든 태그 목록 생성 (대분류 제외)
   const availableTags = React.useMemo(() => {
     const allTags = posts
       .filter(post => post.frontmatter.tags)
       .flatMap(post => post.frontmatter.tags || [])
-    return [...new Set(allTags)].sort()
+    const filteredTags = [...new Set(allTags)].filter(tag => 
+      !['Human-Computer Interaction', 'Ubiquitous Computing', 'Proactive Systems', 'Proactive System'].includes(tag)
+    )
+    return filteredTags.sort()
   }, [posts])
 
   // 선택된 태그에 따라 프로젝트 필터링 (AND 로직)
@@ -69,31 +72,53 @@ const BlogPage: React.FC<PageProps<DataProps>> = ({ data }) => {
       <div className="max-w-7xl mx-auto px-6 md:px-8 py-8">
         <div className="space-y-8">
         {/* 태그 필터 */}
-        {availableTags.length > 0 && (
-          <div className="mb-6">
-            <div className="bg-gray-50 rounded-lg p-4">
-              <h3 className="text-base font-medium text-gray-700 mb-2 text-center">Research Area</h3>
-              <div className="flex flex-wrap justify-center gap-1">
-              {availableTags.map((tag) => (
+        <div className="mb-6">
+          <div className="bg-gray-50 rounded-lg p-4">
+            <h3 className="text-base font-medium text-gray-700 mb-4 text-center">Research Area</h3>
+            
+            {/* 첫 번째 줄: 대분류 버튼들 */}
+            <div className="flex flex-wrap justify-center gap-1 mb-3">
+              {['Human-Computer Interaction', 'Ubiquitous Computing', 'Proactive Systems'].map((category) => (
                 <button
-                  key={tag}
-                  onClick={() => handleTagToggle(tag)}
+                  key={category}
+                  onClick={() => handleTagToggle(category)}
                   className={`px-3 py-1 rounded-md font-medium transition-all duration-300 text-xs whitespace-nowrap flex items-center gap-1 ${
-                    selectedTags.includes(tag)
+                    selectedTags.includes(category)
                       ? "bg-white text-blue-600 border border-blue-400"
                       : "bg-white text-gray-600 border border-gray-300 hover:bg-white hover:text-blue-600 hover:border-blue-300"
                   }`}
                 >
-                  {selectedTags.includes(tag) && (
+                  {selectedTags.includes(category) && (
                     <FaCheck className="w-3 h-3" />
                   )}
-                  {tag}
+                  {category}
                 </button>
               ))}
-              </div>
             </div>
+            
+            {/* 두 번째 줄: 세부 태그들 */}
+            {availableTags.length > 0 && (
+              <div className="flex flex-wrap justify-center gap-1">
+                {availableTags.map((tag) => (
+                  <button
+                    key={tag}
+                    onClick={() => handleTagToggle(tag)}
+                    className={`px-3 py-1 rounded-md font-medium transition-all duration-300 text-xs whitespace-nowrap flex items-center gap-1 ${
+                      selectedTags.includes(tag)
+                        ? "bg-white text-blue-600 border border-blue-400"
+                        : "bg-white text-gray-600 border border-gray-300 hover:bg-white hover:text-blue-600 hover:border-blue-300"
+                    }`}
+                  >
+                    {selectedTags.includes(tag) && (
+                      <FaCheck className="w-3 h-3" />
+                    )}
+                    {tag}
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
-        )}
+        </div>
         
         {filteredPosts.length === 0 ? (
           <div className="text-center py-12">

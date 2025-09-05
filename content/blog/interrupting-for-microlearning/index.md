@@ -25,6 +25,6 @@ people:
     affiliation: "Kangwon National University"
     photo: "/images/members/auk-kim.jpeg"
     homepage: "https://kimauk.github.io/"
-tags: ["Proactive System", "Interruptibility"]
+tags: ["Proactive System", "Interruptibility", "Human-Computer Interaction"]
 
 ---

@@ -34,7 +34,7 @@ people:
     affiliation: "Kangwon National University"
     photo: "/images/members/auk-kim.jpeg"
     homepage: "https://kimauk.github.io/"
-tags: ["Digital Healthcare"]
+tags: ["Digital Healthcare", "Ubiquitous Computing"]
 ---
 
 ## Abstract
