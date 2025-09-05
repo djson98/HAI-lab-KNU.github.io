@@ -58,8 +58,6 @@ const IndexPage = ({ data }) => {
       </section>
 
       <Layout activeLink="Home">
-        <div className="min-h-screen">
-
         {/* Recent Projects Section */}
         <section className="pt-16 pb-8 bg-white" aria-labelledby="recent-projects-heading">
           <div className="w-full max-w-7xl mx-auto px-6 md:px-8">
@@ -251,12 +249,6 @@ const IndexPage = ({ data }) => {
         {/* 구분선 */}
         <div className="max-w-4xl mx-auto px-4 md:px-6">
           <hr className="border-gray-200 opacity-50 my-8" />
-        </div>
-
-        {/* 구분선 */}
-        <div className="max-w-4xl mx-auto px-4 md:px-6">
-          <hr className="border-gray-200 opacity-50 my-8" />
-        </div>
         </div>
       </Layout>
     </>
