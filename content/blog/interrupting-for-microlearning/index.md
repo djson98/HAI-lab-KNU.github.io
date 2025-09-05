@@ -12,18 +12,18 @@ publications:
     video: "https://www.youtube.com/watch?v=JBZ-uJym3hg"
     doi: "https://doi.org/10.1145/3613904.3642778"
 people:
-  - name: "Min Young Kim"
+  - name: "Minyoung Kim"
     affiliation: "Kangwon National University"
-    photo: "/images/김민영.jpg"
+    photo: "/images/members/minyoung-kim.jpg"
     homepage: ""
-  - name: "Ji Wook Lee"
+  - name: "Jiwook Lee"
     affiliation: "Kangwon National University"
-    photo: "/images/이지욱_2.jpg"
+    photo: "/images/members/jiwook-lee.jpg"
     homepage: ""
 
   - name: "Auk Kim"
     affiliation: "Kangwon National University"
-    photo: "/images/members/aukkim.jpeg"
+    photo: "/images/members/auk-kim.jpeg"
     homepage: "https://kimauk.github.io/"
 tags: ["Proactive System", "Interruptibility"]
 

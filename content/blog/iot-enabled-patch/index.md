@@ -24,15 +24,15 @@ software:
 people:
   - name: "Jiwoo Hwang"
     affiliation: "Kangwon National University"
-    photo: "/images/members/jiwoohwang.jpeg"
+    photo: "/images/members/jiwoo-hwang.jpeg"
     homepage: "https://hwang-jiwoo.github.io/"
   - name: "Jungmin Lee"
     affiliation: "Kangwon National University"
-    photo: "/images/members/jungminlee.png"
+    photo: "/images/members/jungmin-lee.png"
     homepage: "https://lsom5064.github.io/"
   - name: "Auk Kim"
     affiliation: "Kangwon National University"
-    photo: "/images/members/aukkim.jpeg"
+    photo: "/images/members/auk-kim.jpeg"
     homepage: "https://kimauk.github.io/"
 tags: ["Digital Healthcare"]
 ---

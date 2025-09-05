@@ -15,11 +15,11 @@ articles:
 people:
   - name: "Dongju Son"
     affiliation: "Kangwon National University"
-    photo: "/images/members/dongjuson.png"
+    photo: "/images/members/dongju-son.png"
     homepage: ""
   - name: "Auk Kim"
     affiliation: "Kangwon National University"
-    photo: "/images/members/aukkim.jpeg"
+    photo: "/images/members/auk-kim.jpeg"
     homepage: "https://kimauk.github.io/"
 tags: ["LLM"]
 
