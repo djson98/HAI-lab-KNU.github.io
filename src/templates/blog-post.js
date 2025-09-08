@@ -38,13 +38,13 @@ const BlogPostTemplate = ({
 
   return (
     <Layout location={location} title={siteTitle}>
-      <div className="relative w-full max-w-7xl mx-auto px-1 md:px-8 py-6 md:py-8">
+      <div className="relative w-full max-w-7xl mx-auto px-3 md:px-8 py-6 md:py-8">
         <div className="flex">
                   {/* 메인 콘텐츠 */}
         <article className="flex-1 w-full">
         {/* 제목 섹션 */}
-        <header className="text-center mb-8 md:mb-12">
-          <h1 className="text-xl md:text-3xl font-normal text-gray-900 mb-4 md:mb-6">
+        <header className="text-center mb-12">
+          <h1 className="text-3xl font-normal text-gray-900 mb-6">
             {post.frontmatter.title}
           </h1>
         </header>
@@ -56,7 +56,7 @@ const BlogPostTemplate = ({
 
         {/* 썸네일 이미지 섹션 */}
         {(post.frontmatter.image1 || post.frontmatter.thumbnail) && (
-          <section className="mb-6 md:mb-12">
+          <section className="mb-8 md:mb-12">
             <div className="w-full">
               <div className="w-full h-64 md:h-80 overflow-hidden">
                 <img
@@ -74,9 +74,9 @@ const BlogPostTemplate = ({
         {/* Abstract 섹션 */}
         {post.frontmatter.description && (
           <section id="abstract" className="mb-8 md:mb-12">
-            <h2 className="text-base md:text-xl font-normal text-gray-900 mb-3 md:mb-6">Abstract</h2>
-            <div className="bg-gray-50 rounded-lg p-3 md:p-6">
-              <p className="text-xs md:text-base text-gray-700 leading-relaxed">
+            <h2 className="text-xl font-normal text-gray-900 mb-4 md:mb-6">Abstract</h2>
+            <div className="bg-gray-50 rounded-lg p-4 md:p-6">
+              <p className="text-sm md:text-base text-gray-700 leading-relaxed">
                 {post.frontmatter.description}
               </p>
             </div>
@@ -88,12 +88,12 @@ const BlogPostTemplate = ({
          post.frontmatter.publications.length > 0 && 
          post.frontmatter.publications.some(pub => pub.title && pub.title.trim() !== '') && (
           <section id="publications" className="mb-6 md:mb-8">
-            <h2 className="text-base md:text-xl font-normal text-gray-900 mb-2 md:mb-4">Publications</h2>
-            <div className="space-y-1 md:space-y-3">
+            <h2 className="text-xl font-normal text-gray-900 mb-3 md:mb-4">Publications</h2>
+            <div className="space-y-2 md:space-y-3">
               {post.frontmatter.publications
                 .filter(pub => pub.title && pub.title.trim() !== '')
                 .map((pub, index) => (
-                <div key={index} className="bg-white border border-gray-200 rounded-lg p-2 md:p-4 shadow-sm hover:bg-gray-50 transition-colors duration-200">
+                <div key={index} className="bg-white border border-gray-200 rounded-lg p-3 md:p-4 shadow-sm hover:bg-gray-50 transition-colors duration-200">
                   {pub.doi ? (
                     <a
                       href={pub.doi.startsWith('http') ? pub.doi : `https://doi.org/${pub.doi}`}
@@ -101,12 +101,12 @@ const BlogPostTemplate = ({
                       rel="noopener noreferrer"
                       className="block"
                     >
-                      <h3 className="text-xs md:text-base font-normal text-gray-900 mb-1 hover:text-blue-600 transition-colors duration-200 cursor-pointer">
+                      <h3 className="text-sm md:text-base font-normal text-gray-900 mb-1 hover:text-blue-600 transition-colors duration-200 cursor-pointer">
                         {pub.title}
                       </h3>
                     </a>
                   ) : (
-                    <h3 className="text-xs md:text-base font-normal text-gray-900 mb-1">
+                    <h3 className="text-sm md:text-base font-normal text-gray-900 mb-1">
                       {pub.title}
                     </h3>
                   )}
@@ -150,19 +150,19 @@ const BlogPostTemplate = ({
          post.frontmatter.articles.length > 0 && 
          post.frontmatter.articles.some(article => article.title && article.title.trim() !== '') && (
           <section className="mb-6 md:mb-8">
-            <h2 className="text-base md:text-xl font-normal text-gray-900 mb-2 md:mb-4">Articles</h2>
-            <div className="space-y-1 md:space-y-3">
+            <h2 className="text-xl md:text-2xl font-normal text-gray-900 mb-3 md:mb-4">Articles</h2>
+            <div className="space-y-2 md:space-y-3">
               {post.frontmatter.articles
                 .filter(article => article.title && article.title.trim() !== '')
                 .map((article, index) => (
-                <div key={index} className="bg-white border border-gray-200 rounded-lg p-2 md:p-4 shadow-sm hover:bg-gray-50 transition-colors duration-200">
+                <div key={index} className="bg-white border border-gray-200 rounded-lg p-3 md:p-4 shadow-sm hover:bg-gray-50 transition-colors duration-200">
                   <a
                     href={article.url}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="block"
                   >
-                    <h3 className="text-xs md:text-lg font-normal text-gray-900 mb-1 hover:text-blue-600 transition-colors duration-200 cursor-pointer">
+                    <h3 className="text-base md:text-lg font-normal text-gray-900 mb-1 hover:text-blue-600 transition-colors duration-200 cursor-pointer">
                       {article.title}
                     </h3>
                   </a>
@@ -190,13 +190,13 @@ const BlogPostTemplate = ({
         {post.frontmatter.datasets && 
          post.frontmatter.datasets.length > 0 && 
          post.frontmatter.datasets.some(dataset => dataset.title && dataset.title.trim() !== '') && (
-          <section id="datasets" className="mb-4 md:mb-8">
-            <h2 className="text-base md:text-xl font-normal text-gray-900 mb-2 md:mb-4">Datasets</h2>
-            <div className="space-y-1 md:space-y-3">
+          <section id="datasets" className="mb-6 md:mb-8">
+            <h2 className="text-xl md:text-2xl font-normal text-gray-900 mb-3 md:mb-4">Datasets</h2>
+            <div className="space-y-2 md:space-y-3">
               {post.frontmatter.datasets
                 .filter(dataset => dataset.title && dataset.title.trim() !== '')
                 .map((dataset, index) => (
-                <div key={index} className="bg-white border border-gray-200 rounded-lg p-2 md:p-4 shadow-sm hover:bg-gray-50 transition-colors duration-200">
+                <div key={index} className="bg-white border border-gray-200 rounded-lg p-3 md:p-4 shadow-sm hover:bg-gray-50 transition-colors duration-200">
                   {dataset.zenodo ? (
                     <a
                       href={dataset.zenodo}
@@ -225,13 +225,13 @@ const BlogPostTemplate = ({
         {post.frontmatter.sourcecode && 
          post.frontmatter.sourcecode.length > 0 && 
          post.frontmatter.sourcecode.some(code => code.title && code.title.trim() !== '') && (
-          <section id="sourcecode" className="mb-4 md:mb-8">
-            <h2 className="text-base md:text-xl font-normal text-gray-900 mb-2 md:mb-4">Source Code</h2>
-            <div className="space-y-1 md:space-y-3">
+          <section id="sourcecode" className="mb-6 md:mb-8">
+            <h2 className="text-xl font-normal text-gray-900 mb-3 md:mb-4">Source Code</h2>
+            <div className="space-y-2 md:space-y-3">
               {post.frontmatter.sourcecode
                 .filter(code => code.title && code.title.trim() !== '')
                 .map((code, index) => (
-                <div key={index} className="bg-white border border-gray-200 rounded-lg p-2 md:p-4 shadow-sm hover:bg-gray-50 transition-colors duration-200">
+                <div key={index} className="bg-white border border-gray-200 rounded-lg p-3 md:p-4 shadow-sm hover:bg-gray-50 transition-colors duration-200">
                   {code.github ? (
                     <a
                       href={code.github}
@@ -256,8 +256,8 @@ const BlogPostTemplate = ({
 
         {/* People 섹션 */}
         {post.frontmatter.people && post.frontmatter.people.length > 0 && (
-          <section id="people" className="mb-6 md:mb-12">
-            <h2 className="text-base md:text-xl font-normal text-gray-900 mb-3 md:mb-6">People</h2>
+          <section id="people" className="mb-8 md:mb-12">
+            <h2 className="text-xl font-normal text-gray-900 mb-4 md:mb-6">People</h2>
             <div className="flex justify-center">
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6 max-w-6xl">
                 {post.frontmatter.people.map((person, index) => {

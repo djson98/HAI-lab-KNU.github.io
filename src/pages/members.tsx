@@ -107,9 +107,9 @@ const MembersPage: React.FC<PageProps<DataProps>> = ({ data }) => {
 
   return (
     <Layout activeLink="People">
-      <div className="flex max-w-7xl mx-auto px-1 md:px-8 py-6 md:py-8">
+      <div className="flex max-w-7xl mx-auto px-3 md:px-8 py-6 md:py-8">
         {/* 메인 콘텐츠 */}
-        <div className="flex-1 space-y-8 md:space-y-10">
+        <div className="flex-1 space-y-10">
         {sortedPositions.map((position, index) => (
           <div key={position} id={position.toLowerCase().replace(/\s+/g, '-')}>
             {index > 0 && (

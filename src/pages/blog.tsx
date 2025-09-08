@@ -44,7 +44,7 @@ const BlogPage: React.FC<PageProps<DataProps>> = ({ data }) => {
       .filter(post => post.frontmatter.tags)
       .flatMap(post => post.frontmatter.tags || [])
     const filteredTags = [...new Set(allTags)].filter(tag => 
-      !['Human-Computer Interaction', 'Ubiquitous Computing', 'Proactive Systems', 'Proactive System'].includes(tag)
+      !['Human-Computer Interaction', 'Ubiquitous Computing', 'Proactive System'].includes(tag)
     )
     return filteredTags.sort()
   }, [posts])
@@ -69,31 +69,54 @@ const BlogPage: React.FC<PageProps<DataProps>> = ({ data }) => {
 
   return (
     <Layout activeLink="Projects">
-      <div className="max-w-7xl mx-auto px-1 md:px-8 py-6 md:py-8">
-        <div className="space-y-6 md:space-y-8">
+      <div className="max-w-7xl mx-auto px-3 md:px-8 py-6 md:py-8">
+        <div className="space-y-8">
         {/* 태그 필터 */}
         <div className="mb-1 md:mb-4">
           <div className="bg-gray-50 rounded-lg p-1.5 md:p-3">
             <h3 className="text-xs font-normal text-gray-700 mb-1 md:mb-3 text-center">Research Area</h3>
             
             {/* 태그 컨테이너 */}
-            <div className="flex flex-wrap gap-0.5 md:gap-1.5 justify-center">
-              {['Human-Computer Interaction', 'Ubiquitous Computing', 'Proactive Systems', ...availableTags].map((tag) => (
-                <button
-                  key={tag}
-                  onClick={() => handleTagToggle(tag)}
-                  className={`px-1 py-0.5 rounded-full font-normal transition-all duration-300 text-xs whitespace-nowrap flex items-center gap-0.5 flex-shrink-0 ${
-                    selectedTags.includes(tag)
-                      ? "bg-blue-100 text-blue-700 border border-blue-300 shadow-sm"
-                      : "bg-white text-gray-600 border border-gray-300 hover:bg-gray-50 hover:text-blue-600 hover:border-blue-200"
-                  }`}
-                >
-                  {selectedTags.includes(tag) && (
-                    <FaCheck className="w-2 h-2" />
-                  )}
-                  {tag}
-                </button>
-              ))}
+            <div className="flex flex-col gap-2 md:gap-3 justify-center">
+              {/* 대분류 태그들 (윗줄) */}
+              <div className="flex flex-wrap gap-0.5 md:gap-1.5 justify-center">
+                {['Human-Computer Interaction', 'Ubiquitous Computing', 'Proactive System'].map((tag) => (
+                  <button
+                    key={tag}
+                    onClick={() => handleTagToggle(tag)}
+                    className={`px-1 py-0.5 rounded-full font-normal transition-all duration-300 text-xs whitespace-nowrap flex items-center gap-0.5 flex-shrink-0 ${
+                      selectedTags.includes(tag)
+                        ? "bg-blue-100 text-blue-700 border border-blue-300 shadow-sm"
+                        : "bg-white text-gray-600 border border-gray-300 hover:bg-gray-50 hover:text-blue-600 hover:border-blue-200"
+                    }`}
+                  >
+                    {selectedTags.includes(tag) && (
+                      <FaCheck className="w-2 h-2" />
+                    )}
+                    {tag}
+                  </button>
+                ))}
+              </div>
+              
+              {/* 세부 태그들 (아랫줄) */}
+              <div className="flex flex-wrap gap-0.5 md:gap-1.5 justify-center">
+                {availableTags.map((tag) => (
+                  <button
+                    key={tag}
+                    onClick={() => handleTagToggle(tag)}
+                    className={`px-1 py-0.5 rounded-full font-normal transition-all duration-300 text-xs whitespace-nowrap flex items-center gap-0.5 flex-shrink-0 ${
+                      selectedTags.includes(tag)
+                        ? "bg-blue-100 text-blue-700 border border-blue-300 shadow-sm"
+                        : "bg-white text-gray-600 border border-gray-300 hover:bg-gray-50 hover:text-blue-600 hover:border-blue-200"
+                    }`}
+                  >
+                    {selectedTags.includes(tag) && (
+                      <FaCheck className="w-2 h-2" />
+                    )}
+                    {tag}
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
         </div>
