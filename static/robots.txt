@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://hai-lab-knu.github.io/sitemap.xml
+Sitemap: https://hai.kangwon.ac.kr/sitemap.xml

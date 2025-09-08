@@ -15,7 +15,7 @@ module.exports = {
       summary: `Human-AI Interaction Lab at Kangwon National University`,
     },
     description: `Human-AI Interaction Lab at Kangwon National University. Research in HCI, Ubiquitous Computing, Machine Learning & Mobile Sensing.`,
-    siteUrl: `https://hai-lab-knu.github.io/`,
+    siteUrl: `https://hai.kangwon.ac.kr`,
     email: `kimauk@kangwon.ac.kr`,
     github: `https://github.com/aukkim`,
     social: {

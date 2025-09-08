@@ -9,10 +9,10 @@ media_folder: "static/images/members" # Media files will be stored in the repo u
 public_folder: "/images/members" # The src attribute for uploaded media will begin with /images/members
 
 # Site URL (optional, used for RSS link in generated pages)
-site_url: https://hai-lab-knu.github.io/HAI-Lab-Website
+site_url: https://hai.kangwon.ac.kr
 
 # Display URL (optional, used for RSS link in generated pages)
-display_url: https://hai-lab-knu.github.io/HAI-Lab-Website
+display_url: https://hai.kangwon.ac.kr
 
 # Collections configuration
 collections:
