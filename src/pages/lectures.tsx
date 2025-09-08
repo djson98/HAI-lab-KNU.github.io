@@ -58,8 +58,8 @@ const LecturesPage: React.FC<PageProps<DataProps>> = ({ data }) => {
 
   return (
     <Layout activeLink="Lectures">
-      <div className="max-w-7xl mx-auto px-6 md:px-8 py-8">
-        <div className="space-y-8">
+      <div className="max-w-7xl mx-auto px-1 md:px-8 py-6 md:py-8">
+        <div className="space-y-6 md:space-y-8">
         {/* 필터 컴포넌트 */}
         <YearFilter
           startYear={startYear}
@@ -81,10 +81,10 @@ const LecturesPage: React.FC<PageProps<DataProps>> = ({ data }) => {
           <div className="space-y-24">
             {sortedLectures.map((lecture) => (
               <div key={lecture.id} className="border-b border-gray-100 pb-16">
-                <h2 className="text-lg font-normal text-gray-800 leading-tight mb-2">
+                <h2 className="text-base md:text-lg font-normal text-gray-800 leading-tight mb-2">
                   {lecture.frontmatter.title}
                 </h2>
-                <p className="text-base font-light text-gray-600 mb-2">
+                <p className="text-sm md:text-base font-light text-gray-600 mb-2">
                   {lecture.frontmatter.description || lecture.excerpt}
                 </p>
                 <div className="flex items-start space-x-4">

@@ -107,23 +107,23 @@ const MembersPage: React.FC<PageProps<DataProps>> = ({ data }) => {
 
   return (
     <Layout activeLink="People">
-      <div className="flex max-w-7xl mx-auto px-6 md:px-8 py-8">
+      <div className="flex max-w-7xl mx-auto px-1 md:px-8 py-6 md:py-8">
         {/* 메인 콘텐츠 */}
-        <div className="flex-1 space-y-10">
+        <div className="flex-1 space-y-8 md:space-y-10">
         {sortedPositions.map((position, index) => (
           <div key={position} id={position.toLowerCase().replace(/\s+/g, '-')}>
             {index > 0 && (
               <div className="border-t border-gray-200 my-8"></div>
             )}
             <div className="space-y-6">
-              <h2 id={position.toLowerCase().replace(/\s+/g, '-')} className="text-lg md:text-xl font-light text-black font-sans tracking-wide text-left">
+              <h2 id={position.toLowerCase().replace(/\s+/g, '-')} className="text-base md:text-xl font-normal text-black font-sans tracking-wide text-left">
                 {position === 'Professor' ? 'Director' : position}
               </h2>
               
               {/* 그리드 레이아웃으로 멤버 표시 */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {groupedMembers[position].map((member) => (
-                  <div key={member.id} className="bg-white rounded-lg p-4 text-center hover:bg-gray-50 transition-colors duration-200">
+                  <div key={member.id} className="bg-white rounded-lg p-2 md:p-4 text-center hover:bg-gray-50 transition-colors duration-200">
                     {/* 멤버 사진 */}
                     <div className="w-48 h-48 mx-auto mb-4 rounded-full overflow-hidden bg-gray-100">
                       {member.frontmatter.photo ? (
@@ -151,7 +151,7 @@ const MembersPage: React.FC<PageProps<DataProps>> = ({ data }) => {
                     </div>
                     
                     {/* 멤버 이름 */}
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                    <h3 className="text-sm md:text-lg font-semibold text-gray-900 mb-2">
                       
                       {member.frontmatter.name === "Ji Wook Lee" ? "Jiwook Lee" :
                        member.frontmatter.name === "Min Gyu Han" ? "Mingyu Han" :
@@ -161,14 +161,14 @@ const MembersPage: React.FC<PageProps<DataProps>> = ({ data }) => {
                     </h3>
                     
                     {/* 직급 */}
-                    <p className="text-sm text-blue-600 font-medium mb-3">
+                    <p className="text-xs md:text-sm text-blue-600 font-medium mb-3">
                       {member.frontmatter.position === 'Alumni' && member.frontmatter.graduation 
                         ? member.frontmatter.graduation 
                         : member.frontmatter.position}
                     </p>
                     
                     {/* 연구 분야 - 항상 2칸 고정 높이 */}
-                    <div className="text-xs text-gray-600 mb-3 h-8 flex flex-col justify-center">
+                    <div className="text-xs text-gray-600 mb-3 h-6 md:h-8 flex flex-col justify-center">
                       {member.frontmatter.research_interests && member.frontmatter.research_interests.length > 0 ? (
                         member.frontmatter.research_interests.slice(0, 2).map((interest, index) => (
                           <div key={index} className="text-center mb-1">

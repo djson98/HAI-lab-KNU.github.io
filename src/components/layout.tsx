@@ -44,7 +44,7 @@ const Layout = ({ activeLink = "Projects", children }: LayoutProps) => {
     <div className="min-h-screen bg-white">
               {/* Navbar */}
         <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200 transition-all duration-300" role="navigation" aria-label="Main navigation">
-          <div className="w-full max-w-7xl mx-auto flex justify-between items-center px-8 md:px-12 py-3 md:py-5">
+          <div className="w-full max-w-7xl mx-auto flex justify-between items-center pl-4 pr-2 md:px-12 py-3 md:py-5">
             <Link to="/" className="flex items-center mr-6 md:mr-12 focus:outline-none rounded">
               <span className="text-2xl md:text-3xl font-light text-gray-900 hover:text-blue-600 transition-colors duration-300">
                 HAI Lab
@@ -114,7 +114,7 @@ const Layout = ({ activeLink = "Projects", children }: LayoutProps) => {
 
               {/* Content */}
         <main 
-          className="w-full max-w-7xl mx-auto px-6 md:px-8 pb-16 pt-20 md:pt-24" 
+          className="w-full max-w-7xl mx-auto px-1 md:px-8 pb-16 pt-20 md:pt-24" 
           id="main-content" 
           role="main"
         >
@@ -123,12 +123,12 @@ const Layout = ({ activeLink = "Projects", children }: LayoutProps) => {
 
       {/* Footer */}
       <footer className="bg-gray-100 py-6 mt-auto">
-        <div className="w-full max-w-7xl mx-auto px-6 md:px-8">
+        <div className="w-full max-w-7xl mx-auto px-1 md:px-8">
           <div className="flex justify-between items-center">
             {/* 왼쪽: 주소 및 저작권 정보 */}
-            <div className="text-sm text-gray-500">
+            <div className="text-xs md:text-sm text-gray-500">
               <div className="max-w-2xl">
-                <div className="text-xs text-gray-400 whitespace-pre-line mb-2">
+                <div className="text-xs text-gray-400 whitespace-pre-line mb-1 md:mb-2">
                   Kangwon National University College of Engineering 6, Room 512<br />
                   1, Gangwondaehakgil, Chuncheon-si, Gangwon-do (24341)
                 </div>
@@ -141,7 +141,7 @@ const Layout = ({ activeLink = "Projects", children }: LayoutProps) => {
               <img
                 src="/images/knu-logo.webp"
                 alt="Kangwon National University Logo"
-                className="h-12 w-auto opacity-80 hover:opacity-100 transition-opacity duration-200"
+                className="h-8 md:h-12 w-auto opacity-80 hover:opacity-100 transition-opacity duration-200"
               />
             </div>
           </div>

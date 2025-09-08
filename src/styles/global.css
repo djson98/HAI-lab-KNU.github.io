@@ -222,6 +222,16 @@
     color: rgb(37 99 235) !important;
   }
   
+  /* 스크롤바 숨김 */
+  .scrollbar-hide {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;  /* Chrome, Safari and Opera */
+  }
+  
   .bg-blue-100 {
     background-color: rgb(219 234 254) !important;
   }

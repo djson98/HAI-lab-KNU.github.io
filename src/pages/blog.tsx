@@ -69,54 +69,32 @@ const BlogPage: React.FC<PageProps<DataProps>> = ({ data }) => {
 
   return (
     <Layout activeLink="Projects">
-      <div className="max-w-7xl mx-auto px-6 md:px-8 py-8">
-        <div className="space-y-8">
+      <div className="max-w-7xl mx-auto px-1 md:px-8 py-6 md:py-8">
+        <div className="space-y-6 md:space-y-8">
         {/* 태그 필터 */}
-        <div className="mb-6">
-          <div className="bg-gray-50 rounded-lg p-4">
-            <h3 className="text-base font-medium text-gray-700 mb-4 text-center">Research Area</h3>
+        <div className="mb-1 md:mb-4">
+          <div className="bg-gray-50 rounded-lg p-1.5 md:p-3">
+            <h3 className="text-xs font-normal text-gray-700 mb-1 md:mb-3 text-center">Research Area</h3>
             
-            {/* 첫 번째 줄: 대분류 버튼들 */}
-            <div className="flex flex-wrap justify-center gap-1 mb-3">
-              {['Human-Computer Interaction', 'Ubiquitous Computing', 'Proactive Systems'].map((category) => (
+            {/* 태그 컨테이너 */}
+            <div className="flex flex-wrap gap-0.5 md:gap-1.5 justify-center">
+              {['Human-Computer Interaction', 'Ubiquitous Computing', 'Proactive Systems', ...availableTags].map((tag) => (
                 <button
-                  key={category}
-                  onClick={() => handleTagToggle(category)}
-                  className={`px-3 py-1 rounded-md font-medium transition-all duration-300 text-xs whitespace-nowrap flex items-center gap-1 ${
-                    selectedTags.includes(category)
-                      ? "bg-white text-blue-600 border border-blue-400"
-                      : "bg-white text-gray-600 border border-gray-300 hover:bg-white hover:text-blue-600 hover:border-blue-300"
+                  key={tag}
+                  onClick={() => handleTagToggle(tag)}
+                  className={`px-1 py-0.5 rounded-full font-normal transition-all duration-300 text-xs whitespace-nowrap flex items-center gap-0.5 flex-shrink-0 ${
+                    selectedTags.includes(tag)
+                      ? "bg-blue-100 text-blue-700 border border-blue-300 shadow-sm"
+                      : "bg-white text-gray-600 border border-gray-300 hover:bg-gray-50 hover:text-blue-600 hover:border-blue-200"
                   }`}
                 >
-                  {selectedTags.includes(category) && (
-                    <FaCheck className="w-3 h-3" />
+                  {selectedTags.includes(tag) && (
+                    <FaCheck className="w-2 h-2" />
                   )}
-                  {category}
+                  {tag}
                 </button>
               ))}
             </div>
-            
-            {/* 두 번째 줄: 세부 태그들 */}
-            {availableTags.length > 0 && (
-              <div className="flex flex-wrap justify-center gap-1">
-                {availableTags.map((tag) => (
-                  <button
-                    key={tag}
-                    onClick={() => handleTagToggle(tag)}
-                    className={`px-3 py-1 rounded-md font-medium transition-all duration-300 text-xs whitespace-nowrap flex items-center gap-1 ${
-                      selectedTags.includes(tag)
-                        ? "bg-white text-blue-600 border border-blue-400"
-                        : "bg-white text-gray-600 border border-gray-300 hover:bg-white hover:text-blue-600 hover:border-blue-300"
-                    }`}
-                  >
-                    {selectedTags.includes(tag) && (
-                      <FaCheck className="w-3 h-3" />
-                    )}
-                    {tag}
-                  </button>
-                ))}
-              </div>
-            )}
           </div>
         </div>
         
@@ -227,13 +205,13 @@ const BlogPage: React.FC<PageProps<DataProps>> = ({ data }) => {
                     </div>
                     
                       {/* 오른쪽: 텍스트 내용 */}
-                      <div className="w-full md:w-3/4 pl-4 md:pl-6">
-                        <h2 className="text-lg font-normal text-gray-800 group-hover:text-blue-600 transition-all duration-300 leading-tight mb-2">
+                      <div className="w-full md:w-3/4 pl-4 md:pl-6 pt-4">
+                        <h2 className="text-base md:text-lg font-normal text-gray-800 group-hover:text-blue-600 transition-all duration-300 leading-tight mb-2">
                           {post.frontmatter.title}
                         </h2>
                         {/* 프로젝트 참여자 표시 */}
                         {post.frontmatter.people && post.frontmatter.people.length > 0 && (
-                          <p className="text-sm text-gray-600 mb-2">
+                          <p className="text-xs text-gray-600 mb-1">
                             {post.frontmatter.people.map((person, index) => (
                               <span key={index}>
                                 {person.name}
@@ -244,9 +222,9 @@ const BlogPage: React.FC<PageProps<DataProps>> = ({ data }) => {
                         )}
                         {/* 프로젝트 태그 표시 */}
                         {post.frontmatter.tags && post.frontmatter.tags.length > 0 && (
-                          <div className="flex flex-wrap gap-1">
+                          <div className="flex flex-wrap gap-0.5">
                             {post.frontmatter.tags.map((tag, index) => (
-                              <span key={index} className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-gray-100 text-gray-700">
+                              <span key={index} className="inline-flex items-center px-1.5 py-0.5 rounded-full text-xs font-normal bg-gray-100 text-gray-700">
                                 {tag}
                               </span>
                             ))}

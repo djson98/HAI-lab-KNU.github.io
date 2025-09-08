@@ -76,8 +76,8 @@ const PublicationsPage: React.FC<PageProps<DataProps>> = ({ data }) => {
 
   return (
     <Layout activeLink="Publications">
-      <div className="max-w-7xl mx-auto px-6 md:px-8 py-8">
-        <div className="space-y-8">
+      <div className="max-w-7xl mx-auto px-1 md:px-8 py-6 md:py-8">
+        <div className="space-y-6 md:space-y-8">
         {/* 연도 필터 */}
         <YearFilter
           startYear={startYear}
@@ -96,10 +96,10 @@ const PublicationsPage: React.FC<PageProps<DataProps>> = ({ data }) => {
           <div className="space-y-8">
             {sortedYears.map((year) => (
               <div key={year} id={year} className="space-y-1">
-                <h2 className="text-lg font-normal text-gray-800 border-b border-gray-200 pb-1">{year}</h2>
+                <h2 className="text-base md:text-lg font-normal text-gray-800 border-b border-gray-200 pb-1">{year}</h2>
                 <div className="space-y-6">
                   {groupedPublications[year].map((pub) => (
-                    <article key={pub.id} className="bg-white rounded-lg p-6 shadow-sm hover:bg-gray-50 transition-colors duration-200">
+                    <article key={pub.id} className="bg-white rounded-lg p-3 md:p-6 shadow-sm hover:bg-gray-50 transition-colors duration-200">
                       <div className="space-y-2">
                         {pub.frontmatter.doi ? (
                           <a
@@ -108,12 +108,12 @@ const PublicationsPage: React.FC<PageProps<DataProps>> = ({ data }) => {
                             rel="noopener noreferrer"
                             className="block"
                           >
-                            <h2 className="text-lg font-normal text-gray-900 hover:text-blue-600 transition-colors duration-200 cursor-pointer">
+                            <h2 className="text-base md:text-lg font-normal text-gray-900 hover:text-blue-600 transition-colors duration-200 cursor-pointer">
                               {pub.frontmatter.title}
                             </h2>
                           </a>
                         ) : (
-                          <h2 className="text-lg font-normal text-gray-900">
+                          <h2 className="text-base md:text-lg font-normal text-gray-900">
                             {pub.frontmatter.title}
                           </h2>
                         )}

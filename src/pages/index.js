@@ -13,7 +13,7 @@ const IndexPage = ({ data }) => {
   return (
     <>
       {/* Hero Section - 2열 레이아웃으로 텍스트와 워드클라우드 배치 */}
-      <section className="pt-40 pb-8 bg-gradient-to-r from-blue-50 via-blue-10 to-white w-full">
+      <section className="pt-24 pb-8 bg-gradient-to-r from-blue-50 via-blue-10 to-white w-full">
         <div className="w-full max-w-7xl mx-auto px-6 md:px-8">
           <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
             {/* 왼쪽 텍스트 영역 */}
@@ -59,7 +59,7 @@ const IndexPage = ({ data }) => {
 
       <Layout activeLink="Home">
         {/* Recent Projects Section */}
-        <section className="pt-16 pb-8 bg-white" aria-labelledby="recent-projects-heading">
+        <section className="pt-8 pb-8 bg-white" aria-labelledby="recent-projects-heading">
           <div className="w-full max-w-7xl mx-auto px-6 md:px-8">
             <div className="text-center mb-12">
               <h2 className="text-4xl md:text-5xl font-light text-gray-900 mb-6" id="recent-projects-heading">
