@@ -25,19 +25,9 @@ const MENU = {
 
 const Layout = ({ activeLink = "Projects", children }: LayoutProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     initFlowbite();
-    
-    // 스크롤 이벤트 리스너 추가
-    const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      setIsScrolled(scrollTop > 1); // 1px 이상 스크롤하면 페이지 제목 숨김
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const { site } = useStaticQuery(graphql`
@@ -94,19 +84,6 @@ const Layout = ({ activeLink = "Projects", children }: LayoutProps) => {
               )}
             </button>
           </div>
-          
-          {/* 현재 페이지 제목 표시 (부드러운 애니메이션으로 나타나고 사라짐) */}
-          <div 
-            className={`md:hidden bg-white/95 backdrop-blur-sm overflow-hidden transition-all duration-300 ease-in-out ${
-              isScrolled ? 'max-h-0 opacity-0 py-0' : 'max-h-20 opacity-100 py-3'
-            }`}
-          >
-            <div className="text-center px-4">
-              <h1 className="text-lg font-semibold bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 bg-clip-text text-transparent">
-                {activeLink}
-              </h1>
-            </div>
-          </div>
 
           {/* 모바일 메뉴 */}
           <div 
@@ -137,9 +114,7 @@ const Layout = ({ activeLink = "Projects", children }: LayoutProps) => {
 
               {/* Content */}
         <main 
-          className={`w-full max-w-7xl mx-auto px-6 md:px-8 pb-16 transition-all duration-300 ease-in-out ${
-            isScrolled ? 'pt-20 md:pt-24' : 'pt-32 md:pt-36'
-          }`} 
+          className="w-full max-w-7xl mx-auto px-6 md:px-8 pb-16 pt-20 md:pt-24" 
           id="main-content" 
           role="main"
         >
