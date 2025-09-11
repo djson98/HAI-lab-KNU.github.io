@@ -5,7 +5,11 @@ import { HiOutlineGlobeAlt, HiOutlineChip } from "react-icons/hi"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
-const IndexPage = ({ data }) => {
+interface IndexPageProps {
+  data: any
+}
+
+const IndexPage: React.FC<IndexPageProps> = ({ data }) => {
   const posts = data.allMarkdownRemark.nodes.slice(0, 3) // 최신 프로젝트 3개로 되돌림
   const news = data.allNews.nodes.slice(0, 3) // 최신 뉴스 3개
   const members = data.allMembers.nodes // 멤버 정보
@@ -199,7 +203,7 @@ const IndexPage = ({ data }) => {
                                         className="w-6 h-6 rounded-full border border-white object-cover shadow-sm transition-transform duration-200"
                                         title={person.name}
                                         onError={(e) => {
-                                          e.target.src = "/images/profile-pic.png"
+                                          (e.target as HTMLImageElement).src = "/images/profile-pic.png"
                                         }}
                                       />
                                       {/* 툴팁 */}
@@ -319,4 +323,4 @@ export const query = graphql`
   }
 `
 
-export const Head = () => <Seo title="HAI LAB" />
+export const Head: React.FC = () => <Seo title="HAI LAB" />

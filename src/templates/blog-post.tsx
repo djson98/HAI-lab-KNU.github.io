@@ -7,7 +7,17 @@ import { SiJupyter } from "react-icons/si"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
-const BlogPostTemplate = ({
+interface BlogPostTemplateProps {
+  data: {
+    previous: any
+    next: any
+    site: any
+    markdownRemark: any
+  }
+  location: any
+}
+
+const BlogPostTemplate: React.FC<BlogPostTemplateProps> = ({
   data: { previous, next, site, markdownRemark: post },
   location,
 }) => {
@@ -413,7 +423,7 @@ const BlogPostTemplate = ({
   )
 }
 
-export const Head = ({ data: { markdownRemark: post } }) => {
+export const Head: React.FC<{ data: { markdownRemark: any } }> = ({ data: { markdownRemark: post } }) => {
   return (
     <Seo
       title={post.frontmatter.title}

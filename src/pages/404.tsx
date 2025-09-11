@@ -4,7 +4,12 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
-const NotFoundPage = ({ data, location }) => {
+interface NotFoundPageProps {
+  data: any
+  location: any
+}
+
+const NotFoundPage: React.FC<NotFoundPageProps> = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title
 
   return (
@@ -15,7 +20,7 @@ const NotFoundPage = ({ data, location }) => {
   )
 }
 
-export const Head = () => <Seo title="HAI LAB" />
+export const Head: React.FC = () => <Seo title="HAI LAB" />
 
 export default NotFoundPage
 
