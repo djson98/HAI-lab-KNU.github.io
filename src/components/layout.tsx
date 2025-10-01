@@ -46,8 +46,13 @@ const Layout = ({ activeLink = "Projects", children }: LayoutProps) => {
         <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200 transition-all duration-300" role="navigation" aria-label="Main navigation">
           <div className="w-full max-w-7xl mx-auto flex justify-between items-center px-4 md:px-12 py-3 md:py-5">
             <Link to="/" className="flex items-center mr-6 md:mr-12 focus:outline-none rounded">
-              <span className="text-2xl md:text-3xl font-light text-gray-900 hover:text-blue-600 transition-colors duration-300">
-                HAI Lab
+              <img 
+                src="/images/logo-hai-crop.png" 
+                alt="HAI Lab Logo" 
+                className="h-8 md:h-10 w-auto mr-3"
+              />
+              <span className="text-lg md:text-xl font-light text-gray-900 hover:text-blue-600 transition-colors duration-300 whitespace-nowrap overflow-hidden">
+                Human-AI Interaction Lab.
               </span>
             </Link>
             
