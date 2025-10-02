@@ -51,13 +51,13 @@ const Layout = ({ activeLink = "Projects", children }: LayoutProps) => {
                 alt="HAI Lab Logo" 
                 className="h-6 md:h-8 w-auto mr-2"
               />
-              <span className="text-sm md:text-base font-light text-gray-900 hover:text-blue-600 transition-colors duration-300 whitespace-nowrap overflow-hidden hidden sm:block">
+              <span className="text-sm md:text-base font-light text-gray-900 hover:text-blue-600 transition-colors duration-300 whitespace-nowrap overflow-hidden">
                 Human-AI Interaction Lab.
               </span>
             </Link>
             
             {/* 데스크톱 메뉴 */}
-            <div className="hidden md:flex items-center space-x-4" role="menubar">
+            <div className="hidden lg:flex items-center space-x-4" role="menubar">
               {Object.entries(MENU).map(([name, path]) => (
                 <Link
                   key={name}
@@ -77,7 +77,7 @@ const Layout = ({ activeLink = "Projects", children }: LayoutProps) => {
 
             {/* 햄버거 메뉴 버튼 (모바일) */}
             <button
-              className="md:hidden p-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-gray-900 transition-colors duration-200"
+              className="lg:hidden p-2 rounded-lg text-gray-600 hover:bg-gray-50 hover:text-gray-900 transition-colors duration-200"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Toggle menu"
               aria-expanded={isMenuOpen}
@@ -92,7 +92,7 @@ const Layout = ({ activeLink = "Projects", children }: LayoutProps) => {
 
           {/* 모바일 메뉴 */}
           <div 
-            className={`md:hidden border-t border-gray-200 bg-white/95 backdrop-blur-sm overflow-hidden transition-all duration-300 ease-in-out ${
+            className={`lg:hidden border-t border-gray-200 bg-white/95 backdrop-blur-sm overflow-hidden transition-all duration-300 ease-in-out ${
               isMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
             }`}
           >
