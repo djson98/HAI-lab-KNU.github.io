@@ -49,9 +49,9 @@ const Layout = ({ activeLink = "Projects", children }: LayoutProps) => {
               <img 
                 src="/images/logo-hai-crop.png" 
                 alt="HAI Lab Logo" 
-                className="h-8 md:h-10 w-auto mr-3"
+                className="h-6 md:h-8 w-auto mr-2"
               />
-              <span className="text-lg md:text-xl font-light text-gray-900 hover:text-blue-600 transition-colors duration-300 whitespace-nowrap overflow-hidden">
+              <span className="text-sm md:text-base font-light text-gray-900 hover:text-blue-600 transition-colors duration-300 whitespace-nowrap overflow-hidden hidden sm:block">
                 Human-AI Interaction Lab.
               </span>
             </Link>
